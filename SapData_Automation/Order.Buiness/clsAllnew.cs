@@ -683,7 +683,8 @@ namespace Order.Buiness
                 foreach (object item in list)
                 {
                     if (!item.ToString().Contains("~$"))
-                        FileNameList.Add(item.ToString().Replace(dirPath + "\\", ""));
+                        //FileNameList.Add(item.ToString().Replace(dirPath + "\\", ""));
+                    FileNameList.Add(item.ToString());
                 }
             }
 

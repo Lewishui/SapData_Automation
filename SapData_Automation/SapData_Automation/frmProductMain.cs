@@ -28,6 +28,8 @@ namespace SapData_Automation
         List<int> changeindex;
         private List<string> Alist = new List<string>();
         private Hashtable dataGridChanges = null;
+        private string nowfile;
+
 
         public frmProductMain(string user)
         {
@@ -152,29 +154,75 @@ namespace SapData_Automation
         {
             try
             {
+                if (nowfile == null || nowfile == "")
+                {
+
+                    MessageBox.Show("请选择文件或者新建后再次尝试保存！", "Waring", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+
+                
+                }
                 int s = this.tabControl1.SelectedIndex;
-                if (s == 0)
+                string wtx = "";
+
+                if (s == 1)
                 {
-                    dataGridView1.Enabled = false;
-                    if (changeindex.Count < 1)
-                    {
-                        IEnumerable<int> orderIds = GetChangedOrderIds();
-                        foreach (var id in orderIds.Distinct())
-                        {
-                            changeindex.Add(id);
-                        }
-                    }
 
+                    //工况数
 
+                    wtx = textBox1.Text;
+                    //计算量1
+                    if (radioButton1.Checked == true)
+                        wtx += "\r\n" + "1";
+                    else
+                        wtx += "\r\n" + "0";
+                    //计算量2
+                    if (radioButton2.Checked == true)
+                        wtx += " " + "0";
+                    if (radioButton3.Checked == true)
+                        wtx += " " + "1";
+                    if (radioButton4.Checked == true)
+                        wtx += " " + "2";
+                    //计算量3
+                    if (radioButton7.Checked == true)
+                        wtx += " " + "0";
+                    if (radioButton6.Checked == true)
+                        wtx += " " + "1";
+                    if (radioButton5.Checked == true)
+                        wtx += " " + "2";
+                    //求解器
+                    wtx += "\r\n" + textBox2.Text;
+                    //温度梯度
+                    wtx += "\r\n" + textBox3.Text;
+                    //位移约束
+                    wtx += "\r\n" + textBox4.Text;
+                    //最大开闭次数:
+                    wtx += "\r\n" + textBox7.Text;
+                    //方程迭代误差
+                    wtx += "\r\n" + textBox6.Text;
+                    //初始条件读入
+                    wtx += "\r\n" + textBox5.Text;
+                    //非线性迭代误差
+                    wtx += "\r\n" + textBox10.Text;
+                    //最大非线性迭代次数
+                    wtx += "\r\n" + textBox9.Text;
+
+                    //位移清0步
+                    wtx += "\r\n" + textBox12.Text;
+                    //惯性阻尼系数
+                    wtx += "\r\n" + textBox11.Text;
+                    //接续计算
+                    wtx += "\r\n" + textBox14.Text;
+
+                    StreamWriter sw = new StreamWriter(nowfile);
+                    sw.WriteLine(wtx);
+                    sw.Flush();
+                    sw.Close();
+
+                    MessageBox.Show("更新完成，请查看！");
 
                 }
 
-                if (backgroundWorker2.IsBusy != true)
-                {
-                    backgroundWorker2.RunWorkerAsync(new WorkerArgument { OrderCount = 0, CurrentIndex = 0 });
-
-                }
-                dataGridChanges.Clear();
 
             }
             catch (Exception ex)
@@ -492,8 +540,6 @@ namespace SapData_Automation
             else
                 return;
 
-
-
             List<string> crlist = new List<string>();
 
             crlist.Add("control.sap");
@@ -561,20 +607,43 @@ namespace SapData_Automation
         private void toolStripDropDownButton2_Click(object sender, EventArgs e)
         {
 
-            string fileps = "";
+            if (Alist == null || Alist.Count <1)
+            {
+
+                MessageBox.Show("请选择文件或者新建后再次尝试！", "Waring", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+
+
+            }
+
+            nowfile = "";
 
             for (int i = 0; i < Alist.Count; i++)
             {
 
-                if (Alist[i] == "control.sap")
+                if (Alist[i] .Contains("control.sap"))
                 {
-                    fileps = Alist[i];
+                    nowfile = Alist[i];
                 }
 
             }
 
+            this.tabControl1.SelectedIndex = 1;
 
 
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+                int s = this.tabControl1.SelectedIndex;
+                if (s == 1)
+                {
+                    toolStripDropDownButton2_Click(null, EventArgs.Empty);                
+                }
+        }
+
+        private void toolStripDropDownButton1_Click(object sender, EventArgs e)
+        {
 
         }
     }
