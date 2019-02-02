@@ -29,7 +29,6 @@ namespace SapData_Automation
         private List<string> Alist = new List<string>();
         private Hashtable dataGridChanges = null;
         private string nowfile;
-        DataGridView clickdav;
 
 
         public frmProductMain(string user)
@@ -827,7 +826,7 @@ namespace SapData_Automation
                     for (int j = 1; j <= fileText.Length; j++)
                     {
                         ongo = j;
-                        if (fileText[j].Contains("\t\t\t\t") || fileText[j] == "")
+                        if (fileText[j].Contains("\t\t\t\t"))
                         {
                             break;
                         }
@@ -863,7 +862,7 @@ namespace SapData_Automation
                     {
                         ongo = j;
 
-                        if (fileText[j].Contains("\t\t\t\t")||fileText[j]=="")
+                        if (fileText[j].Contains("\t\t\t\t"))
                         {
                             break;
                         }
@@ -897,7 +896,7 @@ namespace SapData_Automation
                     {
                         ongo = j;
 
-                        if (fileText[j].Contains("\t\t\t\t") || fileText[j] == "")
+                        if (fileText[j].Contains("\t\t\t\t"))
                         {
                             break;
                         }
@@ -908,7 +907,7 @@ namespace SapData_Automation
 
                         for (int jj = 0; jj < fileText1.Length - 1; jj++)
                         {
-                            qtyTable_dav4.Rows[rowindex][jj] = fileText1[jj];
+                            qtyTable_dav3.Rows[rowindex][jj] = fileText1[jj];
                         }
                         rowindex++;
 
@@ -934,7 +933,7 @@ namespace SapData_Automation
                     {
                         ongo = j;
 
-                        if (fileText[j].Contains("\t\t\t\t") || fileText[j] == "")
+                        if (fileText[j].Contains("\t\t\t\t"))
                         {
                             break;
                         }
@@ -955,13 +954,13 @@ namespace SapData_Automation
                     this.dataGridView2.DataSource = this.bindingSource2;
 
                     this.bindingSource3.DataSource = qtyTable_dav3;
-                    this.dataGridView3.DataSource = this.bindingSource3;
+                    this.dataGridView3.DataSource = this.bindingSource2;
 
                     this.bindingSource4.DataSource = qtyTable_dav4;
-                    this.dataGridView4.DataSource = this.bindingSource4;
+                    this.dataGridView4.DataSource = this.bindingSource2;
 
                     this.bindingSource5.DataSource = qtyTable_dav5;
-                    this.dataGridView5.DataSource = this.bindingSource5;
+                    this.dataGridView5.DataSource = this.bindingSource2;
 
 
                 }
@@ -1052,26 +1051,6 @@ namespace SapData_Automation
 
 
 
-        }
-
-        private void addDayButton_Click(object sender, EventArgs e)
-        {
-            //DataGridViewRow row = new DataGridViewRow();
-            //DataGridViewTextBoxCell textboxcell = new DataGridViewTextBoxCell();
-            //textboxcell.Value = "";
-            //row.Cells.Add(textboxcell);
-            //dataGridView3.Rows.Add(row);
-            //clickdav.Rows.Add();
-        }
-
-        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            clickdav = dataGridView2;
-        }
-
-        private void dataGridView3_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            clickdav = dataGridView3;
         }
     }
 }

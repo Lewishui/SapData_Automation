@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProductMain));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -115,12 +115,42 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.label36 = new System.Windows.Forms.Label();
             this.dataGridView5 = new System.Windows.Forms.DataGridView();
+            this.dav21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dav22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dav23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dav24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dav25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dav26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dav27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dav28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dav29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dav30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label35 = new System.Windows.Forms.Label();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.dav12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dav13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dav14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dav15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dav16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dav17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dav18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dav19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dav20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label34 = new System.Windows.Forms.Label();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.label33 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.cailiaobianhao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dav2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dav3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dav4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dav5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dav6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dav7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dav8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dav9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dav10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dav11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBox16 = new System.Windows.Forms.TextBox();
             this.label32 = new System.Windows.Forms.Label();
             this.textBox15 = new System.Windows.Forms.TextBox();
@@ -156,8 +186,6 @@
             this.bindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSource4 = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSource5 = new System.Windows.Forms.BindingSource(this.components);
-            this.delDayButton = new System.Windows.Forms.Button();
-            this.addDayButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -192,7 +220,7 @@
             this.tableLayoutPanel1.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 83F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 989F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 17F));
             this.tableLayoutPanel1.Controls.Add(this.toolStrip1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -308,8 +336,8 @@
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -964,8 +992,6 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.delDayButton);
-            this.tabPage3.Controls.Add(this.addDayButton);
             this.tabPage3.Controls.Add(this.label36);
             this.tabPage3.Controls.Add(this.dataGridView5);
             this.tabPage3.Controls.Add(this.label35);
@@ -990,12 +1016,9 @@
             // 
             // label36
             // 
-            this.label36.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label36.AutoSize = true;
             this.label36.Font = new System.Drawing.Font("宋体", 15F);
-            this.label36.Location = new System.Drawing.Point(420, 333);
+            this.label36.Location = new System.Drawing.Point(420, 317);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(89, 20);
             this.label36.TabIndex = 15;
@@ -1003,28 +1026,85 @@
             // 
             // dataGridView5
             // 
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dataGridView5.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dataGridView5.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridView5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView5.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView5.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dav21,
+            this.dav22,
+            this.dav23,
+            this.dav24,
+            this.dav25,
+            this.dav26,
+            this.dav27,
+            this.dav28,
+            this.dav29,
+            this.dav30});
             this.dataGridView5.ContextMenuStrip = this.contextMenuStrip1;
-            this.dataGridView5.Location = new System.Drawing.Point(7, 356);
+            this.dataGridView5.Location = new System.Drawing.Point(7, 340);
             this.dataGridView5.Name = "dataGridView5";
             this.dataGridView5.RowHeadersVisible = false;
             this.dataGridView5.Size = new System.Drawing.Size(950, 58);
             this.dataGridView5.TabIndex = 14;
             // 
+            // dav21
+            // 
+            this.dav21.HeaderText = "水管号";
+            this.dav21.Name = "dav21";
+            // 
+            // dav22
+            // 
+            this.dav22.HeaderText = "通水期数";
+            this.dav22.Name = "dav22";
+            // 
+            // dav23
+            // 
+            this.dav23.HeaderText = "t1";
+            this.dav23.Name = "dav23";
+            // 
+            // dav24
+            // 
+            this.dav24.HeaderText = "t2";
+            this.dav24.Name = "dav24";
+            // 
+            // dav25
+            // 
+            this.dav25.HeaderText = "Tw1";
+            this.dav25.Name = "dav25";
+            // 
+            // dav26
+            // 
+            this.dav26.HeaderText = "Tw2";
+            this.dav26.Name = "dav26";
+            // 
+            // dav27
+            // 
+            this.dav27.HeaderText = "Tend";
+            this.dav27.Name = "dav27";
+            // 
+            // dav28
+            // 
+            this.dav28.HeaderText = "Kw";
+            this.dav28.Name = "dav28";
+            // 
+            // dav29
+            // 
+            this.dav29.HeaderText = "qn";
+            this.dav29.Name = "dav29";
+            // 
+            // dav30
+            // 
+            this.dav30.HeaderText = "D";
+            this.dav30.Name = "dav30";
+            // 
             // label35
             // 
-            this.label35.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label35.AutoSize = true;
             this.label35.Font = new System.Drawing.Font("宋体", 15F);
-            this.label35.Location = new System.Drawing.Point(419, 244);
+            this.label35.Location = new System.Drawing.Point(419, 234);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(89, 20);
             this.label35.TabIndex = 13;
@@ -1032,28 +1112,79 @@
             // 
             // dataGridView4
             // 
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dataGridView4.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dataGridView4.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView4.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dav12,
+            this.dav13,
+            this.dav14,
+            this.dav15,
+            this.dav16,
+            this.dav17,
+            this.dav18,
+            this.dav19,
+            this.dav20});
             this.dataGridView4.ContextMenuStrip = this.contextMenuStrip1;
-            this.dataGridView4.Location = new System.Drawing.Point(6, 268);
+            this.dataGridView4.Location = new System.Drawing.Point(6, 257);
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.RowHeadersVisible = false;
             this.dataGridView4.Size = new System.Drawing.Size(950, 58);
             this.dataGridView4.TabIndex = 12;
             // 
+            // dav12
+            // 
+            this.dav12.HeaderText = "水管号";
+            this.dav12.Name = "dav12";
+            // 
+            // dav13
+            // 
+            this.dav13.HeaderText = "冷却直径";
+            this.dav13.Name = "dav13";
+            // 
+            // dav14
+            // 
+            this.dav14.HeaderText = "管长";
+            this.dav14.Name = "dav14";
+            // 
+            // dav15
+            // 
+            this.dav15.HeaderText = "qmax";
+            this.dav15.Name = "dav15";
+            // 
+            // dav16
+            // 
+            this.dav16.HeaderText = "水热容量";
+            this.dav16.Name = "dav16";
+            // 
+            // dav17
+            // 
+            this.dav17.HeaderText = "管材λ";
+            this.dav17.Name = "dav17";
+            // 
+            // dav18
+            // 
+            this.dav18.HeaderText = "外径";
+            this.dav18.Name = "dav18";
+            // 
+            // dav19
+            // 
+            this.dav19.HeaderText = "内径";
+            this.dav19.Name = "dav19";
+            // 
+            // dav20
+            // 
+            this.dav20.HeaderText = "材质";
+            this.dav20.Name = "dav20";
+            // 
             // label34
             // 
-            this.label34.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label34.AutoSize = true;
             this.label34.Font = new System.Drawing.Font("宋体", 15F);
-            this.label34.Location = new System.Drawing.Point(412, 153);
+            this.label34.Location = new System.Drawing.Point(412, 148);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(129, 20);
             this.label34.TabIndex = 11;
@@ -1061,29 +1192,24 @@
             // 
             // dataGridView3
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dataGridView3.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dataGridView3.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView3.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView3.ContextMenuStrip = this.contextMenuStrip1;
-            this.dataGridView3.Location = new System.Drawing.Point(6, 178);
+            this.dataGridView3.Location = new System.Drawing.Point(6, 171);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.RowHeadersVisible = false;
             this.dataGridView3.Size = new System.Drawing.Size(950, 58);
             this.dataGridView3.TabIndex = 10;
-            this.dataGridView3.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellClick);
             // 
             // label33
             // 
-            this.label33.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("宋体", 15F);
-            this.label33.Location = new System.Drawing.Point(420, 52);
+            this.label33.Location = new System.Drawing.Point(420, 51);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(89, 20);
             this.label33.TabIndex = 9;
@@ -1091,20 +1217,85 @@
             // 
             // dataGridView2
             // 
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cailiaobianhao,
+            this.dav2,
+            this.dav3,
+            this.dav4,
+            this.dav5,
+            this.dav6,
+            this.dav7,
+            this.dav8,
+            this.dav9,
+            this.dav10,
+            this.dav11});
             this.dataGridView2.ContextMenuStrip = this.contextMenuStrip1;
-            this.dataGridView2.Location = new System.Drawing.Point(7, 78);
+            this.dataGridView2.Location = new System.Drawing.Point(7, 74);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.Size = new System.Drawing.Size(950, 68);
             this.dataGridView2.TabIndex = 8;
-            this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
+            // 
+            // cailiaobianhao
+            // 
+            this.cailiaobianhao.HeaderText = "材料编号";
+            this.cailiaobianhao.Name = "cailiaobianhao";
+            // 
+            // dav2
+            // 
+            this.dav2.HeaderText = "λ";
+            this.dav2.Name = "dav2";
+            // 
+            // dav3
+            // 
+            this.dav3.HeaderText = "C";
+            this.dav3.Name = "dav3";
+            // 
+            // dav4
+            // 
+            this.dav4.HeaderText = "ρ";
+            this.dav4.Name = "dav4";
+            // 
+            // dav5
+            // 
+            this.dav5.HeaderText = "θ1";
+            this.dav5.Name = "dav5";
+            // 
+            // dav6
+            // 
+            this.dav6.HeaderText = "α1";
+            this.dav6.Name = "dav6";
+            // 
+            // dav7
+            // 
+            this.dav7.HeaderText = "β1";
+            this.dav7.Name = "dav7";
+            // 
+            // dav8
+            // 
+            this.dav8.HeaderText = "nfc";
+            this.dav8.Name = "dav8";
+            // 
+            // dav9
+            // 
+            this.dav9.HeaderText = "θ2";
+            this.dav9.Name = "dav9";
+            // 
+            // dav10
+            // 
+            this.dav10.HeaderText = "α2";
+            this.dav10.Name = "dav10";
+            // 
+            // dav11
+            // 
+            this.dav11.HeaderText = "β2";
+            this.dav11.Name = "dav11";
             // 
             // textBox16
             // 
@@ -1401,27 +1592,6 @@
             this.backgroundWorker2.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker2_ProgressChanged);
             this.backgroundWorker2.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker2_RunWorkerCompleted);
             // 
-            // delDayButton
-            // 
-            this.delDayButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.delDayButton.Location = new System.Drawing.Point(920, 20);
-            this.delDayButton.Name = "delDayButton";
-            this.delDayButton.Size = new System.Drawing.Size(36, 23);
-            this.delDayButton.TabIndex = 17;
-            this.delDayButton.Text = "-";
-            this.delDayButton.UseVisualStyleBackColor = true;
-            // 
-            // addDayButton
-            // 
-            this.addDayButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.addDayButton.Location = new System.Drawing.Point(878, 20);
-            this.addDayButton.Name = "addDayButton";
-            this.addDayButton.Size = new System.Drawing.Size(36, 23);
-            this.addDayButton.TabIndex = 16;
-            this.addDayButton.Text = "+";
-            this.addDayButton.UseVisualStyleBackColor = true;
-            this.addDayButton.Click += new System.EventHandler(this.addDayButton_Click);
-            // 
             // frmProductMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1578,6 +1748,17 @@
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cailiaobianhao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dav2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dav3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dav4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dav5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dav6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dav7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dav8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dav9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dav10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dav11;
         private System.Windows.Forms.TextBox textBox16;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.TextBox textBox15;
@@ -1587,8 +1768,27 @@
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.DataGridView dataGridView5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dav21;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dav22;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dav23;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dav24;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dav25;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dav26;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dav27;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dav28;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dav29;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dav30;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dav12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dav13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dav14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dav15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dav16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dav17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dav18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dav19;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dav20;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.TabPage tabPage4;
@@ -1597,7 +1797,5 @@
         private System.Windows.Forms.BindingSource bindingSource3;
         private System.Windows.Forms.BindingSource bindingSource4;
         private System.Windows.Forms.BindingSource bindingSource5;
-        private System.Windows.Forms.Button delDayButton;
-        private System.Windows.Forms.Button addDayButton;
     }
 }
