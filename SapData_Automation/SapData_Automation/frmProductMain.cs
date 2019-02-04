@@ -254,6 +254,57 @@ namespace SapData_Automation
                     MessageBox.Show("更新完成，请查看！");
                 }
                 #endregion
+
+                #region Els_para.sap
+
+                else if (s == 2)
+                {
+                    wtx = textBox17.Text;
+                    wtx += "\r\n";
+
+                    StreamWriter sw = new StreamWriter(nowfile);
+                    sw.WriteLine(wtx);
+                    sw = wxdav(nowfile, this.dataGridView6, sw);
+                    sw = wxdav(nowfile, this.dataGridView7, sw);
+                    //荷载
+                    if (radioButton8.Checked == true)
+                        wtx = "\r\n" + "0";
+                    else if (radioButton9.Checked == true)
+                        wtx = "\r\n" + "1";
+
+                    else if (radioButton10.Checked == true)
+                        wtx = "\r\n" + "2";
+                    else if (radioButton11.Checked == true)
+                        wtx = "\r\n" + "3";
+
+                    //渗透力::
+                    wtx += " " + textBox18.Text;
+                    //自生体积变形定义点数
+                    wtx += "\r\n" + textBox19.Text;
+
+                    sw.WriteLine(wtx);
+
+                    //自生体积变形
+                    sw = wxdav(nowfile, this.dataGridView8, sw);
+
+                    //氧化镁
+                    if (radioButton12.Checked == true)
+                        wtx = "\r\n" + "0";
+                    else if (radioButton12.Checked == true)
+                        wtx = "\r\n" + "1";
+
+                    sw.WriteLine(wtx);
+
+
+                    sw = wxdav(nowfile, this.dataGridView9, sw);
+
+                    sw.Flush();
+                    sw.Close();
+                    MessageBox.Show("更新完成，请查看！");
+
+                }
+
+                #endregion
             }
             catch (Exception ex)
             {
@@ -775,10 +826,13 @@ namespace SapData_Automation
                     textBox12.Text = fileText[10];
 
                     //惯性阻尼系数
-                    textBox11.Text = fileText[11];
+                    if (fileText.Length > 11)
+                        textBox11.Text = fileText[11];
 
                     //接续计算
-                    textBox14.Text = fileText[12];
+                    if (fileText.Length > 12)
+
+                        textBox14.Text = fileText[12];
 
                 }
                 #endregion
@@ -788,8 +842,6 @@ namespace SapData_Automation
                 {
 
                     string[] fileText = File.ReadAllLines(Alist[i]);
-
-
 
                     if (fileText.Length > 1)
                     {
@@ -863,7 +915,7 @@ namespace SapData_Automation
                     {
                         ongo = j;
 
-                        if (fileText[j].Contains("\t\t\t\t")||fileText[j]=="")
+                        if (fileText[j].Contains("\t\t\t\t") || fileText[j] == "")
                         {
                             break;
                         }
@@ -880,7 +932,7 @@ namespace SapData_Automation
 
                     }
                     //水管定义
-               
+
                     var qtyTable_dav4 = new DataTable();
                     qtyTable_dav4.Columns.Add("水管号", System.Type.GetType("System.String"));//0
                     qtyTable_dav4.Columns.Add("冷却直径", System.Type.GetType("System.String"));//1
@@ -927,7 +979,7 @@ namespace SapData_Automation
                     qtyTable_dav5.Columns.Add("Kw", System.Type.GetType("System.String"));//7 
                     qtyTable_dav5.Columns.Add("qn", System.Type.GetType("System.String"));//8 
                     qtyTable_dav5.Columns.Add("D", System.Type.GetType("System.String"));//8 
-                  
+
                     ongo1 = ongo + 1;
                     rowindex = 0;
                     for (int j = ongo1; j <= fileText.Length; j++)
@@ -966,14 +1018,248 @@ namespace SapData_Automation
 
                 }
                 #endregion
+                #region els_para.sap
                 else if (Alist[i].Contains("els_para.sap"))
                 {
+                    string[] fileText = File.ReadAllLines(Alist[i]);
+                    int ongo = 0;
+
+                    if (fileText.Length > 1)
+                    {
+                        string[] fileText1 = System.Text.RegularExpressions.Regex.Split(fileText[0], " ");
+
+                        //材料种数:
+                        if (fileText1.Length > 0)
+                            textBox17.Text = fileText[0];
+                    }
+                    //基本力学参数
+                    var qtyTable_dav5 = new DataTable();
+                    qtyTable_dav5.Columns.Add("材料编号", System.Type.GetType("System.String"));//0
+                    qtyTable_dav5.Columns.Add("平面应力", System.Type.GetType("System.String"));//1
+                    qtyTable_dav5.Columns.Add("E0", System.Type.GetType("System.String"));//2
+                    qtyTable_dav5.Columns.Add("E1", System.Type.GetType("System.String"));//3
+                    qtyTable_dav5.Columns.Add("μ", System.Type.GetType("System.String"));//4
+                    qtyTable_dav5.Columns.Add("β1", System.Type.GetType("System.String"));//5
+                    qtyTable_dav5.Columns.Add("β2", System.Type.GetType("System.String"));//6
+                    qtyTable_dav5.Columns.Add("α", System.Type.GetType("System.String"));//7 
+                    qtyTable_dav5.Columns.Add("Vx", System.Type.GetType("System.String"));//8 
+                    qtyTable_dav5.Columns.Add("Vy", System.Type.GetType("System.String"));//8 
+                    qtyTable_dav5.Columns.Add("Vz", System.Type.GetType("System.String"));//8 
+                    qtyTable_dav5.Columns.Add("ρ", System.Type.GetType("System.String"));//8 
+                    qtyTable_dav5.Columns.Add("nfe", System.Type.GetType("System.String"));//8 
+                    qtyTable_dav5.Columns.Add("τ0", System.Type.GetType("System.String"));//8 
+
+                    int ongo1 = ongo + 1;
+                    int rowindex = 0;
+                    for (int j = ongo1; j <= fileText.Length; j++)
+                    {
+                        ongo = j;
+
+                        if (fileText[j].Contains("\t\t\t\t") || fileText[j] == "")
+                        {
+                            break;
+                        }
+                        qtyTable_dav5.Rows.Add(qtyTable_dav5.NewRow());
+
+                        string[] fileText1 = System.Text.RegularExpressions.Regex.Split(fileText[j], "\t");
+
+                        for (int jj = 0; jj < fileText1.Length - 1; jj++)
+                        {
+                            qtyTable_dav5.Rows[rowindex][jj] = fileText1[jj];
+                        }
+                        rowindex++;
+
+                    }
+                    //徐变参数
+                    var qtyTable_dav6 = new DataTable();
+                    qtyTable_dav6.Columns.Add("材料编号", System.Type.GetType("System.String"));//0
+                    qtyTable_dav6.Columns.Add("nfc", System.Type.GetType("System.String"));//1
+                    qtyTable_dav6.Columns.Add("k1", System.Type.GetType("System.String"));//2
+                    qtyTable_dav6.Columns.Add("k2", System.Type.GetType("System.String"));//3
+                    qtyTable_dav6.Columns.Add("k3", System.Type.GetType("System.String"));//4
+                    qtyTable_dav6.Columns.Add("A1", System.Type.GetType("System.String"));//5
+                    qtyTable_dav6.Columns.Add("A2", System.Type.GetType("System.String"));//6
+                    qtyTable_dav6.Columns.Add("A3", System.Type.GetType("System.String"));//7 
+                    qtyTable_dav6.Columns.Add("B1", System.Type.GetType("System.String"));//8 
+                    qtyTable_dav6.Columns.Add("B2", System.Type.GetType("System.String"));//8 
+                    qtyTable_dav6.Columns.Add("B3", System.Type.GetType("System.String"));//8 
+                    qtyTable_dav6.Columns.Add("D", System.Type.GetType("System.String"));//8 
+
+                    ongo1 = ongo + 1;
+                    rowindex = 0;
+                    for (int j = ongo1; j <= fileText.Length; j++)
+                    {
+                        ongo = j;
+
+                        if (fileText[j].Contains("\t\t\t\t") || fileText[j] == "")
+                        {
+                            break;
+                        }
+
+                        qtyTable_dav6.Rows.Add(qtyTable_dav6.NewRow());
+
+                        string[] fileText1 = System.Text.RegularExpressions.Regex.Split(fileText[j], "\t");
+
+                        for (int jj = 0; jj < fileText1.Length - 1; jj++)
+                        {
+                            if (jj < 12)
+                                qtyTable_dav6.Rows[rowindex][jj] = fileText1[jj];
+                        }
+                        rowindex++;
+
+                    }
+                    //荷载
+                    ongo1 = ongo + 1;
+                    rowindex = 0;
+                    for (int j = ongo1; j <= fileText.Length; j++)
+                    {
+                        ongo = j;
+
+                        if (fileText[j].Contains("\t\t\t\t") || fileText[j] == "")
+                        {
+                            break;
+                        }
+                        string[] fileText1 = System.Text.RegularExpressions.Regex.Split(fileText[j], " ");
+
+                        //if (fileText1.Length > 0 && fileText1[0] == "1")
+                        //    radioButton1.Checked = true;
+                        //else if (fileText1.Length > 1 && fileText1[0] == "0")
+                        //    radioButton1.Checked = false;
+                        //计算量2
+                        if (fileText1.Length >= 1 && fileText1[0] == "0")
+                            radioButton8.Checked = true;
+                        if (fileText1.Length >= 1 && fileText1[0] == "1")
+                            radioButton9.Checked = true;
+                        if (fileText1.Length >= 1 && fileText1[0] == "2")
+                            radioButton10.Checked = true;
+                        if (fileText1.Length >= 1 && fileText1[0] == "4")
+                            radioButton11.Checked = true;
+                        ////渗透力
+                        if (fileText1.Length > 1)
+                            this.textBox18.Text = fileText1[1];
+
+                    }
+                    //自生体积变形定义点数
+                    ongo1 = ongo + 1;
+                    rowindex = 0;
+                    for (int j = ongo1; j <= fileText.Length; j++)
+                    {
+                        ongo = j;
+
+                        if (fileText[j].Contains("\t\t\t\t") || fileText[j] == "")
+                        {
+                            break;
+                        }
+                        string[] fileText1 = System.Text.RegularExpressions.Regex.Split(fileText[j], " ");
+
+                        ////自生体积变形定义点数
+                        if (fileText1.Length > 1)
+                            this.textBox19.Text = fileText1[0];
+
+                    }
+                    //自生体积变形
+                    var qtyTable8 = new DataTable();
+                    qtyTable8.Columns.Add("材料号\\龄期", System.Type.GetType("System.String"));//0
+
+                    if (textBox19.Text == "")
+                        textBox19.Text = "0";
+                    int icount = Convert.ToInt32(textBox19.Text);
+                    for (int ip = 1; ip <= icount; ip++)
+                    {
+                        qtyTable8.Columns.Add("" + ip, System.Type.GetType("System.String"));//0
+
+                    }
+                    ongo1 = ongo + 1;
+                    rowindex = 0;
+                    for (int j = ongo1; j <= fileText.Length; j++)
+                    {
+                        ongo = j;
+
+                        if (fileText.Length > j && (fileText[j].Contains("\t\t\t\t") || fileText[j] == ""))
+                        {
+                            break;
+                        }
+
+                        qtyTable8.Rows.Add(qtyTable8.NewRow());
+
+                        string[] fileText1 = System.Text.RegularExpressions.Regex.Split(fileText[j], "\t");
+
+                        for (int jj = 0; jj < fileText1.Length - 1; jj++)
+                        {
+                            qtyTable8.Rows[rowindex][jj] = fileText1[jj];
+                        }
+                        rowindex++;
+
+                    }
+                    ongo1 = ongo + 1;
+                    rowindex = 0;
+                    for (int j = ongo1; j <= fileText.Length; j++)
+                    {
+                        ongo = j;
+
+                        if (fileText[j].Contains("\t\t\t\t") || fileText[j] == "")
+                        {
+                            break;
+                        }
+                        string[] fileText1 = System.Text.RegularExpressions.Regex.Split(fileText[j], " ");
+
+                        if (fileText1.Length > 0 && fileText1[0] == "1")
+                            radioButton12.Checked = true;
+                        else if (fileText1.Length > 1 && fileText1[0] == "0")
+                            radioButton12.Checked = false;
+                    }
 
 
+                    //氧化镁
+                    var qtyTable_dav7 = new DataTable();
+                    qtyTable_dav7.Columns.Add("材料编号", System.Type.GetType("System.String"));//0
+                    qtyTable_dav7.Columns.Add("nf", System.Type.GetType("System.String"));//1
+                    qtyTable_dav7.Columns.Add("c0", System.Type.GetType("System.String"));//2
+                    qtyTable_dav7.Columns.Add("c1", System.Type.GetType("System.String"));//3
+                    qtyTable_dav7.Columns.Add("c2", System.Type.GetType("System.String"));//4
+                    qtyTable_dav7.Columns.Add("a1", System.Type.GetType("System.String"));//5
+                    qtyTable_dav7.Columns.Add("b1", System.Type.GetType("System.String"));//6
+                    qtyTable_dav7.Columns.Add("a2", System.Type.GetType("System.String"));//7 
+                    qtyTable_dav7.Columns.Add("b2", System.Type.GetType("System.String"));//8 
+                    qtyTable_dav7.Columns.Add("a3", System.Type.GetType("System.String"));//8 
+                    qtyTable_dav7.Columns.Add("b3", System.Type.GetType("System.String"));//8 
+
+                    ongo1 = ongo + 1;
+                    rowindex = 0;
+                    for (int j = ongo1; j <= fileText.Length; j++)
+                    {
+                        ongo = j;
+
+                        if (fileText[j].Contains("\t\t\t\t") || fileText[j] == "")
+                        {
+                            break;
+                        }
+
+                        qtyTable_dav7.Rows.Add(qtyTable_dav7.NewRow());
+
+                        string[] fileText1 = System.Text.RegularExpressions.Regex.Split(fileText[j], "\t");
+
+                        for (int jj = 0; jj < fileText1.Length - 1; jj++)
+                        {
+                            qtyTable_dav7.Rows[rowindex][jj] = fileText1[jj];
+                        }
+                        rowindex++;
+
+                    }
+
+
+
+
+                    this.bindingSource6.DataSource = qtyTable_dav5;
+                    this.dataGridView6.DataSource = this.bindingSource6;
+
+                    this.bindingSource8.DataSource = qtyTable_dav6;
+                    this.dataGridView7.DataSource = this.bindingSource8;
+
+                    this.bindingSource9.DataSource = qtyTable_dav7;
+                    this.dataGridView9.DataSource = this.bindingSource9;
                 }
-
-
-
+                #endregion
             }
         }
 
@@ -988,7 +1274,10 @@ namespace SapData_Automation
             {
                 toolStripDropDownButton4_Click(null, EventArgs.Empty);
             }
-
+            if (s == 2 && (nowfile == null || nowfile == ""))
+            {
+                toolStripDropDownButton3_Click(null, EventArgs.Empty);
+            }
         }
 
         private void toolStripDropDownButton1_Click(object sender, EventArgs e)
@@ -998,6 +1287,24 @@ namespace SapData_Automation
 
         private void toolStripDropDownButton3_Click(object sender, EventArgs e)
         {
+            if (Alist == null || Alist.Count < 1)
+            {
+
+                MessageBox.Show("请选择文件或者新建后再次尝试！", "Waring", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            nowfile = "";
+
+            for (int i = 0; i < Alist.Count; i++)
+            {
+
+                if (Alist[i].Contains("els_para.sap"))
+                {
+                    nowfile = Alist[i];
+                }
+            }
+
+            this.tabControl1.SelectedIndex = 2;
 
         }
 
@@ -1046,8 +1353,6 @@ namespace SapData_Automation
 
                 this.bindingSource2.DataSource = qtyTable;
                 this.dataGridView3.DataSource = this.bindingSource2;
-
-
             }
 
 
@@ -1072,6 +1377,29 @@ namespace SapData_Automation
         private void dataGridView3_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             clickdav = dataGridView3;
+        }
+
+        private void textBox19_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox19.Text != "")
+            {
+
+                var qtyTable = new DataTable();
+                qtyTable.Columns.Add("材料号\\龄期", System.Type.GetType("System.String"));//0
+
+
+                int icount = Convert.ToInt32(textBox19.Text);
+                for (int i = 1; i <= icount; i++)
+                {
+                    qtyTable.Columns.Add("" + i, System.Type.GetType("System.String"));//0
+
+                }
+
+                this.bindingSource7.DataSource = qtyTable;
+                this.dataGridView8.DataSource = this.bindingSource7;
+
+
+            }
         }
     }
 }
