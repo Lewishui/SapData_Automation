@@ -305,6 +305,48 @@ namespace SapData_Automation
                 }
 
                 #endregion
+
+                #region 填 placement_time_of_element.sap
+
+
+                else if (s == 4)
+                {
+                    wtx = textBox20.Text;
+                    wtx += "\r\n";
+
+                    StreamWriter sw = new StreamWriter(nowfile);
+                    sw.WriteLine(wtx);
+                    sw = wxdav(nowfile, this.dataGridView10, sw);
+                 
+                    sw.Flush();
+                    sw.Close();
+                    MessageBox.Show("更新完成，请查看！");
+
+                }
+
+                #endregion
+                #region 非线性参数 strength_data.sap
+ 
+                else if (s == 6)
+                {
+                    wtx = textBox21.Text;
+                    wtx += " "+ textBox22.Text;
+                    wtx += "\r\n";
+
+                    StreamWriter sw = new StreamWriter(nowfile);
+                    sw.WriteLine(wtx);
+                    sw = wxdav(nowfile, this.dataGridView11, sw);
+                    sw = wxdav(nowfile, this.dataGridView12, sw);
+
+                    sw.Flush();
+                    sw.Close();
+                    MessageBox.Show("更新完成，请查看！");
+
+                }
+
+                #endregion
+
+
             }
             catch (Exception ex)
             {
@@ -758,7 +800,8 @@ namespace SapData_Automation
             for (int i = 0; i < Alist.Count; i++)
             {
 
-                #region control.sap
+                #region 计算控制文件  control.sap
+
                 if (Alist[i].Contains("control.sap"))
                 {
 
@@ -767,77 +810,79 @@ namespace SapData_Automation
                     // string[] fileText1 = System.Text.RegularExpressions.Regex.Split(UserResult[0].salse_code, " ");
 
                     string wtx = "";
-
-                    //工况数
-                    textBox1.Text = fileText[0];
-
-                    //计算量1
-                    if (fileText.Length > 1)
+                    if (fileText.Length > 0)
                     {
-                        string[] fileText1 = System.Text.RegularExpressions.Regex.Split(fileText[1], " ");
+                        //工况数
+                        textBox1.Text = fileText[0];
 
-                        if (fileText1.Length > 0 && fileText1[0] == "1")
-                            radioButton1.Checked = true;
-                        else if (fileText1.Length > 1 && fileText1[0] == "0")
-                            radioButton1.Checked = false;
-                        //计算量2
-                        if (fileText1.Length > 1 && fileText1[1] == "0")
-                            radioButton2.Checked = true;
-                        if (fileText1.Length > 1 && fileText1[1] == "1")
-                            radioButton3.Checked = true;
-                        if (fileText1.Length > 1 && fileText1[1] == "2")
-                            radioButton4.Checked = true;
+                        //计算量1
+                        if (fileText.Length > 1)
+                        {
+                            string[] fileText1 = System.Text.RegularExpressions.Regex.Split(fileText[1], " ");
 
-                        //计算量3
-                        if (fileText1.Length > 2 && fileText1[2] == "0")
-                            radioButton7.Checked = true;
-                        if (fileText1.Length > 2 && fileText1[2] == "1")
-                            radioButton6.Checked = true;
-                        if (fileText1.Length > 2 && fileText1[2] == "2")
-                            radioButton5.Checked = true;
+                            if (fileText1.Length > 0 && fileText1[0] == "1")
+                                radioButton1.Checked = true;
+                            else if (fileText1.Length > 1 && fileText1[0] == "0")
+                                radioButton1.Checked = false;
+                            //计算量2
+                            if (fileText1.Length > 1 && fileText1[1] == "0")
+                                radioButton2.Checked = true;
+                            if (fileText1.Length > 1 && fileText1[1] == "1")
+                                radioButton3.Checked = true;
+                            if (fileText1.Length > 1 && fileText1[1] == "2")
+                                radioButton4.Checked = true;
+
+                            //计算量3
+                            if (fileText1.Length > 2 && fileText1[2] == "0")
+                                radioButton7.Checked = true;
+                            if (fileText1.Length > 2 && fileText1[2] == "1")
+                                radioButton6.Checked = true;
+                            if (fileText1.Length > 2 && fileText1[2] == "2")
+                                radioButton5.Checked = true;
+                        }
+                        //求解器
+                        textBox2.Text = fileText[2];
+
+
+                        //温度梯度
+                        textBox3.Text = fileText[3];
+
+                        //位移约束
+                        textBox4.Text = fileText[4];
+
+                        //最大开闭次数:
+                        textBox7.Text = fileText[5];
+
+                        //方程迭代误差
+                        textBox6.Text = fileText[6];
+
+                        //初始条件读入
+                        textBox5.Text = fileText[7];
+
+                        //非线性迭代误差
+                        textBox10.Text = fileText[8];
+
+                        //最大非线性迭代次数
+                        textBox9.Text = fileText[9];
+
+
+                        //位移清0步
+                        textBox12.Text = fileText[10];
+
+                        //惯性阻尼系数
+                        if (fileText.Length > 11)
+                            textBox11.Text = fileText[11];
+
+                        //接续计算
+                        if (fileText.Length > 12)
+
+                            textBox14.Text = fileText[12];
+
                     }
-                    //求解器
-                    textBox2.Text = fileText[2];
-
-
-                    //温度梯度
-                    textBox3.Text = fileText[3];
-
-                    //位移约束
-                    textBox4.Text = fileText[4];
-
-                    //最大开闭次数:
-                    textBox7.Text = fileText[5];
-
-                    //方程迭代误差
-                    textBox6.Text = fileText[6];
-
-                    //初始条件读入
-                    textBox5.Text = fileText[7];
-
-                    //非线性迭代误差
-                    textBox10.Text = fileText[8];
-
-                    //最大非线性迭代次数
-                    textBox9.Text = fileText[9];
-
-
-                    //位移清0步
-                    textBox12.Text = fileText[10];
-
-                    //惯性阻尼系数
-                    if (fileText.Length > 11)
-                        textBox11.Text = fileText[11];
-
-                    //接续计算
-                    if (fileText.Length > 12)
-
-                        textBox14.Text = fileText[12];
-
                 }
                 #endregion
 
-                #region temp_para.sap
+                #region  热学参数 temp_para.sap
                 else if (Alist[i].Contains("temp_para.sap"))
                 {
 
@@ -1018,7 +1063,7 @@ namespace SapData_Automation
 
                 }
                 #endregion
-                #region els_para.sap
+                #region 基本材料参数 els_para.sap
                 else if (Alist[i].Contains("els_para.sap"))
                 {
                     string[] fileText = File.ReadAllLines(Alist[i]);
@@ -1182,14 +1227,16 @@ namespace SapData_Automation
 
                         qtyTable8.Rows.Add(qtyTable8.NewRow());
 
-                        string[] fileText1 = System.Text.RegularExpressions.Regex.Split(fileText[j], "\t");
-
-                        for (int jj = 0; jj < fileText1.Length - 1; jj++)
+                        if (fileText.Length > j)
                         {
-                            qtyTable8.Rows[rowindex][jj] = fileText1[jj];
-                        }
-                        rowindex++;
+                            string[] fileText1 = System.Text.RegularExpressions.Regex.Split(fileText[j], "\t");
 
+                            for (int jj = 0; jj < fileText1.Length - 1; jj++)
+                            {
+                                qtyTable8.Rows[rowindex][jj] = fileText1[jj];
+                            }
+                            rowindex++;
+                        }
                     }
                     ongo1 = ongo + 1;
                     rowindex = 0;
@@ -1260,6 +1307,180 @@ namespace SapData_Automation
                     this.dataGridView9.DataSource = this.bindingSource9;
                 }
                 #endregion
+                    
+                #region 挖除与回填 placement_time_of_element.sap
+
+
+                else if (Alist[i].Contains("placement_time_of_element.sap"))
+                {
+                    string[] fileText = File.ReadAllLines(Alist[i]);
+                    int ongo = 0;
+
+                    if (fileText.Length > 1)
+                    {
+                        string[] fileText1 = System.Text.RegularExpressions.Regex.Split(fileText[0], " ");
+
+                        //挖除与回填单元总数::
+                        if (fileText1.Length > 0)
+                            textBox20.Text = fileText1[0];
+                    }
+                    
+                    var qtyTable_dav8 = new DataTable();
+                    qtyTable_dav8.Columns.Add("单元号", System.Type.GetType("System.String"));//0
+                    qtyTable_dav8.Columns.Add("挖除序号", System.Type.GetType("System.String"));//1
+                    qtyTable_dav8.Columns.Add("回填序号", System.Type.GetType("System.String"));//2
+                    qtyTable_dav8.Columns.Add("回填材料号", System.Type.GetType("System.String"));//3
+                 
+                    int ongo1 = ongo + 1;
+                    int rowindex = 0;
+                    for (int j = ongo1; j <= fileText.Length; j++)
+                    {
+                        ongo = j;
+
+                        if (fileText[j].Contains("\t\t\t\t") || (fileText[j] == "" && j!=1))
+                        {
+                            break;
+                        }
+                        if (fileText[j] == "" && j == 1)
+                            continue;
+
+                        qtyTable_dav8.Rows.Add(qtyTable_dav8.NewRow());
+
+                        string[] fileText1 = System.Text.RegularExpressions.Regex.Split(fileText[j], "\t");
+                        if (fileText1.Length < 2)
+                            fileText1 = System.Text.RegularExpressions.Regex.Split(fileText[j].Replace("   ", " ").Replace("  ", " "), " ");
+                       
+                        for (int jj = 0; jj < fileText1.Length; jj++)
+                        {
+                            if (jj<4)
+                            qtyTable_dav8.Rows[rowindex][jj] = fileText1[jj];
+                        }
+                        rowindex++;
+
+                    }
+
+
+                    this.bindingSource10.DataSource = qtyTable_dav8;
+                    this.dataGridView10.DataSource = this.bindingSource10;
+                }
+
+                #endregion
+
+
+                #region 非线性参数 strength_data.sap
+                else if (Alist[i].Contains("strength_data.sap"))
+                {
+                    string[] fileText = File.ReadAllLines(Alist[i]);
+                    int ongo = 0;
+
+                    if (fileText.Length > 1)
+                    {
+                        string[] fileText1 = System.Text.RegularExpressions.Regex.Split(fileText[0], " ");
+
+                        //分析类型::
+                        if (fileText1.Length > 0)
+                            textBox21.Text = fileText1[0];
+                        //材料参数总数:::
+                        if (fileText1.Length > 1)
+                            textBox22.Text = fileText1[1];
+
+                    }
+
+                    var qtyTable_dav9 = new DataTable();
+                    qtyTable_dav9.Columns.Add("材料号", System.Type.GetType("System.String"));//0
+                    qtyTable_dav9.Columns.Add("凝聚力", System.Type.GetType("System.String"));//1
+                    qtyTable_dav9.Columns.Add("摩擦角", System.Type.GetType("System.String"));//2
+                    qtyTable_dav9.Columns.Add("抗拉强度", System.Type.GetType("System.String"));//3
+                    qtyTable_dav9.Columns.Add("抗压强度", System.Type.GetType("System.String"));//3
+                   
+                    qtyTable_dav9.Columns.Add("准则号", System.Type.GetType("System.String"));//3
+                    qtyTable_dav9.Columns.Add("r1", System.Type.GetType("System.String"));//3
+                    qtyTable_dav9.Columns.Add("r2", System.Type.GetType("System.String"));//3
+                    qtyTable_dav9.Columns.Add("r3", System.Type.GetType("System.String"));//3
+                    qtyTable_dav9.Columns.Add("r4", System.Type.GetType("System.String"));//3
+
+                    int ongo1 = ongo + 1;
+                    int rowindex = 0;
+                    for (int j = ongo1; j <= fileText.Length; j++)
+                    {
+                        ongo = j;
+
+                        if (fileText[j].Contains("\t\t\t\t") || (fileText[j] == "" && j != 1))
+                        {
+                            break;
+                        }
+                        if (fileText[j] == "" && j == 1)
+                            continue;
+
+                        qtyTable_dav9.Rows.Add(qtyTable_dav9.NewRow());
+
+                        string[] fileText1 = System.Text.RegularExpressions.Regex.Split(fileText[j], "\t");
+                        if (fileText1.Length < 2)
+                            fileText1 = System.Text.RegularExpressions.Regex.Split(fileText[j].Replace("   ", " ").Replace("  ", " "), " ");
+
+                        for (int jj = 0; jj < fileText1.Length; jj++)
+                        {
+                            if (jj < 10)
+                                qtyTable_dav9.Rows[rowindex][jj] = fileText1[jj];
+                        }
+                        rowindex++;
+
+                    }
+
+                    var qtyTable_dav10 = new DataTable();
+                    qtyTable_dav10.Columns.Add("材料号", System.Type.GetType("System.String"));//0
+                    qtyTable_dav10.Columns.Add("α", System.Type.GetType("System.String"));//1
+                    qtyTable_dav10.Columns.Add("N", System.Type.GetType("System.String"));//2
+                    qtyTable_dav10.Columns.Add("拉极限应变", System.Type.GetType("System.String"));//3
+                    qtyTable_dav10.Columns.Add("剪极限应变", System.Type.GetType("System.String"));//3
+                    qtyTable_dav10.Columns.Add("刚度软化", System.Type.GetType("System.String"));//3
+                    qtyTable_dav10.Columns.Add("强度软化", System.Type.GetType("System.String"));//3
+                   
+                      ongo1 = ongo + 1;
+                      rowindex = 0;
+                    for (int j = ongo1; j <= fileText.Length; j++)
+                    {
+                        ongo = j;
+
+                        if (fileText[j].Contains("\t\t\t\t") || (fileText[j] == "" && j != 1))
+                        {
+                            break;
+                        }
+                        if (fileText[j] == "" && j == 1)
+                            continue;
+
+                        qtyTable_dav10.Rows.Add(qtyTable_dav10.NewRow());
+
+                        string[] fileText1 = System.Text.RegularExpressions.Regex.Split(fileText[j], "\t");
+                        if (fileText1.Length < 2)
+                            fileText1 = System.Text.RegularExpressions.Regex.Split(fileText[j].Replace("   ", " ").Replace("  ", " "), " ");
+
+                        for (int jj = 0; jj < fileText1.Length; jj++)
+                        {
+                            if (jj < 7)
+                                qtyTable_dav10.Rows[rowindex][jj] = fileText1[jj];
+                        }
+                        rowindex++;
+
+                    }
+
+
+                    this.bindingSource11.DataSource = qtyTable_dav9;
+                    this.dataGridView11.DataSource = this.bindingSource11;
+
+                    this.bindingSource12.DataSource = qtyTable_dav10;
+
+                    this.dataGridView12.DataSource = this.bindingSource12;
+                }
+
+
+
+
+
+
+
+
+                #endregion
             }
         }
 
@@ -1270,14 +1491,30 @@ namespace SapData_Automation
             {
                 toolStripDropDownButton2_Click(null, EventArgs.Empty);
             }
-            if (s == 3 && (nowfile == null || nowfile == ""))
-            {
-                toolStripDropDownButton4_Click(null, EventArgs.Empty);
-            }
+
             if (s == 2 && (nowfile == null || nowfile == ""))
             {
                 toolStripDropDownButton3_Click(null, EventArgs.Empty);
             }
+            if (s == 3 && (nowfile == null || nowfile == ""))
+            {
+                toolStripDropDownButton4_Click(null, EventArgs.Empty);
+            }
+            if (s == 4 && (nowfile == null || nowfile == ""))
+            {
+                toolStripDropDownButton5_Click(null, EventArgs.Empty);
+            }
+            if (s == 5 && (nowfile == null || nowfile == ""))
+            {
+                toolStripDropDownButton6_Click(null, EventArgs.Empty);
+
+            }
+            if (s == 6 && (nowfile == null || nowfile == ""))
+            {
+                toolStripDropDownButton7_Click(null, EventArgs.Empty);
+            }
+
+
         }
 
         private void toolStripDropDownButton1_Click(object sender, EventArgs e)
@@ -1400,6 +1637,85 @@ namespace SapData_Automation
 
 
             }
+        }
+
+        private void toolStripDropDownButton5_Click(object sender, EventArgs e)
+        {
+            if (Alist == null || Alist.Count < 1)
+            {
+
+                MessageBox.Show("请选择文件或者新建后再次尝试！", "Waring", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            nowfile = "";
+
+            for (int i = 0; i < Alist.Count; i++)
+            {
+
+                if (Alist[i].Contains("placement_time_of_element.sap"))
+                {
+                    nowfile = Alist[i];
+                }
+            }
+
+            this.tabControl1.SelectedIndex = 4;
+
+        }
+
+        private void toolStripDropDownButton6_Click(object sender, EventArgs e)
+        {
+
+
+            if (Alist == null || Alist.Count < 1)
+            {
+
+                MessageBox.Show("请选择文件或者新建后再次尝试！", "Waring", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            nowfile = "";
+
+            for (int i = 0; i < Alist.Count; i++)
+            {
+
+                if (Alist[i].Contains("mesh.sap")&&!Alist[i].Contains("joint"))
+                {
+                    nowfile = Alist[i];
+                }
+            }
+
+            this.tabControl1.SelectedIndex = 6;
+
+      
+            string DesktopPath = Convert.ToString(System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop));
+
+            System.Diagnostics.Process.Start("ultraedit.exe", nowfile);
+
+    
+       
+
+
+        }
+
+        private void toolStripDropDownButton7_Click(object sender, EventArgs e)
+        {
+            if (Alist == null || Alist.Count < 1)
+            {
+
+                MessageBox.Show("请选择文件或者新建后再次尝试！", "Waring", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            nowfile = "";
+
+            for (int i = 0; i < Alist.Count; i++)
+            {
+
+                if (Alist[i].Contains("strength_data.sap"))
+                {
+                    nowfile = Alist[i];
+                }
+            }
+
+            this.tabControl1.SelectedIndex = 6;
         }
     }
 }
