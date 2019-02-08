@@ -29,30 +29,30 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProductMain));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProductMain));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
@@ -63,12 +63,6 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Product_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Product_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Product_salse = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Product_address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Input_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Product_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -200,6 +194,48 @@
             this.dataGridView15 = new System.Windows.Forms.DataGridView();
             this.textBox25 = new System.Windows.Forms.TextBox();
             this.label57 = new System.Windows.Forms.Label();
+            this.tabPage11 = new System.Windows.Forms.TabPage();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label58 = new System.Windows.Forms.Label();
+            this.dataGridView17 = new System.Windows.Forms.DataGridView();
+            this.label59 = new System.Windows.Forms.Label();
+            this.dataGridView18 = new System.Windows.Forms.DataGridView();
+            this.label60 = new System.Windows.Forms.Label();
+            this.dataGridView19 = new System.Windows.Forms.DataGridView();
+            this.textBox27 = new System.Windows.Forms.TextBox();
+            this.label62 = new System.Windows.Forms.Label();
+            this.textBox28 = new System.Windows.Forms.TextBox();
+            this.label63 = new System.Windows.Forms.Label();
+            this.tabPage12 = new System.Windows.Forms.TabPage();
+            this.dataGridView16 = new System.Windows.Forms.DataGridView();
+            this.textBox26 = new System.Windows.Forms.TextBox();
+            this.label61 = new System.Windows.Forms.Label();
+            this.tabPage13 = new System.Windows.Forms.TabPage();
+            this.textBox30 = new System.Windows.Forms.TextBox();
+            this.label65 = new System.Windows.Forms.Label();
+            this.dataGridView20 = new System.Windows.Forms.DataGridView();
+            this.textBox29 = new System.Windows.Forms.TextBox();
+            this.label64 = new System.Windows.Forms.Label();
+            this.tabPage14 = new System.Windows.Forms.TabPage();
+            this.dataGridView21 = new System.Windows.Forms.DataGridView();
+            this.label69 = new System.Windows.Forms.Label();
+            this.dataGridView22 = new System.Windows.Forms.DataGridView();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.label76 = new System.Windows.Forms.Label();
+            this.textBox37 = new System.Windows.Forms.TextBox();
+            this.label75 = new System.Windows.Forms.Label();
+            this.textBox36 = new System.Windows.Forms.TextBox();
+            this.label73 = new System.Windows.Forms.Label();
+            this.textBox35 = new System.Windows.Forms.TextBox();
+            this.label71 = new System.Windows.Forms.Label();
+            this.label74 = new System.Windows.Forms.Label();
+            this.dataGridView24 = new System.Windows.Forms.DataGridView();
+            this.textBox33 = new System.Windows.Forms.TextBox();
+            this.label68 = new System.Windows.Forms.Label();
+            this.textBox31 = new System.Windows.Forms.TextBox();
+            this.label66 = new System.Windows.Forms.Label();
+            this.textBox32 = new System.Windows.Forms.TextBox();
+            this.label67 = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.pbStatus = new System.Windows.Forms.ToolStripProgressBar();
@@ -239,54 +275,12 @@
             this.bindingSource13 = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSource14 = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSource15 = new System.Windows.Forms.BindingSource(this.components);
-            this.tabPage11 = new System.Windows.Forms.TabPage();
-            this.label58 = new System.Windows.Forms.Label();
-            this.dataGridView17 = new System.Windows.Forms.DataGridView();
-            this.label59 = new System.Windows.Forms.Label();
-            this.dataGridView18 = new System.Windows.Forms.DataGridView();
-            this.label60 = new System.Windows.Forms.Label();
-            this.dataGridView19 = new System.Windows.Forms.DataGridView();
-            this.textBox27 = new System.Windows.Forms.TextBox();
-            this.label62 = new System.Windows.Forms.Label();
-            this.textBox28 = new System.Windows.Forms.TextBox();
-            this.label63 = new System.Windows.Forms.Label();
-            this.label56 = new System.Windows.Forms.Label();
             this.bindingSource16 = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSource17 = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSource18 = new System.Windows.Forms.BindingSource(this.components);
-            this.tabPage12 = new System.Windows.Forms.TabPage();
-            this.dataGridView16 = new System.Windows.Forms.DataGridView();
-            this.textBox26 = new System.Windows.Forms.TextBox();
-            this.label61 = new System.Windows.Forms.Label();
             this.bindingSource19 = new System.Windows.Forms.BindingSource(this.components);
-            this.tabPage13 = new System.Windows.Forms.TabPage();
-            this.dataGridView20 = new System.Windows.Forms.DataGridView();
-            this.textBox29 = new System.Windows.Forms.TextBox();
-            this.label64 = new System.Windows.Forms.Label();
-            this.textBox30 = new System.Windows.Forms.TextBox();
-            this.label65 = new System.Windows.Forms.Label();
             this.bindingSource20 = new System.Windows.Forms.BindingSource(this.components);
-            this.tabPage14 = new System.Windows.Forms.TabPage();
             this.bindingSource21 = new System.Windows.Forms.BindingSource(this.components);
-            this.textBox31 = new System.Windows.Forms.TextBox();
-            this.label66 = new System.Windows.Forms.Label();
-            this.textBox32 = new System.Windows.Forms.TextBox();
-            this.label67 = new System.Windows.Forms.Label();
-            this.textBox33 = new System.Windows.Forms.TextBox();
-            this.label68 = new System.Windows.Forms.Label();
-            this.dataGridView21 = new System.Windows.Forms.DataGridView();
-            this.label69 = new System.Windows.Forms.Label();
-            this.dataGridView22 = new System.Windows.Forms.DataGridView();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.textBox35 = new System.Windows.Forms.TextBox();
-            this.label71 = new System.Windows.Forms.Label();
-            this.label74 = new System.Windows.Forms.Label();
-            this.dataGridView24 = new System.Windows.Forms.DataGridView();
-            this.textBox36 = new System.Windows.Forms.TextBox();
-            this.label73 = new System.Windows.Forms.Label();
-            this.textBox37 = new System.Windows.Forms.TextBox();
-            this.label75 = new System.Windows.Forms.Label();
-            this.label76 = new System.Windows.Forms.Label();
             this.bindingSource22 = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSource23 = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSource24 = new System.Windows.Forms.BindingSource(this.components);
@@ -329,6 +323,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView14)).BeginInit();
             this.tabPage10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView15)).BeginInit();
+            this.tabPage11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView17)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView18)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView19)).BeginInit();
+            this.tabPage12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView16)).BeginInit();
+            this.tabPage13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView20)).BeginInit();
+            this.tabPage14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView21)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView22)).BeginInit();
+            this.groupBox9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView24)).BeginInit();
             this.toolStrip2.SuspendLayout();
             this.toolStrip3.SuspendLayout();
             this.toolStrip4.SuspendLayout();
@@ -347,25 +354,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource15)).BeginInit();
-            this.tabPage11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView17)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView18)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource18)).BeginInit();
-            this.tabPage12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource19)).BeginInit();
-            this.tabPage13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource20)).BeginInit();
-            this.tabPage14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource21)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView21)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView22)).BeginInit();
-            this.groupBox9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView24)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource22)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource23)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource24)).BeginInit();
@@ -502,17 +496,10 @@
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle23;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Product_no,
-            this.Product_name,
-            this.Product_salse,
-            this.Product_address,
-            this.Input_Date,
-            this.Product_id});
             this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 88);
@@ -520,43 +507,7 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.Size = new System.Drawing.Size(1046, 352);
             this.dataGridView1.TabIndex = 4;
-            // 
-            // Product_no
-            // 
-            this.Product_no.DataPropertyName = "Product_no";
-            this.Product_no.HeaderText = "商品型号";
-            this.Product_no.Name = "Product_no";
-            // 
-            // Product_name
-            // 
-            this.Product_name.DataPropertyName = "Product_name";
-            this.Product_name.HeaderText = "商品名称";
-            this.Product_name.Name = "Product_name";
-            // 
-            // Product_salse
-            // 
-            this.Product_salse.DataPropertyName = "Product_salse";
-            this.Product_salse.HeaderText = "商品单价";
-            this.Product_salse.Name = "Product_salse";
-            // 
-            // Product_address
-            // 
-            this.Product_address.DataPropertyName = "Product_address";
-            this.Product_address.HeaderText = "商品产地";
-            this.Product_address.Name = "Product_address";
-            // 
-            // Input_Date
-            // 
-            this.Input_Date.DataPropertyName = "Input_Date";
-            this.Input_Date.HeaderText = "录入时间";
-            this.Input_Date.Name = "Input_Date";
-            // 
-            // Product_id
-            // 
-            this.Product_id.DataPropertyName = "Product_id";
-            this.Product_id.HeaderText = "Product_id";
-            this.Product_id.Name = "Product_id";
-            this.Product_id.Visible = false;
+            this.dataGridView1.Visible = false;
             // 
             // contextMenuStrip1
             // 
@@ -594,12 +545,12 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label1.Location = new System.Drawing.Point(471, 58);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(152, 15);
+            this.label1.Size = new System.Drawing.Size(297, 20);
             this.label1.TabIndex = 90;
-            this.label1.Text = "*如果查找所有请填写\"所有\"";
+            this.label1.Text = "请按照类型点击上方按钮编辑并及时保存";
             // 
             // label24
             // 
@@ -610,6 +561,7 @@
             this.label24.Size = new System.Drawing.Size(73, 20);
             this.label24.TabIndex = 89;
             this.label24.Text = "查找内容";
+            this.label24.Visible = false;
             // 
             // textBox8
             // 
@@ -619,6 +571,7 @@
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(356, 26);
             this.textBox8.TabIndex = 8;
+            this.textBox8.Visible = false;
             // 
             // filterButton
             // 
@@ -629,6 +582,7 @@
             this.filterButton.TabIndex = 78;
             this.filterButton.Text = "查找";
             this.filterButton.UseVisualStyleBackColor = true;
+            this.filterButton.Visible = false;
             // 
             // stockInDateTimePicker1
             // 
@@ -639,6 +593,7 @@
             this.stockInDateTimePicker1.Size = new System.Drawing.Size(109, 26);
             this.stockInDateTimePicker1.TabIndex = 5;
             this.stockInDateTimePicker1.Value = new System.DateTime(2017, 12, 31, 0, 0, 0, 0);
+            this.stockInDateTimePicker1.Visible = false;
             // 
             // label4
             // 
@@ -649,6 +604,7 @@
             this.label4.Size = new System.Drawing.Size(73, 20);
             this.label4.TabIndex = 76;
             this.label4.Text = "结束时间";
+            this.label4.Visible = false;
             // 
             // stockOutDateTimePicker
             // 
@@ -659,6 +615,7 @@
             this.stockOutDateTimePicker.Size = new System.Drawing.Size(114, 26);
             this.stockOutDateTimePicker.TabIndex = 4;
             this.stockOutDateTimePicker.Value = new System.DateTime(2017, 3, 1, 0, 0, 0, 0);
+            this.stockOutDateTimePicker.Visible = false;
             // 
             // label3
             // 
@@ -669,6 +626,7 @@
             this.label3.Size = new System.Drawing.Size(73, 20);
             this.label3.TabIndex = 5;
             this.label3.Text = "开始时间";
+            this.label3.Visible = false;
             // 
             // tabPage2
             // 
@@ -1184,8 +1142,8 @@
             // 
             // dataGridView9
             // 
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dataGridView9.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dataGridView9.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle24;
             this.dataGridView9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView9.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView9.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -1193,7 +1151,7 @@
             this.dataGridView9.Location = new System.Drawing.Point(6, 385);
             this.dataGridView9.Name = "dataGridView9";
             this.dataGridView9.RowHeadersVisible = false;
-            this.dataGridView9.Size = new System.Drawing.Size(1039, 43);
+            this.dataGridView9.Size = new System.Drawing.Size(1039, 55);
             this.dataGridView9.TabIndex = 20;
             // 
             // label43
@@ -1209,8 +1167,8 @@
             // 
             // dataGridView8
             // 
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dataGridView8.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dataGridView8.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView8.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView8.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -1338,8 +1296,8 @@
             // 
             // dataGridView7
             // 
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dataGridView7.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dataGridView7.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView7.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView7.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -1355,7 +1313,7 @@
             this.label38.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label38.AutoSize = true;
             this.label38.Font = new System.Drawing.Font("宋体", 15F);
-            this.label38.Location = new System.Drawing.Point(447, 31);
+            this.label38.Location = new System.Drawing.Point(447, 19);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(129, 20);
             this.label38.TabIndex = 11;
@@ -1363,21 +1321,21 @@
             // 
             // dataGridView6
             // 
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dataGridView6.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dataGridView6.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView6.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView6.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView6.ContextMenuStrip = this.contextMenuStrip1;
-            this.dataGridView6.Location = new System.Drawing.Point(6, 61);
+            this.dataGridView6.Location = new System.Drawing.Point(6, 42);
             this.dataGridView6.Name = "dataGridView6";
             this.dataGridView6.RowHeadersVisible = false;
-            this.dataGridView6.Size = new System.Drawing.Size(1039, 61);
+            this.dataGridView6.Size = new System.Drawing.Size(1039, 80);
             this.dataGridView6.TabIndex = 10;
             // 
             // textBox17
             // 
-            this.textBox17.Location = new System.Drawing.Point(145, 28);
+            this.textBox17.Location = new System.Drawing.Point(145, 11);
             this.textBox17.Name = "textBox17";
             this.textBox17.Size = new System.Drawing.Size(95, 21);
             this.textBox17.TabIndex = 5;
@@ -1385,7 +1343,7 @@
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(77, 31);
+            this.label37.Location = new System.Drawing.Point(77, 14);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(59, 12);
             this.label37.TabIndex = 4;
@@ -1452,8 +1410,8 @@
             // 
             // dataGridView5
             // 
-            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dataGridView5.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dataGridView5.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -1480,8 +1438,8 @@
             // 
             // dataGridView4
             // 
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dataGridView4.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dataGridView4.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -1508,8 +1466,8 @@
             // 
             // dataGridView3
             // 
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dataGridView3.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dataGridView3.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -1537,8 +1495,8 @@
             // 
             // dataGridView2
             // 
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -1616,8 +1574,8 @@
             // 
             // dataGridView10
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dataGridView10.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dataGridView10.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -1717,8 +1675,8 @@
             // 
             // dataGridView11
             // 
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dataGridView11.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dataGridView11.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridView11.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView11.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView11.ContextMenuStrip = this.contextMenuStrip1;
@@ -1757,8 +1715,8 @@
             // 
             // dataGridView12
             // 
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dataGridView12.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dataGridView12.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridView12.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView12.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView12.ContextMenuStrip = this.contextMenuStrip1;
@@ -1848,8 +1806,8 @@
             // 
             // dataGridView13
             // 
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dataGridView13.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dataGridView13.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridView13.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -1908,8 +1866,8 @@
             // 
             // dataGridView14
             // 
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dataGridView14.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dataGridView14.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridView14.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -1953,8 +1911,8 @@
             // 
             // dataGridView15
             // 
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dataGridView15.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dataGridView15.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridView15.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -1982,6 +1940,474 @@
             this.label57.Size = new System.Drawing.Size(113, 12);
             this.label57.TabIndex = 17;
             this.label57.Text = "输出的位移点总数 :";
+            // 
+            // tabPage11
+            // 
+            this.tabPage11.Controls.Add(this.label56);
+            this.tabPage11.Controls.Add(this.label58);
+            this.tabPage11.Controls.Add(this.dataGridView17);
+            this.tabPage11.Controls.Add(this.label59);
+            this.tabPage11.Controls.Add(this.dataGridView18);
+            this.tabPage11.Controls.Add(this.label60);
+            this.tabPage11.Controls.Add(this.dataGridView19);
+            this.tabPage11.Controls.Add(this.textBox27);
+            this.tabPage11.Controls.Add(this.label62);
+            this.tabPage11.Controls.Add(this.textBox28);
+            this.tabPage11.Controls.Add(this.label63);
+            this.tabPage11.Location = new System.Drawing.Point(4, 23);
+            this.tabPage11.Name = "tabPage11";
+            this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage11.Size = new System.Drawing.Size(1052, 443);
+            this.tabPage11.TabIndex = 10;
+            this.tabPage11.Text = "接缝单元数据";
+            this.tabPage11.UseVisualStyleBackColor = true;
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(14, 276);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(521, 12);
+            this.label56.TabIndex = 30;
+            this.label56.Text = "（注：抗拉强度；黏聚力；摩擦系数；灌浆后强度增量系数；屈服后的残余系数；缝的初始状态）";
+            // 
+            // label58
+            // 
+            this.label58.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label58.AutoSize = true;
+            this.label58.Font = new System.Drawing.Font("宋体", 15F);
+            this.label58.Location = new System.Drawing.Point(12, 317);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(129, 20);
+            this.label58.TabIndex = 29;
+            this.label58.Text = "缝单元节点编";
+            // 
+            // dataGridView17
+            // 
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dataGridView17.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle14;
+            this.dataGridView17.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView17.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dataGridView17.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView17.ContextMenuStrip = this.contextMenuStrip1;
+            this.dataGridView17.Location = new System.Drawing.Point(6, 340);
+            this.dataGridView17.Name = "dataGridView17";
+            this.dataGridView17.RowHeadersVisible = false;
+            this.dataGridView17.Size = new System.Drawing.Size(1039, 98);
+            this.dataGridView17.TabIndex = 28;
+            // 
+            // label59
+            // 
+            this.label59.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label59.AutoSize = true;
+            this.label59.Font = new System.Drawing.Font("宋体", 15F);
+            this.label59.Location = new System.Drawing.Point(12, 155);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(89, 20);
+            this.label59.TabIndex = 27;
+            this.label59.Text = "强度系数";
+            // 
+            // dataGridView18
+            // 
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dataGridView18.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle15;
+            this.dataGridView18.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView18.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dataGridView18.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView18.ContextMenuStrip = this.contextMenuStrip1;
+            this.dataGridView18.Location = new System.Drawing.Point(6, 184);
+            this.dataGridView18.Name = "dataGridView18";
+            this.dataGridView18.RowHeadersVisible = false;
+            this.dataGridView18.Size = new System.Drawing.Size(1039, 90);
+            this.dataGridView18.TabIndex = 26;
+            this.dataGridView18.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView18_CellContentClick);
+            // 
+            // label60
+            // 
+            this.label60.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label60.AutoSize = true;
+            this.label60.Font = new System.Drawing.Font("宋体", 15F);
+            this.label60.Location = new System.Drawing.Point(12, 47);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(89, 20);
+            this.label60.TabIndex = 25;
+            this.label60.Text = "刚度系数";
+            // 
+            // dataGridView19
+            // 
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dataGridView19.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
+            this.dataGridView19.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView19.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dataGridView19.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView19.ContextMenuStrip = this.contextMenuStrip1;
+            this.dataGridView19.Location = new System.Drawing.Point(7, 75);
+            this.dataGridView19.Name = "dataGridView19";
+            this.dataGridView19.RowHeadersVisible = false;
+            this.dataGridView19.Size = new System.Drawing.Size(1039, 65);
+            this.dataGridView19.TabIndex = 24;
+            // 
+            // textBox27
+            // 
+            this.textBox27.Location = new System.Drawing.Point(373, 14);
+            this.textBox27.Name = "textBox27";
+            this.textBox27.Size = new System.Drawing.Size(95, 21);
+            this.textBox27.TabIndex = 21;
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Location = new System.Drawing.Point(302, 17);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(65, 12);
+            this.label62.TabIndex = 20;
+            this.label62.Text = "缝材料总数";
+            // 
+            // textBox28
+            // 
+            this.textBox28.Location = new System.Drawing.Point(166, 14);
+            this.textBox28.Name = "textBox28";
+            this.textBox28.Size = new System.Drawing.Size(95, 21);
+            this.textBox28.TabIndex = 19;
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Location = new System.Drawing.Point(53, 17);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(65, 12);
+            this.label63.TabIndex = 18;
+            this.label63.Text = "缝单元总数";
+            // 
+            // tabPage12
+            // 
+            this.tabPage12.Controls.Add(this.dataGridView16);
+            this.tabPage12.Controls.Add(this.textBox26);
+            this.tabPage12.Controls.Add(this.label61);
+            this.tabPage12.Location = new System.Drawing.Point(4, 23);
+            this.tabPage12.Name = "tabPage12";
+            this.tabPage12.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage12.Size = new System.Drawing.Size(1052, 443);
+            this.tabPage12.TabIndex = 11;
+            this.tabPage12.Text = "灌浆数据";
+            this.tabPage12.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView16
+            // 
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dataGridView16.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
+            this.dataGridView16.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView16.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dataGridView16.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView16.ContextMenuStrip = this.contextMenuStrip1;
+            this.dataGridView16.Location = new System.Drawing.Point(7, 75);
+            this.dataGridView16.Name = "dataGridView16";
+            this.dataGridView16.RowHeadersVisible = false;
+            this.dataGridView16.Size = new System.Drawing.Size(1039, 349);
+            this.dataGridView16.TabIndex = 22;
+            // 
+            // textBox26
+            // 
+            this.textBox26.Location = new System.Drawing.Point(186, 19);
+            this.textBox26.Name = "textBox26";
+            this.textBox26.Size = new System.Drawing.Size(151, 21);
+            this.textBox26.TabIndex = 21;
+            this.textBox26.TextChanged += new System.EventHandler(this.textBox26_TextChanged);
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Location = new System.Drawing.Point(67, 21);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(77, 12);
+            this.label61.TabIndex = 20;
+            this.label61.Text = "灌浆单元数 :";
+            // 
+            // tabPage13
+            // 
+            this.tabPage13.Controls.Add(this.textBox30);
+            this.tabPage13.Controls.Add(this.label65);
+            this.tabPage13.Controls.Add(this.dataGridView20);
+            this.tabPage13.Controls.Add(this.textBox29);
+            this.tabPage13.Controls.Add(this.label64);
+            this.tabPage13.Location = new System.Drawing.Point(4, 23);
+            this.tabPage13.Name = "tabPage13";
+            this.tabPage13.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage13.Size = new System.Drawing.Size(1052, 443);
+            this.tabPage13.TabIndex = 12;
+            this.tabPage13.Text = "给定节点温度";
+            this.tabPage13.UseVisualStyleBackColor = true;
+            // 
+            // textBox30
+            // 
+            this.textBox30.Location = new System.Drawing.Point(450, 16);
+            this.textBox30.Name = "textBox30";
+            this.textBox30.Size = new System.Drawing.Size(151, 21);
+            this.textBox30.TabIndex = 27;
+            this.textBox30.TextChanged += new System.EventHandler(this.textBox30_TextChanged);
+            // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Location = new System.Drawing.Point(390, 20);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(47, 12);
+            this.label65.TabIndex = 26;
+            this.label65.Text = "总步数:";
+            // 
+            // dataGridView20
+            // 
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dataGridView20.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle18;
+            this.dataGridView20.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView20.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dataGridView20.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView20.ContextMenuStrip = this.contextMenuStrip1;
+            this.dataGridView20.Location = new System.Drawing.Point(7, 75);
+            this.dataGridView20.Name = "dataGridView20";
+            this.dataGridView20.RowHeadersVisible = false;
+            this.dataGridView20.Size = new System.Drawing.Size(1039, 362);
+            this.dataGridView20.TabIndex = 25;
+            // 
+            // textBox29
+            // 
+            this.textBox29.Location = new System.Drawing.Point(186, 19);
+            this.textBox29.Name = "textBox29";
+            this.textBox29.Size = new System.Drawing.Size(151, 21);
+            this.textBox29.TabIndex = 24;
+            this.textBox29.TextChanged += new System.EventHandler(this.textBox29_TextChanged);
+            // 
+            // label64
+            // 
+            this.label64.AutoSize = true;
+            this.label64.Location = new System.Drawing.Point(67, 21);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(95, 12);
+            this.label64.TabIndex = 23;
+            this.label64.Text = "给定温度节点数:";
+            // 
+            // tabPage14
+            // 
+            this.tabPage14.Controls.Add(this.dataGridView21);
+            this.tabPage14.Controls.Add(this.label69);
+            this.tabPage14.Controls.Add(this.dataGridView22);
+            this.tabPage14.Controls.Add(this.groupBox9);
+            this.tabPage14.Controls.Add(this.label74);
+            this.tabPage14.Controls.Add(this.dataGridView24);
+            this.tabPage14.Controls.Add(this.textBox33);
+            this.tabPage14.Controls.Add(this.label68);
+            this.tabPage14.Controls.Add(this.textBox31);
+            this.tabPage14.Controls.Add(this.label66);
+            this.tabPage14.Controls.Add(this.textBox32);
+            this.tabPage14.Controls.Add(this.label67);
+            this.tabPage14.Location = new System.Drawing.Point(4, 23);
+            this.tabPage14.Name = "tabPage14";
+            this.tabPage14.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage14.Size = new System.Drawing.Size(1052, 443);
+            this.tabPage14.TabIndex = 13;
+            this.tabPage14.Text = "库水河水温度";
+            this.tabPage14.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView21
+            // 
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dataGridView21.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
+            this.dataGridView21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView21.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dataGridView21.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView21.ContextMenuStrip = this.contextMenuStrip1;
+            this.dataGridView21.Location = new System.Drawing.Point(7, 375);
+            this.dataGridView21.Name = "dataGridView21";
+            this.dataGridView21.RowHeadersVisible = false;
+            this.dataGridView21.Size = new System.Drawing.Size(1039, 63);
+            this.dataGridView21.TabIndex = 45;
+            // 
+            // label69
+            // 
+            this.label69.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label69.AutoSize = true;
+            this.label69.Font = new System.Drawing.Font("宋体", 15F);
+            this.label69.Location = new System.Drawing.Point(448, 340);
+            this.label69.Name = "label69";
+            this.label69.Size = new System.Drawing.Size(89, 20);
+            this.label69.TabIndex = 44;
+            this.label69.Text = "河水温度";
+            // 
+            // dataGridView22
+            // 
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dataGridView22.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle20;
+            this.dataGridView22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView22.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dataGridView22.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView22.ContextMenuStrip = this.contextMenuStrip1;
+            this.dataGridView22.Location = new System.Drawing.Point(7, 226);
+            this.dataGridView22.Name = "dataGridView22";
+            this.dataGridView22.RowHeadersVisible = false;
+            this.dataGridView22.Size = new System.Drawing.Size(1039, 98);
+            this.dataGridView22.TabIndex = 43;
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox9.Controls.Add(this.label76);
+            this.groupBox9.Controls.Add(this.textBox37);
+            this.groupBox9.Controls.Add(this.label75);
+            this.groupBox9.Controls.Add(this.textBox36);
+            this.groupBox9.Controls.Add(this.label73);
+            this.groupBox9.Controls.Add(this.textBox35);
+            this.groupBox9.Controls.Add(this.label71);
+            this.groupBox9.Location = new System.Drawing.Point(50, 170);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(904, 38);
+            this.groupBox9.TabIndex = 39;
+            this.groupBox9.TabStop = false;
+            // 
+            // label76
+            // 
+            this.label76.AutoSize = true;
+            this.label76.Font = new System.Drawing.Font("宋体", 7F);
+            this.label76.Location = new System.Drawing.Point(213, 18);
+            this.label76.Name = "label76";
+            this.label76.Size = new System.Drawing.Size(260, 10);
+            this.label76.TabIndex = 21;
+            this.label76.Text = "（1 气温；2 泄水孔高程处的上游水温； 3 下游水温表）";
+            // 
+            // textBox37
+            // 
+            this.textBox37.Location = new System.Drawing.Point(562, 12);
+            this.textBox37.Name = "textBox37";
+            this.textBox37.Size = new System.Drawing.Size(95, 21);
+            this.textBox37.TabIndex = 19;
+            // 
+            // label75
+            // 
+            this.label75.AutoSize = true;
+            this.label75.Location = new System.Drawing.Point(485, 15);
+            this.label75.Name = "label75";
+            this.label75.Size = new System.Drawing.Size(71, 12);
+            this.label75.TabIndex = 20;
+            this.label75.Text = "泄水孔高程:";
+            // 
+            // textBox36
+            // 
+            this.textBox36.Location = new System.Drawing.Point(109, 12);
+            this.textBox36.Name = "textBox36";
+            this.textBox36.Size = new System.Drawing.Size(95, 21);
+            this.textBox36.TabIndex = 17;
+            // 
+            // label73
+            // 
+            this.label73.AutoSize = true;
+            this.label73.Location = new System.Drawing.Point(19, 14);
+            this.label73.Name = "label73";
+            this.label73.Size = new System.Drawing.Size(83, 12);
+            this.label73.TabIndex = 18;
+            this.label73.Text = "下游水温类型:";
+            // 
+            // textBox35
+            // 
+            this.textBox35.Location = new System.Drawing.Point(790, 12);
+            this.textBox35.Name = "textBox35";
+            this.textBox35.Size = new System.Drawing.Size(95, 21);
+            this.textBox35.TabIndex = 16;
+            this.textBox35.TextChanged += new System.EventHandler(this.textBox35_TextChanged);
+            // 
+            // label71
+            // 
+            this.label71.AutoSize = true;
+            this.label71.Location = new System.Drawing.Point(666, 15);
+            this.label71.Name = "label71";
+            this.label71.Size = new System.Drawing.Size(119, 12);
+            this.label71.TabIndex = 16;
+            this.label71.Text = "下游水温表数据行数:";
+            // 
+            // label74
+            // 
+            this.label74.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label74.AutoSize = true;
+            this.label74.Font = new System.Drawing.Font("宋体", 15F);
+            this.label74.Location = new System.Drawing.Point(448, 54);
+            this.label74.Name = "label74";
+            this.label74.Size = new System.Drawing.Size(109, 20);
+            this.label74.TabIndex = 35;
+            this.label74.Text = "库水温信息";
+            // 
+            // dataGridView24
+            // 
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dataGridView24.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
+            this.dataGridView24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView24.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dataGridView24.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView24.ContextMenuStrip = this.contextMenuStrip1;
+            this.dataGridView24.Location = new System.Drawing.Point(7, 79);
+            this.dataGridView24.Name = "dataGridView24";
+            this.dataGridView24.RowHeadersVisible = false;
+            this.dataGridView24.Size = new System.Drawing.Size(1039, 76);
+            this.dataGridView24.TabIndex = 34;
+            // 
+            // textBox33
+            // 
+            this.textBox33.Location = new System.Drawing.Point(787, 27);
+            this.textBox33.Name = "textBox33";
+            this.textBox33.Size = new System.Drawing.Size(151, 21);
+            this.textBox33.TabIndex = 33;
+            this.textBox33.TextChanged += new System.EventHandler(this.textBox33_TextChanged);
+            // 
+            // label68
+            // 
+            this.label68.AutoSize = true;
+            this.label68.Location = new System.Drawing.Point(638, 30);
+            this.label68.Name = "label68";
+            this.label68.Size = new System.Drawing.Size(143, 12);
+            this.label68.TabIndex = 32;
+            this.label68.Text = "库水温数据行（水深）数:";
+            // 
+            // textBox31
+            // 
+            this.textBox31.Location = new System.Drawing.Point(475, 27);
+            this.textBox31.Name = "textBox31";
+            this.textBox31.Size = new System.Drawing.Size(151, 21);
+            this.textBox31.TabIndex = 31;
+            // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.Location = new System.Drawing.Point(389, 30);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(83, 12);
+            this.label66.TabIndex = 30;
+            this.label66.Text = "蓄水结束日期:";
+            // 
+            // textBox32
+            // 
+            this.textBox32.Location = new System.Drawing.Point(185, 27);
+            this.textBox32.Name = "textBox32";
+            this.textBox32.Size = new System.Drawing.Size(151, 21);
+            this.textBox32.TabIndex = 29;
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Location = new System.Drawing.Point(66, 30);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(83, 12);
+            this.label67.TabIndex = 28;
+            this.label67.Text = "初次蓄水日期:";
             // 
             // imageList1
             // 
@@ -2051,14 +2477,14 @@
             // 新建ToolStripMenuItem
             // 
             this.新建ToolStripMenuItem.Name = "新建ToolStripMenuItem";
-            this.新建ToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.新建ToolStripMenuItem.Size = new System.Drawing.Size(112, 26);
             this.新建ToolStripMenuItem.Text = "新建";
             this.新建ToolStripMenuItem.Click += new System.EventHandler(this.新建ToolStripMenuItem_Click);
             // 
             // 打开ToolStripMenuItem
             // 
             this.打开ToolStripMenuItem.Name = "打开ToolStripMenuItem";
-            this.打开ToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.打开ToolStripMenuItem.Size = new System.Drawing.Size(112, 26);
             this.打开ToolStripMenuItem.Text = "打开";
             this.打开ToolStripMenuItem.Click += new System.EventHandler(this.打开ToolStripMenuItem_Click);
             // 
@@ -2239,474 +2665,6 @@
             this.backgroundWorker2.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker2_ProgressChanged);
             this.backgroundWorker2.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker2_RunWorkerCompleted);
             // 
-            // tabPage11
-            // 
-            this.tabPage11.Controls.Add(this.label56);
-            this.tabPage11.Controls.Add(this.label58);
-            this.tabPage11.Controls.Add(this.dataGridView17);
-            this.tabPage11.Controls.Add(this.label59);
-            this.tabPage11.Controls.Add(this.dataGridView18);
-            this.tabPage11.Controls.Add(this.label60);
-            this.tabPage11.Controls.Add(this.dataGridView19);
-            this.tabPage11.Controls.Add(this.textBox27);
-            this.tabPage11.Controls.Add(this.label62);
-            this.tabPage11.Controls.Add(this.textBox28);
-            this.tabPage11.Controls.Add(this.label63);
-            this.tabPage11.Location = new System.Drawing.Point(4, 23);
-            this.tabPage11.Name = "tabPage11";
-            this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage11.Size = new System.Drawing.Size(1052, 443);
-            this.tabPage11.TabIndex = 10;
-            this.tabPage11.Text = "接缝单元数据";
-            this.tabPage11.UseVisualStyleBackColor = true;
-            // 
-            // label58
-            // 
-            this.label58.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label58.AutoSize = true;
-            this.label58.Font = new System.Drawing.Font("宋体", 15F);
-            this.label58.Location = new System.Drawing.Point(12, 317);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(129, 20);
-            this.label58.TabIndex = 29;
-            this.label58.Text = "缝单元节点编";
-            // 
-            // dataGridView17
-            // 
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dataGridView17.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
-            this.dataGridView17.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView17.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dataGridView17.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView17.ContextMenuStrip = this.contextMenuStrip1;
-            this.dataGridView17.Location = new System.Drawing.Point(6, 340);
-            this.dataGridView17.Name = "dataGridView17";
-            this.dataGridView17.RowHeadersVisible = false;
-            this.dataGridView17.Size = new System.Drawing.Size(1039, 98);
-            this.dataGridView17.TabIndex = 28;
-            // 
-            // label59
-            // 
-            this.label59.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label59.AutoSize = true;
-            this.label59.Font = new System.Drawing.Font("宋体", 15F);
-            this.label59.Location = new System.Drawing.Point(12, 155);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(89, 20);
-            this.label59.TabIndex = 27;
-            this.label59.Text = "强度系数";
-            // 
-            // dataGridView18
-            // 
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dataGridView18.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
-            this.dataGridView18.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView18.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dataGridView18.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView18.ContextMenuStrip = this.contextMenuStrip1;
-            this.dataGridView18.Location = new System.Drawing.Point(6, 184);
-            this.dataGridView18.Name = "dataGridView18";
-            this.dataGridView18.RowHeadersVisible = false;
-            this.dataGridView18.Size = new System.Drawing.Size(1039, 90);
-            this.dataGridView18.TabIndex = 26;
-            this.dataGridView18.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView18_CellContentClick);
-            // 
-            // label60
-            // 
-            this.label60.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label60.AutoSize = true;
-            this.label60.Font = new System.Drawing.Font("宋体", 15F);
-            this.label60.Location = new System.Drawing.Point(12, 47);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(89, 20);
-            this.label60.TabIndex = 25;
-            this.label60.Text = "刚度系数";
-            // 
-            // dataGridView19
-            // 
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dataGridView19.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
-            this.dataGridView19.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView19.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dataGridView19.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView19.ContextMenuStrip = this.contextMenuStrip1;
-            this.dataGridView19.Location = new System.Drawing.Point(7, 75);
-            this.dataGridView19.Name = "dataGridView19";
-            this.dataGridView19.RowHeadersVisible = false;
-            this.dataGridView19.Size = new System.Drawing.Size(1039, 65);
-            this.dataGridView19.TabIndex = 24;
-            // 
-            // textBox27
-            // 
-            this.textBox27.Location = new System.Drawing.Point(373, 14);
-            this.textBox27.Name = "textBox27";
-            this.textBox27.Size = new System.Drawing.Size(95, 21);
-            this.textBox27.TabIndex = 21;
-            // 
-            // label62
-            // 
-            this.label62.AutoSize = true;
-            this.label62.Location = new System.Drawing.Point(302, 17);
-            this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(65, 12);
-            this.label62.TabIndex = 20;
-            this.label62.Text = "缝材料总数";
-            // 
-            // textBox28
-            // 
-            this.textBox28.Location = new System.Drawing.Point(166, 14);
-            this.textBox28.Name = "textBox28";
-            this.textBox28.Size = new System.Drawing.Size(95, 21);
-            this.textBox28.TabIndex = 19;
-            // 
-            // label63
-            // 
-            this.label63.AutoSize = true;
-            this.label63.Location = new System.Drawing.Point(53, 17);
-            this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(65, 12);
-            this.label63.TabIndex = 18;
-            this.label63.Text = "缝单元总数";
-            // 
-            // label56
-            // 
-            this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(14, 276);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(521, 12);
-            this.label56.TabIndex = 30;
-            this.label56.Text = "（注：抗拉强度；黏聚力；摩擦系数；灌浆后强度增量系数；屈服后的残余系数；缝的初始状态）";
-            // 
-            // tabPage12
-            // 
-            this.tabPage12.Controls.Add(this.dataGridView16);
-            this.tabPage12.Controls.Add(this.textBox26);
-            this.tabPage12.Controls.Add(this.label61);
-            this.tabPage12.Location = new System.Drawing.Point(4, 23);
-            this.tabPage12.Name = "tabPage12";
-            this.tabPage12.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage12.Size = new System.Drawing.Size(1052, 443);
-            this.tabPage12.TabIndex = 11;
-            this.tabPage12.Text = "灌浆数据";
-            this.tabPage12.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView16
-            // 
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dataGridView16.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle18;
-            this.dataGridView16.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView16.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dataGridView16.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView16.ContextMenuStrip = this.contextMenuStrip1;
-            this.dataGridView16.Location = new System.Drawing.Point(7, 75);
-            this.dataGridView16.Name = "dataGridView16";
-            this.dataGridView16.RowHeadersVisible = false;
-            this.dataGridView16.Size = new System.Drawing.Size(1039, 349);
-            this.dataGridView16.TabIndex = 22;
-            // 
-            // textBox26
-            // 
-            this.textBox26.Location = new System.Drawing.Point(186, 19);
-            this.textBox26.Name = "textBox26";
-            this.textBox26.Size = new System.Drawing.Size(151, 21);
-            this.textBox26.TabIndex = 21;
-            this.textBox26.TextChanged += new System.EventHandler(this.textBox26_TextChanged);
-            // 
-            // label61
-            // 
-            this.label61.AutoSize = true;
-            this.label61.Location = new System.Drawing.Point(67, 21);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(77, 12);
-            this.label61.TabIndex = 20;
-            this.label61.Text = "灌浆单元数 :";
-            // 
-            // tabPage13
-            // 
-            this.tabPage13.Controls.Add(this.textBox30);
-            this.tabPage13.Controls.Add(this.label65);
-            this.tabPage13.Controls.Add(this.dataGridView20);
-            this.tabPage13.Controls.Add(this.textBox29);
-            this.tabPage13.Controls.Add(this.label64);
-            this.tabPage13.Location = new System.Drawing.Point(4, 23);
-            this.tabPage13.Name = "tabPage13";
-            this.tabPage13.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage13.Size = new System.Drawing.Size(1052, 443);
-            this.tabPage13.TabIndex = 12;
-            this.tabPage13.Text = "给定节点温度";
-            this.tabPage13.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView20
-            // 
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dataGridView20.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.dataGridView20.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView20.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dataGridView20.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView20.ContextMenuStrip = this.contextMenuStrip1;
-            this.dataGridView20.Location = new System.Drawing.Point(7, 75);
-            this.dataGridView20.Name = "dataGridView20";
-            this.dataGridView20.RowHeadersVisible = false;
-            this.dataGridView20.Size = new System.Drawing.Size(1039, 362);
-            this.dataGridView20.TabIndex = 25;
-            // 
-            // textBox29
-            // 
-            this.textBox29.Location = new System.Drawing.Point(186, 19);
-            this.textBox29.Name = "textBox29";
-            this.textBox29.Size = new System.Drawing.Size(151, 21);
-            this.textBox29.TabIndex = 24;
-            this.textBox29.TextChanged += new System.EventHandler(this.textBox29_TextChanged);
-            // 
-            // label64
-            // 
-            this.label64.AutoSize = true;
-            this.label64.Location = new System.Drawing.Point(67, 21);
-            this.label64.Name = "label64";
-            this.label64.Size = new System.Drawing.Size(95, 12);
-            this.label64.TabIndex = 23;
-            this.label64.Text = "给定温度节点数:";
-            // 
-            // textBox30
-            // 
-            this.textBox30.Location = new System.Drawing.Point(450, 16);
-            this.textBox30.Name = "textBox30";
-            this.textBox30.Size = new System.Drawing.Size(151, 21);
-            this.textBox30.TabIndex = 27;
-            this.textBox30.TextChanged += new System.EventHandler(this.textBox30_TextChanged);
-            // 
-            // label65
-            // 
-            this.label65.AutoSize = true;
-            this.label65.Location = new System.Drawing.Point(390, 20);
-            this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(47, 12);
-            this.label65.TabIndex = 26;
-            this.label65.Text = "总步数:";
-            // 
-            // tabPage14
-            // 
-            this.tabPage14.Controls.Add(this.dataGridView21);
-            this.tabPage14.Controls.Add(this.label69);
-            this.tabPage14.Controls.Add(this.dataGridView22);
-            this.tabPage14.Controls.Add(this.groupBox9);
-            this.tabPage14.Controls.Add(this.label74);
-            this.tabPage14.Controls.Add(this.dataGridView24);
-            this.tabPage14.Controls.Add(this.textBox33);
-            this.tabPage14.Controls.Add(this.label68);
-            this.tabPage14.Controls.Add(this.textBox31);
-            this.tabPage14.Controls.Add(this.label66);
-            this.tabPage14.Controls.Add(this.textBox32);
-            this.tabPage14.Controls.Add(this.label67);
-            this.tabPage14.Location = new System.Drawing.Point(4, 23);
-            this.tabPage14.Name = "tabPage14";
-            this.tabPage14.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage14.Size = new System.Drawing.Size(1052, 443);
-            this.tabPage14.TabIndex = 13;
-            this.tabPage14.Text = "库水河水温度";
-            this.tabPage14.UseVisualStyleBackColor = true;
-            // 
-            // textBox31
-            // 
-            this.textBox31.Location = new System.Drawing.Point(475, 27);
-            this.textBox31.Name = "textBox31";
-            this.textBox31.Size = new System.Drawing.Size(151, 21);
-            this.textBox31.TabIndex = 31;
-            // 
-            // label66
-            // 
-            this.label66.AutoSize = true;
-            this.label66.Location = new System.Drawing.Point(389, 30);
-            this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(83, 12);
-            this.label66.TabIndex = 30;
-            this.label66.Text = "蓄水结束日期:";
-            // 
-            // textBox32
-            // 
-            this.textBox32.Location = new System.Drawing.Point(185, 27);
-            this.textBox32.Name = "textBox32";
-            this.textBox32.Size = new System.Drawing.Size(151, 21);
-            this.textBox32.TabIndex = 29;
-            // 
-            // label67
-            // 
-            this.label67.AutoSize = true;
-            this.label67.Location = new System.Drawing.Point(66, 30);
-            this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(83, 12);
-            this.label67.TabIndex = 28;
-            this.label67.Text = "初次蓄水日期:";
-            // 
-            // textBox33
-            // 
-            this.textBox33.Location = new System.Drawing.Point(787, 27);
-            this.textBox33.Name = "textBox33";
-            this.textBox33.Size = new System.Drawing.Size(151, 21);
-            this.textBox33.TabIndex = 33;
-            this.textBox33.TextChanged += new System.EventHandler(this.textBox33_TextChanged);
-            // 
-            // label68
-            // 
-            this.label68.AutoSize = true;
-            this.label68.Location = new System.Drawing.Point(638, 30);
-            this.label68.Name = "label68";
-            this.label68.Size = new System.Drawing.Size(143, 12);
-            this.label68.TabIndex = 32;
-            this.label68.Text = "库水温数据行（水深）数:";
-            // 
-            // dataGridView21
-            // 
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dataGridView21.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView21.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dataGridView21.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView21.ContextMenuStrip = this.contextMenuStrip1;
-            this.dataGridView21.Location = new System.Drawing.Point(7, 375);
-            this.dataGridView21.Name = "dataGridView21";
-            this.dataGridView21.RowHeadersVisible = false;
-            this.dataGridView21.Size = new System.Drawing.Size(1039, 63);
-            this.dataGridView21.TabIndex = 45;
-            // 
-            // label69
-            // 
-            this.label69.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label69.AutoSize = true;
-            this.label69.Font = new System.Drawing.Font("宋体", 15F);
-            this.label69.Location = new System.Drawing.Point(448, 340);
-            this.label69.Name = "label69";
-            this.label69.Size = new System.Drawing.Size(89, 20);
-            this.label69.TabIndex = 44;
-            this.label69.Text = "河水温度";
-            // 
-            // dataGridView22
-            // 
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dataGridView22.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
-            this.dataGridView22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView22.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dataGridView22.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView22.ContextMenuStrip = this.contextMenuStrip1;
-            this.dataGridView22.Location = new System.Drawing.Point(7, 226);
-            this.dataGridView22.Name = "dataGridView22";
-            this.dataGridView22.RowHeadersVisible = false;
-            this.dataGridView22.Size = new System.Drawing.Size(1039, 98);
-            this.dataGridView22.TabIndex = 43;
-            // 
-            // groupBox9
-            // 
-            this.groupBox9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox9.Controls.Add(this.label76);
-            this.groupBox9.Controls.Add(this.textBox37);
-            this.groupBox9.Controls.Add(this.label75);
-            this.groupBox9.Controls.Add(this.textBox36);
-            this.groupBox9.Controls.Add(this.label73);
-            this.groupBox9.Controls.Add(this.textBox35);
-            this.groupBox9.Controls.Add(this.label71);
-            this.groupBox9.Location = new System.Drawing.Point(50, 170);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(904, 38);
-            this.groupBox9.TabIndex = 39;
-            this.groupBox9.TabStop = false;
-            // 
-            // textBox35
-            // 
-            this.textBox35.Location = new System.Drawing.Point(790, 12);
-            this.textBox35.Name = "textBox35";
-            this.textBox35.Size = new System.Drawing.Size(95, 21);
-            this.textBox35.TabIndex = 16;
-            this.textBox35.TextChanged += new System.EventHandler(this.textBox35_TextChanged);
-            // 
-            // label71
-            // 
-            this.label71.AutoSize = true;
-            this.label71.Location = new System.Drawing.Point(666, 15);
-            this.label71.Name = "label71";
-            this.label71.Size = new System.Drawing.Size(119, 12);
-            this.label71.TabIndex = 16;
-            this.label71.Text = "下游水温表数据行数:";
-            // 
-            // label74
-            // 
-            this.label74.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label74.AutoSize = true;
-            this.label74.Font = new System.Drawing.Font("宋体", 15F);
-            this.label74.Location = new System.Drawing.Point(448, 54);
-            this.label74.Name = "label74";
-            this.label74.Size = new System.Drawing.Size(109, 20);
-            this.label74.TabIndex = 35;
-            this.label74.Text = "库水温信息";
-            // 
-            // dataGridView24
-            // 
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dataGridView24.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle20;
-            this.dataGridView24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView24.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dataGridView24.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView24.ContextMenuStrip = this.contextMenuStrip1;
-            this.dataGridView24.Location = new System.Drawing.Point(7, 79);
-            this.dataGridView24.Name = "dataGridView24";
-            this.dataGridView24.RowHeadersVisible = false;
-            this.dataGridView24.Size = new System.Drawing.Size(1039, 76);
-            this.dataGridView24.TabIndex = 34;
-            // 
-            // textBox36
-            // 
-            this.textBox36.Location = new System.Drawing.Point(109, 12);
-            this.textBox36.Name = "textBox36";
-            this.textBox36.Size = new System.Drawing.Size(95, 21);
-            this.textBox36.TabIndex = 17;
-            // 
-            // label73
-            // 
-            this.label73.AutoSize = true;
-            this.label73.Location = new System.Drawing.Point(19, 14);
-            this.label73.Name = "label73";
-            this.label73.Size = new System.Drawing.Size(83, 12);
-            this.label73.TabIndex = 18;
-            this.label73.Text = "下游水温类型:";
-            // 
-            // textBox37
-            // 
-            this.textBox37.Location = new System.Drawing.Point(562, 12);
-            this.textBox37.Name = "textBox37";
-            this.textBox37.Size = new System.Drawing.Size(95, 21);
-            this.textBox37.TabIndex = 19;
-            // 
-            // label75
-            // 
-            this.label75.AutoSize = true;
-            this.label75.Location = new System.Drawing.Point(485, 15);
-            this.label75.Name = "label75";
-            this.label75.Size = new System.Drawing.Size(71, 12);
-            this.label75.TabIndex = 20;
-            this.label75.Text = "泄水孔高程:";
-            // 
-            // label76
-            // 
-            this.label76.AutoSize = true;
-            this.label76.Font = new System.Drawing.Font("宋体", 7F);
-            this.label76.Location = new System.Drawing.Point(213, 18);
-            this.label76.Name = "label76";
-            this.label76.Size = new System.Drawing.Size(260, 10);
-            this.label76.TabIndex = 21;
-            this.label76.Text = "（1 气温；2 泄水孔高程处的上游水温； 3 下游水温表）";
-            // 
             // frmProductMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -2773,6 +2731,24 @@
             this.tabPage10.ResumeLayout(false);
             this.tabPage10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView15)).EndInit();
+            this.tabPage11.ResumeLayout(false);
+            this.tabPage11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView18)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView19)).EndInit();
+            this.tabPage12.ResumeLayout(false);
+            this.tabPage12.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView16)).EndInit();
+            this.tabPage13.ResumeLayout(false);
+            this.tabPage13.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView20)).EndInit();
+            this.tabPage14.ResumeLayout(false);
+            this.tabPage14.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView21)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView22)).EndInit();
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView24)).EndInit();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
             this.toolStrip3.ResumeLayout(false);
@@ -2794,30 +2770,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource15)).EndInit();
-            this.tabPage11.ResumeLayout(false);
-            this.tabPage11.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView17)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView18)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView19)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource18)).EndInit();
-            this.tabPage12.ResumeLayout(false);
-            this.tabPage12.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource19)).EndInit();
-            this.tabPage13.ResumeLayout(false);
-            this.tabPage13.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView20)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource20)).EndInit();
-            this.tabPage14.ResumeLayout(false);
-            this.tabPage14.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource21)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView21)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView22)).EndInit();
-            this.groupBox9.ResumeLayout(false);
-            this.groupBox9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView24)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource22)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource23)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource24)).EndInit();
@@ -2841,12 +2799,6 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Product_no;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Product_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Product_salse;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Product_address;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Input_Date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Product_id;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label24;

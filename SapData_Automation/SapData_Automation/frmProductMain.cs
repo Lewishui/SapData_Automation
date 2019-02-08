@@ -268,20 +268,28 @@ namespace SapData_Automation
                     sw = wxdav(nowfile, this.dataGridView7, sw);
                     //荷载
                     if (radioButton8.Checked == true)
-                        wtx = "\r\n" + "0";
-                    else if (radioButton9.Checked == true)
-                        wtx = "\r\n" + "1";
-
-                    else if (radioButton10.Checked == true)
-                        wtx = "\r\n" + "2";
-                    else if (radioButton11.Checked == true)
-                        wtx = "\r\n" + "3";
+                        wtx = "" + "1";
+                    else
+                        wtx = "" + "0";
+                    if (radioButton9.Checked == true)
+                        wtx += " " + "1";
+                    else
+                        wtx += " " + "0";
+                    if (radioButton10.Checked == true)
+                        wtx += " " + "1";
+                    else
+                        wtx += " " + "0";
+                    if (radioButton11.Checked == true)
+                        wtx += " " + "1";
+                    else
+                        wtx += " " + "0";
 
                     //渗透力::
                     wtx += " " + textBox18.Text;
                     //自生体积变形定义点数
-                    wtx += "\r\n" + textBox19.Text;
+                    wtx += "\r\n\r\n" + textBox19.Text;
 
+                    wtx += "\r\n";
                     sw.WriteLine(wtx);
 
                     //自生体积变形
@@ -289,10 +297,10 @@ namespace SapData_Automation
 
                     //氧化镁
                     if (radioButton12.Checked == true)
-                        wtx = "\r\n" + "0";
+                        wtx = "" + "0";
                     else if (radioButton12.Checked == true)
-                        wtx = "\r\n" + "1";
-
+                        wtx = "" + "1";
+                    wtx += "\r\n";
                     sw.WriteLine(wtx);
 
 
@@ -1253,13 +1261,15 @@ namespace SapData_Automation
                     //表面散热系数
                     var qtyTable_dav3 = new DataTable();
                     qtyTable_dav3.Columns.Add("βw", System.Type.GetType("System.String"));//0
-                    int icount = Convert.ToInt32(textBox13.Text);
-                    for (int i3 = 1; i3 <= icount; i3++)
+                    if (textBox13.Text.Length > 0)
                     {
-                        qtyTable_dav3.Columns.Add("β" + i3, System.Type.GetType("System.String"));//0
+                        int icount = Convert.ToInt32(textBox13.Text);
+                        for (int i3 = 1; i3 <= icount; i3++)
+                        {
+                            qtyTable_dav3.Columns.Add("β" + i3, System.Type.GetType("System.String"));//0
 
+                        }
                     }
-
                     //
                     int ongo1 = ongo + 1;
                     // ongo1 = 3;
@@ -1268,7 +1278,7 @@ namespace SapData_Automation
                     {
                         ongo = j;
 
-                        if (fileText[j].Contains("\t\t\t\t") || fileText[j] == "")
+                        if (fileText[j].Contains("\t\t\t") || fileText[j] == "")
                         {
                             break;
                         }
@@ -1279,6 +1289,7 @@ namespace SapData_Automation
 
                         for (int jj = 0; jj < fileText1.Length - 1; jj++)
                         {
+                            if (jj < qtyTable_dav3.Columns.Count)
                             qtyTable_dav3.Rows[rowindex][jj] = fileText1[jj];
                         }
                         rowindex++;
@@ -1313,6 +1324,7 @@ namespace SapData_Automation
 
                         for (int jj = 0; jj < fileText1.Length - 1; jj++)
                         {
+                            if (jj < qtyTable_dav4.Columns.Count)
                             qtyTable_dav4.Rows[rowindex][jj] = fileText1[jj];
                         }
                         rowindex++;
@@ -1339,7 +1351,7 @@ namespace SapData_Automation
                     {
                         ongo = j;
 
-                        if (fileText[j].Contains("\t\t\t\t") || fileText[j] == "")
+                        if (j>=fileText.Length||  fileText[j].Contains("\t\t\t\t") || fileText[j] == "")
                         {
                             break;
                         }
@@ -1405,13 +1417,19 @@ namespace SapData_Automation
 
                     int ongo1 = ongo + 1;
                     int rowindex = 0;
+                    int isgo = 0;
                     for (int j = ongo1; j <= fileText.Length; j++)
                     {
                         ongo = j;
 
-                        if (fileText[j].Contains("\t\t\t\t") || fileText[j] == "")
+                        if (j >= fileText.Length || fileText[j].Contains("\t\t\t\t") || fileText[j] == "")
                         {
-                            break;
+                            isgo++;
+                            if (isgo > 1)
+                                break;
+                            else
+                                continue;
+
                         }
                         qtyTable_dav5.Rows.Add(qtyTable_dav5.NewRow());
 
@@ -1441,18 +1459,29 @@ namespace SapData_Automation
 
                     ongo1 = ongo + 1;
                     rowindex = 0;
+                    isgo = 0;
+
                     for (int j = ongo1; j <= fileText.Length; j++)
                     {
                         ongo = j;
 
-                        if (fileText[j].Contains("\t\t\t\t") || fileText[j] == "")
+                        if (j >= fileText.Length || fileText[j].Contains("\t\t\t\t") || fileText[j] == "")
                         {
+                            //isgo++;
+                            //if (isgo > 1)
                             break;
+                            //else
+                            //    continue;
                         }
-
+                        if (fileText[j] == "" && j == 1)
+                            continue;
                         qtyTable_dav6.Rows.Add(qtyTable_dav6.NewRow());
 
                         string[] fileText1 = System.Text.RegularExpressions.Regex.Split(fileText[j], "\t");
+                        if (fileText1.Length < 2)
+                            fileText1 = System.Text.RegularExpressions.Regex.Split(fileText[j].Trim().Replace("    ", " ").Replace("   ", " ").Replace("  ", " "), "\t");
+                        if (fileText1.Length < 2)
+                            fileText1 = System.Text.RegularExpressions.Regex.Split(fileText[j].Trim().Replace("    ", " ").Replace("   ", " ").Replace("  ", " "), " ");
 
                         for (int jj = 0; jj < fileText1.Length - 1; jj++)
                         {
@@ -1465,15 +1494,20 @@ namespace SapData_Automation
                     //荷载
                     ongo1 = ongo + 1;
                     rowindex = 0;
+                    isgo = 0;
                     for (int j = ongo1; j <= fileText.Length; j++)
                     {
                         ongo = j;
 
-                        if (fileText[j].Contains("\t\t\t\t") || fileText[j] == "")
+                        if (j >= fileText.Length || fileText[j].Contains("\t\t\t\t") || fileText[j] == "")
                         {
+                            //isgo++;
+                            //if (isgo >1)
                             break;
+                            //else
+                            //    continue;
                         }
-                        string[] fileText1 = System.Text.RegularExpressions.Regex.Split(fileText[j], " ");
+                        string[] fileText1 = System.Text.RegularExpressions.Regex.Split(fileText[j].Trim().Replace("    ", " ").Replace("   ", " ").Replace("  ", " "), " ");
 
                         //if (fileText1.Length > 0 && fileText1[0] == "1")
                         //    radioButton1.Checked = true;
@@ -1482,32 +1516,41 @@ namespace SapData_Automation
                         //计算量2
                         if (fileText1.Length >= 1 && fileText1[0] == "0")
                             radioButton8.Checked = true;
-                        if (fileText1.Length >= 1 && fileText1[0] == "1")
+                        if (fileText1.Length >= 2 && fileText1[1] == "1")
                             radioButton9.Checked = true;
-                        if (fileText1.Length >= 1 && fileText1[0] == "2")
+                        if (fileText1.Length >= 3 && fileText1[2] == "2")
                             radioButton10.Checked = true;
-                        if (fileText1.Length >= 1 && fileText1[0] == "4")
+                        if (fileText1.Length >= 4 && fileText1[3] == "4")
                             radioButton11.Checked = true;
                         ////渗透力
-                        if (fileText1.Length > 1)
-                            this.textBox18.Text = fileText1[1];
+                        if (fileText1.Length > 5)
+                            this.textBox18.Text = fileText1[4];
+                        //自生体积变形定义点数
+                        if (fileText1.Length >= 6)
+                            this.textBox19.Text = fileText1[5];
+                        break;
 
                     }
                     //自生体积变形定义点数
                     ongo1 = ongo + 1;
                     rowindex = 0;
+                    isgo = 0;
                     for (int j = ongo1; j <= fileText.Length; j++)
                     {
                         ongo = j;
 
-                        if (fileText[j].Contains("\t\t\t\t") || fileText[j] == "")
+                        if (j >= fileText.Length || fileText[j].Contains("\t\t\t\t") || fileText[j] == "")
                         {
-                            break;
+                            isgo++;
+                            if (isgo > 1)
+                                break;
+                            else
+                                continue;
                         }
-                        string[] fileText1 = System.Text.RegularExpressions.Regex.Split(fileText[j], " ");
+                        string[] fileText1 = System.Text.RegularExpressions.Regex.Split(fileText[j].Trim().Replace("    ", " ").Replace("   ", " ").Replace("  ", " "), " ");
 
                         ////自生体积变形定义点数
-                        if (fileText1.Length > 1)
+                        if (fileText1.Length >= 1)
                             this.textBox19.Text = fileText1[0];
 
                     }
@@ -1525,43 +1568,54 @@ namespace SapData_Automation
                     }
                     ongo1 = ongo + 1;
                     rowindex = 0;
+                    isgo = 0;
                     for (int j = ongo1; j <= fileText.Length; j++)
                     {
                         ongo = j;
 
-                        if (fileText.Length > j && (fileText[j].Contains("\t\t\t\t") || fileText[j] == ""))
+                        if (j >= fileText.Length || (fileText[j].Contains("\t\t") || fileText[j] == ""))
                         {
+                            //isgo++;
+                            //if (isgo > 1)
                             break;
+                            //else
+                            //    continue;
                         }
 
                         qtyTable8.Rows.Add(qtyTable8.NewRow());
 
                         if (fileText.Length > j)
                         {
-                            string[] fileText1 = System.Text.RegularExpressions.Regex.Split(fileText[j], "\t");
+                            string[] fileText1 = System.Text.RegularExpressions.Regex.Split(fileText[j].Trim().Replace("    ", " ").Replace("   ", " ").Replace("  ", " "), "\t");
 
                             for (int jj = 0; jj < fileText1.Length - 1; jj++)
                             {
-                                qtyTable8.Rows[rowindex][jj] = fileText1[jj];
+                                if (jj < qtyTable8.Columns.Count)
+                                    qtyTable8.Rows[rowindex][jj] = fileText1[jj];
                             }
                             rowindex++;
                         }
                     }
                     ongo1 = ongo + 1;
                     rowindex = 0;
+                    isgo = 0;
                     for (int j = ongo1; j <= fileText.Length; j++)
                     {
                         ongo = j;
 
-                        if (fileText[j].Contains("\t\t\t\t") || fileText[j] == "")
+                        if (j >= fileText.Length || fileText[j].Contains("\t\t\t\t") || fileText[j] == "")
                         {
+                            //isgo++;
+                            //if (isgo > 1)
                             break;
+                            //else
+                            //    continue;
                         }
-                        string[] fileText1 = System.Text.RegularExpressions.Regex.Split(fileText[j], " ");
+                        string[] fileText1 = System.Text.RegularExpressions.Regex.Split(fileText[j].Trim().Replace("    ", " ").Replace("   ", " ").Replace("  ", " "), " ");
 
                         if (fileText1.Length > 0 && fileText1[0] == "1")
                             radioButton12.Checked = true;
-                        else if (fileText1.Length > 1 && fileText1[0] == "0")
+                        else if (fileText1.Length > 0 && fileText1[0] == "0")
                             radioButton12.Checked = false;
                     }
 
@@ -1582,13 +1636,31 @@ namespace SapData_Automation
 
                     ongo1 = ongo + 1;
                     rowindex = 0;
+                    isgo = 0;
                     for (int j = ongo1; j <= fileText.Length; j++)
                     {
                         ongo = j;
 
-                        if (fileText[j].Contains("\t\t\t\t") || fileText[j] == "")
+                        if (j >= fileText.Length || fileText[j].Contains("\t\t\t\t") || fileText[j] == "")
                         {
-                            break;
+                            int con = 0;
+                            if (j < fileText.Length && fileText[j].Contains("\t\t\t\t"))
+                            {
+                                if (fileText[j].Replace("\t", "") == "")
+                                {
+                                }
+                                else
+                                    con = 1;
+
+                            }
+                            if (con == 0)
+                            {
+                                isgo++;
+                                if (isgo > 1)
+                                    break;
+                                else
+                                    continue;
+                            }
                         }
 
                         qtyTable_dav7.Rows.Add(qtyTable_dav7.NewRow());
@@ -1602,10 +1674,6 @@ namespace SapData_Automation
                         rowindex++;
 
                     }
-
-
-
-
                     this.bindingSource6.DataSource = qtyTable_dav5;
                     this.dataGridView6.DataSource = this.bindingSource6;
 
@@ -1646,7 +1714,7 @@ namespace SapData_Automation
                     {
                         ongo = j;
 
-                        if (fileText[j].Contains("\t\t\t\t") || (fileText[j] == "" && j != 1))
+                        if (j >= fileText.Length || fileText[j].Contains("\t\t\t\t") || (fileText[j] == "" && j != 1))
                         {
                             break;
                         }
@@ -1714,7 +1782,7 @@ namespace SapData_Automation
                     {
                         ongo = j;
 
-                        if (fileText[j].Contains("\t\t\t\t") || (fileText[j] == "" && j != 1))
+                        if (j >= fileText.Length || fileText[j].Contains("\t\t\t\t") || (fileText[j] == "" && j != 1))
                         {
                             break;
                         }
@@ -1751,7 +1819,7 @@ namespace SapData_Automation
                     {
                         ongo = j;
 
-                        if (fileText[j].Contains("\t\t\t\t") || (fileText[j] == "" && j != 1))
+                        if (j >= fileText.Length || fileText[j].Contains("\t\t\t\t") || (fileText[j] == "" && j != 1))
                         {
                             break;
                         }
@@ -1826,7 +1894,7 @@ namespace SapData_Automation
                         {
                             ongo = j;
 
-                            if (fileText[j].Contains("\t\t\t\t") || (fileText[j] == "" && j != 1))
+                            if (j >= fileText.Length || fileText[j].Contains("\t\t\t\t") || (fileText[j] == "" && j != 1))
                             {
                                 break;
                             }
@@ -1843,6 +1911,7 @@ namespace SapData_Automation
                                 for (int jj = 0; jj < fileText1.Length; jj++)
                                 {
                                     cloindex = jj;
+                                    if (rowindex < qtyTable_dav11.Rows.Count)
                                     qtyTable_dav11.Rows[rowindex][jj] = fileText1[jj];
                                 }
                                 isadd++;
@@ -1855,11 +1924,13 @@ namespace SapData_Automation
 
                                 for (int jj = 0; jj < fileText1.Length; jj++)
                                 {
-                                    if (qtyTable_dav11.Columns.Count > cloindex + 1)
+                                    if (qtyTable_dav11.Columns.Count >= cloindex +1)
                                     {
-
-                                        qtyTable_dav11.Rows[rowindex - 1][cloindex + 1] = fileText1[jj];
-                                        cloindex++;
+                                        if (rowindex - 1 < qtyTable_dav11.Rows.Count)
+                                        {
+                                            qtyTable_dav11.Rows[rowindex - 1][cloindex ] = fileText1[jj];
+                                            cloindex++;
+                                        }
                                     }
                                 }
                                 cloindex = 0;
@@ -1924,7 +1995,7 @@ namespace SapData_Automation
                     {
                         ongo = j;
 
-                        if (fileText[j].Contains("\t\t\t\t") || (fileText[j] == "" && j != 1))
+                        if (j >= fileText.Length || fileText[j].Contains("\t\t\t\t") || (fileText[j] == "" && j != 1))
                         {
                             break;
                         }
@@ -2099,7 +2170,7 @@ namespace SapData_Automation
 
                         for (int jj = 0; jj < fileText1.Length; jj++)
                         {
-                            if (jj < 9)
+                            if (jj  < qtyTable_dav15.Columns.Count-1)
                                 qtyTable_dav15.Rows[rowindex][jj + 1] = fileText1[jj];
                         }
                         qtyTable_dav15.Rows[rowindex][0] = rowindex + 1;
@@ -2142,8 +2213,9 @@ namespace SapData_Automation
                         for (int jj = 0; jj < fileText1.Length - 1; jj++)
                         {
                             if (jj < 10)
-                                qtyTable_dav16.Rows[rowindex][jj] = fileText1[jj];
+                                qtyTable_dav16.Rows[rowindex][jj+1] = fileText1[jj];
                         }
+                        qtyTable_dav16.Rows[rowindex][0] = rowindex + 1;
                         rowindex++;
 
                     }
@@ -2248,8 +2320,8 @@ namespace SapData_Automation
                         int icount1 = Convert.ToInt32(textBox29.Text);
                         for (int i2 = 1; i2 <= icount1; i2++)
                         {
-                            qtyTable_dav19.Rows.Add("" + i2, System.Type.GetType("System.String"));//0
-
+                           // qtyTable_dav19.Rows.Add("" + i2, System.Type.GetType("System.String"));//0
+                            qtyTable_dav19.Rows.Add(qtyTable_dav19.NewRow());
                         }
                         int ongo1 = ongo + 1;
                         int rowindex = 0;
@@ -2272,9 +2344,10 @@ namespace SapData_Automation
 
                             for (int jj = 0; jj < fileText1.Length; jj++)
                             {
-                                if (jj <= icount)
+                                if (jj <= icount && rowindex < qtyTable_dav19.Rows.Count)
                                     qtyTable_dav19.Rows[rowindex][jj + 1] = fileText1[jj];
                             }
+                            if (rowindex < qtyTable_dav19.Rows.Count)
                             qtyTable_dav19.Rows[rowindex][0] = rowindex + 1;
                             rowindex++;
 
@@ -2340,11 +2413,15 @@ namespace SapData_Automation
 
                     if (textBox33.Text.Length > 0)
                     {
-                        int icount = Convert.ToInt32(textBox33.Text);
-                        for (int iq = 1; iq <= icount; iq++)
+                        if (!textBox33.Text.Contains(" "))
                         {
-                            qtyTable_dav20.Rows.Add("" + iq, System.Type.GetType("System.String"));//0
+                            int icount = Convert.ToInt32(textBox33.Text);
+                            for (int iq = 1; iq <= icount; iq++)
+                            {
+                                //qtyTable_dav20.Rows.Add("" + iq, System.Type.GetType("System.String"));//0
+                                qtyTable_dav20.Rows.Add(qtyTable_dav20.NewRow());
 
+                            }
                         }
                     }
 
@@ -2353,7 +2430,7 @@ namespace SapData_Automation
                     for (int j = 2; j <= fileText.Length; j++)
                     {
                         ongo = j;
-                        if (fileText[j].Contains("\t\t\t\t") || fileText[j] == "")
+                        if (j >= fileText.Length || fileText[j].Contains("\t\t\t\t") || fileText[j] == "")
                         {
                             if (j > 4)
                                 break;
@@ -2364,7 +2441,7 @@ namespace SapData_Automation
                         if (fileText[j] == "" && j == 1)
                             continue;
 
-                      //  qtyTable_dav20.Rows.Add(qtyTable_dav20.NewRow());
+                        //  qtyTable_dav20.Rows.Add(qtyTable_dav20.NewRow());
 
                         string[] fileText1 = System.Text.RegularExpressions.Regex.Split(fileText[j], "\t");
                         if (fileText1.Length < 2)
@@ -2372,10 +2449,11 @@ namespace SapData_Automation
 
                         for (int jj = 0; jj < fileText1.Length; jj++)
                         {
-                            if (jj + 1 < qtyTable_dav20.Columns.Count)
+                            if (jj + 1 < qtyTable_dav20.Columns.Count && rowindex < qtyTable_dav20.Rows.Count)
                                 qtyTable_dav20.Rows[rowindex][jj + 1] = fileText1[jj];
                         }
-                        qtyTable_dav20.Rows[rowindex][0] = rowindex + 1;
+                        if (rowindex < qtyTable_dav20.Rows.Count)
+                            qtyTable_dav20.Rows[rowindex][0] = rowindex + 1;
                         rowindex++;
 
 
@@ -2433,8 +2511,8 @@ namespace SapData_Automation
                         int icount = Convert.ToInt32(textBox35.Text);
                         for (int iw = 1; iw <= icount; iw++)
                         {
-                            qtyTable_dav21.Rows.Add("" + iw, System.Type.GetType("System.String"));//0
-
+                            //qtyTable_dav21.Rows.Add("" + iw, System.Type.GetType("System.String"));//0
+                            qtyTable_dav21.Rows.Add(qtyTable_dav21.NewRow());
                         }
                     }
 
@@ -2458,7 +2536,7 @@ namespace SapData_Automation
                         if (fileText[j] == "" && j == 1)
                             continue;
 
-                      //  qtyTable_dav21.Rows.Add(qtyTable_dav21.NewRow());
+                        //  qtyTable_dav21.Rows.Add(qtyTable_dav21.NewRow());
 
                         string[] fileText1 = System.Text.RegularExpressions.Regex.Split(fileText[j], "\t");
                         if (fileText1.Length < 2)
@@ -2466,10 +2544,11 @@ namespace SapData_Automation
 
                         for (int jj = 0; jj < fileText1.Length; jj++)
                         {
-                            if (jj + 1 < qtyTable_dav21.Columns.Count)
+                            if (jj + 1 < qtyTable_dav21.Columns.Count && rowindex < qtyTable_dav21.Rows.Count)
                                 qtyTable_dav21.Rows[rowindex][jj + 1] = fileText1[jj];
                         }
-                        qtyTable_dav21.Rows[rowindex][0] = rowindex + 1;
+                        if (rowindex < qtyTable_dav21.Rows.Count)
+                            qtyTable_dav21.Rows[rowindex][0] = rowindex + 1;
 
                         rowindex++;
 
@@ -2546,62 +2625,123 @@ namespace SapData_Automation
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             int s = this.tabControl1.SelectedIndex;
-            if (s == 1 && (nowfile == null || nowfile == ""))
+            #region MyRegion
+            //if (s == 1 && (nowfile == null || nowfile == ""))
+            //{
+            //    toolStripDropDownButton2_Click(null, EventArgs.Empty);
+            //}
+
+            //if (s == 2 && (nowfile == null || nowfile == ""))
+            //{
+            //    toolStripDropDownButton3_Click(null, EventArgs.Empty);
+            //}
+            //if (s == 3 && (nowfile == null || nowfile == ""))
+            //{
+            //    toolStripDropDownButton4_Click(null, EventArgs.Empty);
+            //}
+            //if (s == 4 && (nowfile == null || nowfile == ""))
+            //{
+            //    toolStripDropDownButton5_Click(null, EventArgs.Empty);
+            //}
+            //if (s == 5 && (nowfile == null || nowfile == ""))
+            //{
+            //    toolStripDropDownButton6_Click(null, EventArgs.Empty);
+
+            //}
+            //if (s == 6 && (nowfile == null || nowfile == ""))
+            //{
+            //    toolStripDropDownButton7_Click(null, EventArgs.Empty);
+            //}
+
+            //if (s == 7 && (nowfile == null || nowfile == ""))
+            //{
+            //    toolStripDropDownButton8_Click(null, EventArgs.Empty);
+            //}
+            //if (s == 8 && (nowfile == null || nowfile == ""))
+            //{
+            //    toolStripDropDownButton9_Click(null, EventArgs.Empty);
+            //}
+            //if (s == 9 && (nowfile == null || nowfile == ""))
+            //{
+            //    toolStripDropDownButton10_Click(null, EventArgs.Empty);
+            //}
+            //if (s == 10 && (nowfile == null || nowfile == ""))
+            //{
+            //    toolStripDropDownButton15_Click(null, EventArgs.Empty);
+            //}
+            //if (s == 11 && (nowfile == null || nowfile == ""))
+            //{
+            //    toolStripDropDownButton12_Click(null, EventArgs.Empty);
+            //}
+            //if (s == 12 && (nowfile == null || nowfile == ""))
+            //{
+            //    toolStripDropDownButton13_Click(null, EventArgs.Empty);
+            //}
+            //if (s == 13 && (nowfile == null || nowfile == ""))
+            //{
+            //    toolStripDropDownButton14_Click(null, EventArgs.Empty);
+
+            //} 
+            #endregion
+
+            #region MyRegion
+            if (s == 1)
             {
                 toolStripDropDownButton2_Click(null, EventArgs.Empty);
             }
 
-            if (s == 2 && (nowfile == null || nowfile == ""))
+            if (s == 2)
             {
                 toolStripDropDownButton3_Click(null, EventArgs.Empty);
             }
-            if (s == 3 && (nowfile == null || nowfile == ""))
+            if (s == 3)
             {
                 toolStripDropDownButton4_Click(null, EventArgs.Empty);
             }
-            if (s == 4 && (nowfile == null || nowfile == ""))
+            if (s == 4)
             {
                 toolStripDropDownButton5_Click(null, EventArgs.Empty);
             }
-            if (s == 5 && (nowfile == null || nowfile == ""))
+            if (s == 5)
             {
                 toolStripDropDownButton6_Click(null, EventArgs.Empty);
 
             }
-            if (s == 6 && (nowfile == null || nowfile == ""))
+            if (s == 6)
             {
                 toolStripDropDownButton7_Click(null, EventArgs.Empty);
             }
 
-            if (s == 7 && (nowfile == null || nowfile == ""))
+            if (s == 7)
             {
                 toolStripDropDownButton8_Click(null, EventArgs.Empty);
             }
-            if (s == 8 && (nowfile == null || nowfile == ""))
+            if (s == 8)
             {
                 toolStripDropDownButton9_Click(null, EventArgs.Empty);
             }
-            if (s == 9 && (nowfile == null || nowfile == ""))
+            if (s == 9)
             {
                 toolStripDropDownButton10_Click(null, EventArgs.Empty);
             }
-            if (s == 10 && (nowfile == null || nowfile == ""))
+            if (s == 10)
             {
                 toolStripDropDownButton15_Click(null, EventArgs.Empty);
             }
-            if (s == 11 && (nowfile == null || nowfile == ""))
+            if (s == 11)
             {
                 toolStripDropDownButton12_Click(null, EventArgs.Empty);
             }
-            if (s == 12 && (nowfile == null || nowfile == ""))
+            if (s == 12)
             {
                 toolStripDropDownButton13_Click(null, EventArgs.Empty);
             }
-            if (s == 13 && (nowfile == null || nowfile == ""))
+            if (s == 13)
             {
                 toolStripDropDownButton14_Click(null, EventArgs.Empty);
 
             }
+            #endregion
         }
 
         private void toolStripDropDownButton1_Click(object sender, EventArgs e)
@@ -2675,8 +2815,8 @@ namespace SapData_Automation
 
                 }
 
-                this.bindingSource2.DataSource = qtyTable;
-                this.dataGridView3.DataSource = this.bindingSource2;
+                this.bindingSource3.DataSource = qtyTable;
+                this.dataGridView3.DataSource = this.bindingSource3;
             }
 
 
@@ -2770,12 +2910,14 @@ namespace SapData_Automation
                 }
             }
 
-            this.tabControl1.SelectedIndex = 6;
+            this.tabControl1.SelectedIndex = 5;
 
 
             string DesktopPath = Convert.ToString(System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop));
 
-            System.Diagnostics.Process.Start("ultraedit.exe", nowfile);
+            if (File.Exists(DesktopPath + "\\ultraedit.exe"))
+
+                System.Diagnostics.Process.Start("ultraedit.exe", nowfile);
 
 
 
@@ -2959,7 +3101,8 @@ namespace SapData_Automation
                 int icount = Convert.ToInt32(textBox26.Text);
                 for (int i = 1; i <= icount; i++)
                 {
-                    qtyTable_dav18.Rows.Add("" + i, System.Type.GetType("System.String"));//0
+                    //qtyTable_dav18.Rows.Add("" + i, System.Type.GetType("System.String"));//0
+                    qtyTable_dav18.Rows.Add(qtyTable_dav18.NewRow());
 
                 }
 
@@ -3020,8 +3163,8 @@ namespace SapData_Automation
                 int icount1 = Convert.ToInt32(textBox29.Text);
                 for (int i = 1; i <= icount1; i++)
                 {
-                    qtyTable_dav19.Rows.Add("" + i, System.Type.GetType("System.String"));//0
-
+                    //qtyTable_dav19.Rows.Add("" + i, System.Type.GetType("System.String"));//0
+                    qtyTable_dav19.Rows.Add(qtyTable_dav19.NewRow());
                 }
             }
             this.bindingSource20.DataSource = qtyTable_dav19;
@@ -3081,8 +3224,8 @@ namespace SapData_Automation
                 int icount = Convert.ToInt32(textBox35.Text);
                 for (int i = 1; i <= icount; i++)
                 {
-                    qtyTable_dav21.Rows.Add("" + i, System.Type.GetType("System.String"));//0
-
+                    //qtyTable_dav21.Rows.Add("" + i, System.Type.GetType("System.String"));//0
+                    qtyTable_dav21.Rows.Add(qtyTable_dav21.NewRow());
                 }
             }
             this.bindingSource23.DataSource = qtyTable_dav21;
@@ -3114,8 +3257,8 @@ namespace SapData_Automation
                 int icount = Convert.ToInt32(textBox33.Text);
                 for (int i = 1; i <= icount; i++)
                 {
-                    qtyTable_dav20.Rows.Add("" + i, System.Type.GetType("System.String"));//0
-
+                    //qtyTable_dav20.Rows.Add("" + i, System.Type.GetType("System.String"));//0
+                    qtyTable_dav20.Rows.Add(qtyTable_dav20.NewRow());
                 }
             }
             this.bindingSource22.DataSource = qtyTable_dav20;
