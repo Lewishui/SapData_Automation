@@ -8,3 +8,8 @@ D:\Devlop\数据编辑工具软件sap\SapData_Automation\Order.DB\bin\Debug\Orde
 D:\Devlop\数据编辑工具软件sap\SapData_Automation\Order.DB\obj\Debug\Order.DB.csprojResolveAssemblyReference.cache
 D:\Devlop\数据编辑工具软件sap\SapData_Automation\Order.DB\obj\Debug\Order.DB.dll
 D:\Devlop\数据编辑工具软件sap\SapData_Automation\Order.DB\obj\Debug\Order.DB.pdb
+D:\Devlop\sap数据编辑\数据编辑工具软件sap\SapData_Automation\Order.DB\bin\Debug\Order.DB.dll
+D:\Devlop\sap数据编辑\数据编辑工具软件sap\SapData_Automation\Order.DB\bin\Debug\Order.DB.pdb
+D:\Devlop\sap数据编辑\数据编辑工具软件sap\SapData_Automation\Order.DB\obj\Debug\Order.DB.csprojResolveAssemblyReference.cache
+D:\Devlop\sap数据编辑\数据编辑工具软件sap\SapData_Automation\Order.DB\obj\Debug\Order.DB.dll
+D:\Devlop\sap数据编辑\数据编辑工具软件sap\SapData_Automation\Order.DB\obj\Debug\Order.DB.pdb

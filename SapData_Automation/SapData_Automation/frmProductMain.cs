@@ -53,50 +53,7 @@ namespace SapData_Automation
 
         }
 
-        private void 删除ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show(" 确认删除这条信息 , 继续 ?", "Info", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-            {
 
-            }
-            else
-                return;
-
-            var oids = GetOrderIdsBySelectedGridCell();
-            for (int j = 0; j < oids.Count; j++)
-            {
-                var filtered = Productinfolist_Server.FindAll(s => s.Product_id == oids[j]);
-                clsAllnew BusinessHelp = new clsAllnew();
-                //批量删 
-                int istu = BusinessHelp.deleteProduct(filtered[0].Product_id.ToString());
-
-                for (int i = 0; i < filtered.Count; i++)
-                {
-                    //单个删除
-
-                    Productinfolist_Server.Remove(Productinfolist_Server.Where(o => o.Product_id == filtered[i].Product_id).Single());
-                    if (istu != 1)
-                    {
-                        MessageBox.Show("删除失败，请查看" + filtered[i].Product_address + filtered[i].Product_name, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }
-            BindDataGridView();
-
-        }
-        private List<long> GetOrderIdsBySelectedGridCell()
-        {
-
-            List<long> order_ids = new List<long>();
-            var rows = GetSelectedRowsBySelectedCells(dataGridView1);
-            foreach (DataGridViewRow row in rows)
-            {
-                var Diningorder = row.DataBoundItem as clsProductinfo;
-                order_ids.Add((long)Diningorder.Product_id);
-            }
-
-            return order_ids;
-        }
         private IEnumerable<DataGridViewRow> GetSelectedRowsBySelectedCells(DataGridView dgv)
         {
             List<DataGridViewRow> rows = new List<DataGridViewRow>();
@@ -112,43 +69,12 @@ namespace SapData_Automation
 
         private void filterButton_Click(object sender, EventArgs e)
         {
-            this.pbStatus.Value = 0;
-            this.toolStripLabel1.Text = "";
 
-            startAt = this.stockOutDateTimePicker.Value.AddDays(0).Date;
-            endAt = this.stockInDateTimePicker1.Value.AddDays(0).Date;
-            txfind = this.textBox8.Text;
-
-            string strSelect = "select * from JNOrder_product where Input_Date>='" + startAt.ToString("yyyy/MM/dd") + "'" + "and " + "Input_Date<='" + endAt.ToString("yyyy/MM/dd") + "'";
-            // strSelect = "select * from JNOrder_customer where Input_Date BETWEEN #" + startAt + "# AND #" + endAt + "#";//成功
-
-
-            if (txfind.Length > 0)
-            {
-                strSelect += " And Product_name like '%" + txfind + "%'";
-                if (txfind == "所有")
-                    strSelect = "select * from JNOrder_product";
-
-            }
-
-            strSelect += " order by Product_id desc";
-
-            clsAllnew BusinessHelp = new clsAllnew();
-            Productinfolist_Server = new List<clsProductinfo>();
-            Productinfolist_Server = BusinessHelp.findProductr(strSelect);
-            this.BindDataGridView();
         }
 
         private void BindDataGridView()
         {
-            if (Productinfolist_Server != null)
-            {
-                sortableOrderList = new SortableBindingList<clsProductinfo>(Productinfolist_Server);
-                dataGridView1.AutoGenerateColumns = false;
 
-                dataGridView1.DataSource = sortableOrderList;
-                this.toolStripLabel1.Text = "条数：" + sortableOrderList.Count.ToString();
-            }
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
@@ -728,16 +654,6 @@ namespace SapData_Automation
         }
 
 
-        private void dataGridView1_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
-        {
-            DataGridViewRow dgrSingle = dataGridView1.Rows[e.RowIndex];
-            string cell_key = e.RowIndex.ToString() + "_" + e.ColumnIndex.ToString();
-
-            if (!dataGridChanges.ContainsKey(cell_key))
-            {
-                dataGridChanges[cell_key] = dgrSingle.Cells[e.ColumnIndex].Value;
-            }
-        }
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
@@ -759,149 +675,10 @@ namespace SapData_Automation
             }
         }
 
-        private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
-            DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
-            string cell_key = e.RowIndex.ToString() + "_" + e.ColumnIndex.ToString();
-            var new_cell_value = row.Cells[e.ColumnIndex].Value;
-            var original_cell_value = dataGridChanges[cell_key];
-            if (new_cell_value == null && original_cell_value == null)
-            {
-                dataGridChanges.Remove(cell_key + "_changed");
-            }
-            else if ((new_cell_value == null && original_cell_value != null) || (new_cell_value != null && original_cell_value == null) || !new_cell_value.Equals(original_cell_value))
-            {
-                dataGridChanges[cell_key + "_changed"] = new_cell_value;
-            }
-            else
-            {
-                dataGridChanges.Remove(cell_key + "_changed");
-            }
-
-        }
-
-        private void backgroundWorker2_DoWork(object sender, DoWorkEventArgs e)
-        {
-            BackgroundWorker worker = sender as BackgroundWorker;
-
-            bool success = dailysaveList(worker, e);
-        }
-        private bool dailysaveList(BackgroundWorker worker, DoWorkEventArgs e)
-        {
-            WorkerArgument arg = e.Argument as WorkerArgument;
-            clsAllnew BusinessHelp = new clsAllnew();
-            bool success = true;
-            try
-            {
-
-                int rowCount = changeindex.Count;
-                arg.OrderCount = rowCount;
-                int j = 1;
-                int progress = 0;
-                #region MyRegion
-                for (int ik = 0; ik < changeindex.Count; ik++)
-                {
-                    j = ik;
-
-                    arg.CurrentIndex = j + 1;
-                    progress = Convert.ToInt16(((j + 1) * 1.0 / rowCount) * 100);
-
-                    int i = changeindex[ik];
-                    var row = dataGridView1.Rows[i];
-
-                    var model = row.DataBoundItem as clsProductinfo;
-
-                    clsProductinfo item = new clsProductinfo();
-
-                    item.Product_no = Convert.ToString(dataGridView1.Rows[i].Cells["Product_no"].EditedFormattedValue.ToString());
-
-                    item.Product_name = Convert.ToString(dataGridView1.Rows[i].Cells["Product_name"].EditedFormattedValue.ToString());
-
-                    item.Product_salse = Convert.ToString(dataGridView1.Rows[i].Cells["Product_salse"].EditedFormattedValue.ToString());
-
-                    item.Product_address = Convert.ToString(dataGridView1.Rows[i].Cells["Product_address"].EditedFormattedValue.ToString());
 
 
-                    item.Input_Date = Convert.ToDateTime(DateTime.Now.ToString("yyyy/MM/dd"));
-                    item.Product_id = model.Product_id;
-
-                #endregion
-
-                    #region MyRegion
-                    var startAt = this.stockOutDateTimePicker.Value.AddDays(0).Date;
-                    string conditions = "";
-
-                    #region  构造查询条件
-                    if (item.Product_no != null)
-                    {
-                        conditions += " Product_no ='" + item.Product_no + "'";
-                    }
-                    if (item.Product_name != null)
-                    {
-                        conditions += " ,Product_name ='" + item.Product_name + "'";
-                    }
-                    if (item.Product_salse != null)
-                    {
-                        conditions += " ,Product_salse ='" + item.Product_salse + "'";
-                    }
-                    if (item.Product_address != null)
-                    {
-                        conditions += " ,Product_address ='" + item.Product_address + "'";
-                    }
-
-                    if (item.Input_Date != null)
-                    {
-                        conditions += " ,Input_Date ='" + item.Input_Date.ToString("yyyy/MM/dd") + "'";
-                    }
-                    conditions = "update JNOrder_product set  " + conditions + " where Product_id = " + item.Product_id + " ";
-
-                    // conditions += " order by Id desc";
-                    #endregion
-                    #endregion
-
-                    int isrun = BusinessHelp.updateProduct_Server(conditions);
 
 
-                    if (arg.CurrentIndex % 5 == 0)
-                    {
-                        backgroundWorker2.ReportProgress(progress, arg);
-                    }
-                }
-                backgroundWorker2.ReportProgress(100, arg);
-                e.Result = string.Format("{0} 已保存 ！", changeindex.Count);
-
-            }
-            catch (Exception ex)
-            {
-                if (!e.Cancel)
-                {
-
-                    e.Result = ex.Message + "";
-                }
-                success = false;
-            }
-
-            return success;
-        }
-
-        private void backgroundWorker2_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            if (e.Error != null)
-            {
-                MessageBox.Show(e.Error.Message);
-            }
-            else if (e.Cancelled)
-            {
-                MessageBox.Show(string.Format("It is cancelled!"));
-            }
-            else
-            {
-                toolStripLabel1.Text = "" + "(" + e.Result + ")" + "--数据已成功保存 可以继续编辑无需刷新";
-                changeindex = new List<int>();
-
-                dataGridView1.Enabled = true;
-            }
-        }
 
         private void backgroundWorker2_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
@@ -925,61 +702,151 @@ namespace SapData_Automation
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            if (this.dataGridView1.Rows.Count == 0)
+            int s = this.tabControl1.SelectedIndex;
+            if (s == 1)
             {
-                MessageBox.Show("Sorry , No Data Output !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+
+                //工况数
+                textBox1.Text = "";
+                radioButton1.Checked = false;
+
+                radioButton2.Checked = false;
+
+                radioButton3.Checked = false;
+
+                radioButton4.Checked = false;
+
+
+                radioButton7.Checked = false;
+
+                radioButton6.Checked = false;
+
+                radioButton5.Checked = false;
+                //求解器
+                textBox2.Text = "";
+                //温度梯度
+                textBox3.Text = "";
+
+                //位移约束
+                textBox4.Text = "";
+
+                //最大开闭次数:
+                textBox7.Text = "";
+
+                //方程迭代误差
+                textBox6.Text = "";
+
+                //初始条件读入
+                textBox5.Text = "";
+
+                //非线性迭代误差
+                textBox10.Text = "";
+
+                //最大非线性迭代次数
+                textBox9.Text = "";
+                //位移清0步
+                textBox12.Text = "";
+                textBox11.Text = "";
+                textBox14.Text = "";
             }
-            var saveFileDialog = new SaveFileDialog();
-            saveFileDialog.DefaultExt = ".csv";
-            saveFileDialog.Filter = "csv|*.csv";
-            string strFileName = "商品 信息" + "_" + DateTime.Now.ToString("yyyyMMddHHmmss");
-            saveFileDialog.FileName = strFileName;
-            if (saveFileDialog.ShowDialog(this) == DialogResult.OK)
+            else if (s == 2)
             {
-                strFileName = saveFileDialog.FileName.ToString();
+
+                textBox17.Text = "";
+                dataGridView6.DataSource = null;
+                dataGridView7.DataSource = null;
+                radioButton8.Checked = false;
+                radioButton9.Checked = false;
+                radioButton10.Checked = false;
+                radioButton11.Checked = false;
+                textBox18.Text = "";
+                textBox19.Text = "";
+                radioButton12.Checked = false;
+                dataGridView8.DataSource = null;
             }
-            else
+            else if (s == 3)
             {
-                return;
+
+                textBox13.Text = "";
+                textBox15.Text = "";
+                textBox16.Text = "";
+                dataGridView2.DataSource = null;
+                dataGridView3.DataSource = null;
+                dataGridView4.DataSource = null;
+                dataGridView5.DataSource = null;
+              
+         
             }
-            FileStream fa = new FileStream(strFileName, FileMode.Create);
-            StreamWriter sw = new StreamWriter(fa, Encoding.Unicode);
-            string delimiter = "\t";
-            string strHeader = "";
-            for (int i = 0; i < this.dataGridView1.Columns.Count; i++)
+            else if (s == 4)
             {
-                strHeader += this.dataGridView1.Columns[i].HeaderText + delimiter;
-            }
-            sw.WriteLine(strHeader);
 
-            //output rows data
-            for (int j = 0; j < this.dataGridView1.Rows.Count; j++)
+                textBox20.Text = "";
+              
+                dataGridView10.DataSource = null;
+               
+            }
+            else if (s == 6)
             {
-                string strRowValue = "";
 
-                for (int k = 0; k < this.dataGridView1.Columns.Count; k++)
-                {
-                    if (this.dataGridView1.Rows[j].Cells[k].Value != null)
-                    {
-                        strRowValue += this.dataGridView1.Rows[j].Cells[k].Value.ToString().Replace("\r\n", " ").Replace("\n", "") + delimiter;
-                        if (this.dataGridView1.Rows[j].Cells[k].Value.ToString() == "LIP201507-35")
-                        {
+                textBox21.Text = "";
+                textBox22.Text = "";
+                dataGridView11.DataSource = null;
+                dataGridView12.DataSource = null;
 
-                        }
-
-                    }
-                    else
-                    {
-                        strRowValue += this.dataGridView1.Rows[j].Cells[k].Value + delimiter;
-                    }
-                }
-                sw.WriteLine(strRowValue);
             }
-            sw.Close();
-            fa.Close();
-            MessageBox.Show("Dear User, Down File  Successful ！", "System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else if (s == 7)
+            {
 
+                textBox23.Text = "";
+              
+                dataGridView13.DataSource = null;
+              
+
+            }
+            else if (s == 8)
+            {
+
+                textBox24.Text = "";
+
+                dataGridView14.DataSource = null;
+            }
+            else if (s == 9)
+            {
+                textBox25.Text = "";
+                dataGridView15.DataSource = null;
+            }
+            else if (s == 10)
+            {
+                textBox27.Text = "";
+                textBox28.Text = "";
+                dataGridView17.DataSource = null;
+                dataGridView18.DataSource = null;
+                dataGridView19.DataSource = null;
+            }
+            else if (s == 11)
+            {
+                textBox26.Text = "";
+                dataGridView16.DataSource = null;
+            }
+            else if (s == 12)
+            {
+                textBox29.Text = "";
+                textBox30.Text = "";
+                dataGridView20.DataSource = null;
+
+            }
+            else if (s == 13)
+            {
+                textBox32.Text = "";
+                textBox31.Text = "";
+                textBox33.Text = "";
+                dataGridView24.DataSource = null;
+                textBox35.Text = "";
+                textBox36.Text = "";
+                textBox37.Text = "";
+                dataGridView22.DataSource = null;
+                dataGridView21.DataSource = null;
+            }
         }
 
         private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
@@ -1290,7 +1157,7 @@ namespace SapData_Automation
                         for (int jj = 0; jj < fileText1.Length - 1; jj++)
                         {
                             if (jj < qtyTable_dav3.Columns.Count)
-                            qtyTable_dav3.Rows[rowindex][jj] = fileText1[jj];
+                                qtyTable_dav3.Rows[rowindex][jj] = fileText1[jj];
                         }
                         rowindex++;
 
@@ -1325,7 +1192,7 @@ namespace SapData_Automation
                         for (int jj = 0; jj < fileText1.Length - 1; jj++)
                         {
                             if (jj < qtyTable_dav4.Columns.Count)
-                            qtyTable_dav4.Rows[rowindex][jj] = fileText1[jj];
+                                qtyTable_dav4.Rows[rowindex][jj] = fileText1[jj];
                         }
                         rowindex++;
 
@@ -1351,7 +1218,7 @@ namespace SapData_Automation
                     {
                         ongo = j;
 
-                        if (j>=fileText.Length||  fileText[j].Contains("\t\t\t\t") || fileText[j] == "")
+                        if (j >= fileText.Length || fileText[j].Contains("\t\t\t\t") || fileText[j] == "")
                         {
                             break;
                         }
@@ -1912,7 +1779,7 @@ namespace SapData_Automation
                                 {
                                     cloindex = jj;
                                     if (rowindex < qtyTable_dav11.Rows.Count)
-                                    qtyTable_dav11.Rows[rowindex][jj] = fileText1[jj];
+                                        qtyTable_dav11.Rows[rowindex][jj] = fileText1[jj];
                                 }
                                 isadd++;
                             }
@@ -1924,11 +1791,11 @@ namespace SapData_Automation
 
                                 for (int jj = 0; jj < fileText1.Length; jj++)
                                 {
-                                    if (qtyTable_dav11.Columns.Count >= cloindex +1)
+                                    if (qtyTable_dav11.Columns.Count >= cloindex + 1)
                                     {
                                         if (rowindex - 1 < qtyTable_dav11.Rows.Count)
                                         {
-                                            qtyTable_dav11.Rows[rowindex - 1][cloindex ] = fileText1[jj];
+                                            qtyTable_dav11.Rows[rowindex - 1][cloindex] = fileText1[jj];
                                             cloindex++;
                                         }
                                     }
@@ -2170,7 +2037,7 @@ namespace SapData_Automation
 
                         for (int jj = 0; jj < fileText1.Length; jj++)
                         {
-                            if (jj  < qtyTable_dav15.Columns.Count-1)
+                            if (jj < qtyTable_dav15.Columns.Count - 1)
                                 qtyTable_dav15.Rows[rowindex][jj + 1] = fileText1[jj];
                         }
                         qtyTable_dav15.Rows[rowindex][0] = rowindex + 1;
@@ -2213,7 +2080,7 @@ namespace SapData_Automation
                         for (int jj = 0; jj < fileText1.Length - 1; jj++)
                         {
                             if (jj < 10)
-                                qtyTable_dav16.Rows[rowindex][jj+1] = fileText1[jj];
+                                qtyTable_dav16.Rows[rowindex][jj + 1] = fileText1[jj];
                         }
                         qtyTable_dav16.Rows[rowindex][0] = rowindex + 1;
                         rowindex++;
@@ -2320,7 +2187,7 @@ namespace SapData_Automation
                         int icount1 = Convert.ToInt32(textBox29.Text);
                         for (int i2 = 1; i2 <= icount1; i2++)
                         {
-                           // qtyTable_dav19.Rows.Add("" + i2, System.Type.GetType("System.String"));//0
+                            // qtyTable_dav19.Rows.Add("" + i2, System.Type.GetType("System.String"));//0
                             qtyTable_dav19.Rows.Add(qtyTable_dav19.NewRow());
                         }
                         int ongo1 = ongo + 1;
@@ -2348,7 +2215,7 @@ namespace SapData_Automation
                                     qtyTable_dav19.Rows[rowindex][jj + 1] = fileText1[jj];
                             }
                             if (rowindex < qtyTable_dav19.Rows.Count)
-                            qtyTable_dav19.Rows[rowindex][0] = rowindex + 1;
+                                qtyTable_dav19.Rows[rowindex][0] = rowindex + 1;
                             rowindex++;
 
                         }
@@ -2687,6 +2554,7 @@ namespace SapData_Automation
             #region MyRegion
             if (s == 1)
             {
+
                 toolStripDropDownButton2_Click(null, EventArgs.Empty);
             }
 

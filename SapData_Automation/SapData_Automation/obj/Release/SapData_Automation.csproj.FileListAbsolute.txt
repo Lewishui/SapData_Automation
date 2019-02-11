@@ -1,0 +1,1 @@
+D:\Devlop\sap数据编辑\数据编辑工具软件sap\SapData_Automation\SapData_Automation\bin\Release\SapData_Automation.exe.config
