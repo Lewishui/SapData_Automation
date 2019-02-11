@@ -50,9 +50,6 @@ D:\Devlop\sap数据编辑\数据编辑工具软件sap\SapData_Automation\Order.B
 D:\Devlop\sap数据编辑\数据编辑工具软件sap\SapData_Automation\Order.Buiness\bin\Debug\Microsoft.Office.Interop.Excel.dll
 D:\Devlop\sap数据编辑\数据编辑工具软件sap\SapData_Automation\Order.Buiness\bin\Debug\Order.Common.pdb
 D:\Devlop\sap数据编辑\数据编辑工具软件sap\SapData_Automation\Order.Buiness\bin\Debug\Order.DB.pdb
-D:\Devlop\sap数据编辑\数据编辑工具软件sap\SapData_Automation\Order.Buiness\bin\Debug\Microsoft.Office.Interop.Excel.xml
+D:\Devlop\sap数据编辑\数据编辑工具软件sap\SapData_Automation\Order.Buiness\obj\Debug\Order.Buiness.csprojResolveAssemblyReference.cache
 D:\Devlop\sap数据编辑\数据编辑工具软件sap\SapData_Automation\Order.Buiness\obj\Debug\Order.Buiness.dll
 D:\Devlop\sap数据编辑\数据编辑工具软件sap\SapData_Automation\Order.Buiness\obj\Debug\Order.Buiness.pdb
-D:\Devlop\sap数据编辑\数据编辑工具软件sap\SapData_Automation\Order.Buiness\bin\Debug\office.dll
-D:\Devlop\sap数据编辑\数据编辑工具软件sap\SapData_Automation\Order.Buiness\bin\Debug\office.xml
-D:\Devlop\sap数据编辑\数据编辑工具软件sap\SapData_Automation\Order.Buiness\obj\Debug\Order.Buiness.csprojResolveAssemblyReference.cache
