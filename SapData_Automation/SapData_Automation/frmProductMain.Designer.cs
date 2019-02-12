@@ -275,6 +275,7 @@
             this.bindingSource22 = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSource23 = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSource24 = new System.Windows.Forms.BindingSource(this.components);
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -379,7 +380,8 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton3,
             this.toolStripButton1,
-            this.toolStripButton2});
+            this.toolStripButton2,
+            this.toolStripButton4});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -2559,6 +2561,15 @@
             this.backgroundWorker2.WorkerSupportsCancellation = true;
             this.backgroundWorker2.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker2_ProgressChanged);
             // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(79, 25);
+            this.toolStripButton4.Text = "关闭";
+            this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
+            // 
             // frmProductMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -2901,5 +2912,6 @@
         private System.Windows.Forms.BindingSource bindingSource22;
         private System.Windows.Forms.BindingSource bindingSource23;
         private System.Windows.Forms.BindingSource bindingSource24;
+        private System.Windows.Forms.ToolStripButton toolStripButton4;
     }
 }

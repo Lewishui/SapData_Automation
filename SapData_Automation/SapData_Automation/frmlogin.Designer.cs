@@ -48,6 +48,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.关于系统ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton3 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.下载模板ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.txtSAPUserId = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
@@ -74,13 +75,21 @@
             // toolStripDropDownButton3
             // 
             this.toolStripDropDownButton3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.关于系统ToolStripMenuItem});
+            this.关于系统ToolStripMenuItem,
+            this.下载模板ToolStripMenuItem});
             this.toolStripDropDownButton3.Font = new System.Drawing.Font("Segoe UI", 15F);
             this.toolStripDropDownButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton3.Name = "toolStripDropDownButton3";
             this.toolStripDropDownButton3.Size = new System.Drawing.Size(65, 32);
             this.toolStripDropDownButton3.Text = "关于";
             this.toolStripDropDownButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // 下载模板ToolStripMenuItem
+            // 
+            this.下载模板ToolStripMenuItem.Name = "下载模板ToolStripMenuItem";
+            this.下载模板ToolStripMenuItem.Size = new System.Drawing.Size(164, 32);
+            this.下载模板ToolStripMenuItem.Text = "下载模板";
+            this.下载模板ToolStripMenuItem.Click += new System.EventHandler(this.下载模板ToolStripMenuItem_Click);
             // 
             // toolStripLabel1
             // 
@@ -298,6 +307,7 @@
         private System.Windows.Forms.Panel panel1;
         private WeifenLuo.WinFormsUI.Docking.DockPanel dockPanel2;
         private Order.Common.ScrollingText scrollingText1;
+        private System.Windows.Forms.ToolStripMenuItem 下载模板ToolStripMenuItem;
     }
 }
 

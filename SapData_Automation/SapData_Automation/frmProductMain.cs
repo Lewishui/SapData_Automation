@@ -43,6 +43,7 @@ namespace SapData_Automation
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
+            新建ToolStripMenuItem_Click(null, EventArgs.Empty);
 
             //var form = new frmaddProcuct("");
 
@@ -3132,6 +3133,12 @@ namespace SapData_Automation
             this.bindingSource22.DataSource = qtyTable_dav20;
             this.dataGridView24.DataSource = this.bindingSource22;
 
+
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            this.Close();
 
         }
     }
