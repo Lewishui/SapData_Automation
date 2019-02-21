@@ -15,5 +15,20 @@ namespace SapData_Automation
         {
             InitializeComponent();
         }
+
+        private void crystalButton2_Click(object sender, EventArgs e)
+        {
+            var form = new frmProductMain("");
+
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+
+            }
+        }
+
+        private void crystalButton6_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

@@ -22,19 +22,22 @@ namespace SapData_Automation
             string endday = DateTime.Now.ToString("yyyy/MM/dd");
             dt3 = Convert.ToDateTime(endday);
             DateTime dt2;
-            dt2 = Convert.ToDateTime("2019/02/20");
+            dt2 = Convert.ToDateTime("2019/02/28");
 
             TimeSpan ts = dt2 - dt3;
             int timeTotal = ts.Days;
             if (timeTotal < 0)
             {
-                MessageBox.Show("缺失系统文件，或电脑系统更新导致，请联系开发人员 !","系统错误",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("缺失系统文件，或电脑系统更新导致，请联系开发人员 !", "系统错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
-            }           
+            }
 
             #endregion
 
-            Application.Run(new frmlogin());
+            //Application.Run(new frmlogin());
+            Application.Run(new frmMain());
+            //Application.Run(new nfrmProductMain(""));
+            ////Application.Run(new test( ));
         }
     }
 }

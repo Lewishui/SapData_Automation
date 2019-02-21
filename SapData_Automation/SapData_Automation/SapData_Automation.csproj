@@ -93,6 +93,12 @@
     <Compile Include="frmAboutBox.Designer.cs">
       <DependentUpon>frmAboutBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmImportpath.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmImportpath.Designer.cs">
+      <DependentUpon>frmImportpath.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmlogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,8 +126,23 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SortableBindingList.cs" />
+    <Compile Include="test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="test.Designer.cs">
+      <DependentUpon>test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="nfrmProductMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="nfrmProductMain.Designer.cs">
+      <DependentUpon>nfrmProductMain.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frmAboutBox.resx">
       <DependentUpon>frmAboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmImportpath.resx">
+      <DependentUpon>frmImportpath.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmlogin.resx">
       <DependentUpon>frmlogin.cs</DependentUpon>
@@ -145,6 +166,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="test.resx">
+      <DependentUpon>test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="nfrmProductMain.resx">
+      <DependentUpon>nfrmProductMain.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
