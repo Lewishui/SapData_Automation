@@ -35,9 +35,10 @@ namespace SapData_Automation
             #endregion
 
             //Application.Run(new frmlogin());
-            Application.Run(new frmMain());
+            //Application.Run(new frmMain());
             //Application.Run(new nfrmProductMain(""));
-            ////Application.Run(new test( ));
+            Application.Run(new NewfrmProductMain(""));
+            //Application.Run(new test());
         }
     }
 }

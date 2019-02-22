@@ -15,6 +15,9 @@ namespace SapData_Automation
         public test()
         {
             InitializeComponent();
+            this.dataGridView1.Height = 2500;
+            this.dataGridView2.Height = 500;
+            this.dataGridView3.Height = 1500;
         }
     }
 }
