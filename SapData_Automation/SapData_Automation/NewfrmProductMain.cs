@@ -991,10 +991,7 @@ namespace SapData_Automation
 
             if (form.ShowDialog() == DialogResult.OK)
             {
-
                 folderpath = form.folderpath;
-
-
             }
             if (folderpath != null && folderpath != "")
             {
