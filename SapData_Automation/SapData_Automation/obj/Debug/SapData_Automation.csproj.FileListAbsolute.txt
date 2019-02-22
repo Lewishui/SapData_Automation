@@ -49,3 +49,4 @@ D:\Devlop\sap数据编辑\数据编辑工具软件sap\SapData_Automation\SapData
 D:\Devlop\sap数据编辑\数据编辑工具软件sap\SapData_Automation\SapData_Automation\obj\Debug\SapData_Automation.frmImportpath.resources
 D:\Devlop\sap数据编辑\数据编辑工具软件sap\SapData_Automation\SapData_Automation\obj\Debug\SapData_Automation.test.resources
 D:\Devlop\sap数据编辑\数据编辑工具软件sap\SapData_Automation\SapData_Automation\obj\Debug\SapData_Automation.nfrmProductMain.resources
+D:\Devlop\sap数据编辑\数据编辑工具软件sap\SapData_Automation\SapData_Automation\obj\Debug\SapData_Automation.NewfrmProductMain.resources

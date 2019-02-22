@@ -138,6 +138,12 @@
     <Compile Include="nfrmProductMain.Designer.cs">
       <DependentUpon>nfrmProductMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="NewfrmProductMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewfrmProductMain.Designer.cs">
+      <DependentUpon>NewfrmProductMain.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frmAboutBox.resx">
       <DependentUpon>frmAboutBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="nfrmProductMain.resx">
       <DependentUpon>nfrmProductMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewfrmProductMain.resx">
+      <DependentUpon>NewfrmProductMain.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
