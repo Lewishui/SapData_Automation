@@ -28,11 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
+            this.label1 = new System.Windows.Forms.Label();
             this.crystalButton6 = new SapData_Automation.CrystalButton();
             this.crystalButton4 = new SapData_Automation.CrystalButton();
             this.crystalButton3 = new SapData_Automation.CrystalButton();
             this.crystalButton2 = new SapData_Automation.CrystalButton();
             this.SuspendLayout();
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 433);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 12);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "label1";
             // 
             // crystalButton6
             // 
@@ -89,14 +101,18 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(710, 454);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.crystalButton6);
             this.Controls.Add(this.crystalButton4);
             this.Controls.Add(this.crystalButton3);
             this.Controls.Add(this.crystalButton2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "复杂工程力学高性能计算平台";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -106,5 +122,6 @@
         private CrystalButton crystalButton4;
         private CrystalButton crystalButton3;
         private CrystalButton crystalButton2;
+        private System.Windows.Forms.Label label1;
     }
 }

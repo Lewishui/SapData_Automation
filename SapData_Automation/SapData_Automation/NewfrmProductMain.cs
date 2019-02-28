@@ -88,7 +88,7 @@ namespace SapData_Automation
             //{
 
             //}
-            toolStripButton2_Click(null, EventArgs.Empty);
+         //   toolStripButton2_Click(null, EventArgs.Empty);
 
             openfile(folderpath);
         }
@@ -738,6 +738,11 @@ namespace SapData_Automation
             if (folderpath != null && folderpath != "")
                 openfile(folderpath);
 
+
+            MessageBox.Show("还原完成！");
+
+
+
             return;
 
             int s = this.tabControl1.SelectedIndex;
@@ -885,6 +890,8 @@ namespace SapData_Automation
                 dataGridView22.DataSource = null;
                 dataGridView21.DataSource = null;
             }
+
+            
         }
 
         private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
@@ -933,11 +940,17 @@ namespace SapData_Automation
             for (int i = 0; i < crlist.Count; i++)
             {
 
-                File.Create(folderpath + "\\" + crlist[i]);
+                //File.Create(folderpath + "\\" + crlist[i]);
                 //StreamWriter sw = new StreamWriter(folderpath + "\\" + crlist[i]);
                 //sw.WriteLine("");
                 //sw.Flush();
                 //sw.Close();
+                if (!File.Exists(folderpath + "\\" + crlist[i]))
+                {
+                    File.Create(folderpath + "\\" + crlist[i]).Close();
+
+                }
+
 
             }
             MessageBox.Show(this, "创建完成!", "提示");
@@ -995,7 +1008,7 @@ namespace SapData_Automation
             }
             if (folderpath != null && folderpath != "")
             {
-                toolStripButton2_Click(null, EventArgs.Empty);
+           //   toolStripButton2_Click(null, EventArgs.Empty);
 
                 openfile(folderpath);
                 MessageBox.Show("读取完成", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -1028,6 +1041,8 @@ namespace SapData_Automation
             }
 
             Gettab1();
+            toolStripLabel1.Text = "已读取完成";
+
         }
 
         private void toolStripDropDownButton2_Click(object sender, EventArgs e)
@@ -2634,6 +2649,9 @@ namespace SapData_Automation
                 qtyTable8.Columns.Add("" + ip, System.Type.GetType("System.String"));//0
 
             }
+            if (textBox17.Text == "")
+                textBox17.Text = "0";
+
             int tx17 = Convert.ToInt32(textBox17.Text);
             for (int j = 0; j < tx17; j++)
             {

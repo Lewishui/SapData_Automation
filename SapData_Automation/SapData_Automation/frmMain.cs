@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
 
@@ -14,11 +15,12 @@ namespace SapData_Automation
         public frmMain()
         {
             InitializeComponent();
+            this.label1.Text = String.Format("Version {0}", AssemblyVersion);
         }
 
         private void crystalButton2_Click(object sender, EventArgs e)
         {
-            var form = new frmProductMain("");
+            var form = new NewfrmProductMain("");
 
             if (form.ShowDialog() == DialogResult.OK)
             {
@@ -30,5 +32,13 @@ namespace SapData_Automation
         {
             Application.Exit();
         }
+        public string AssemblyVersion
+        {
+            get
+            {
+                return Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            }
+        }
+      
     }
 }

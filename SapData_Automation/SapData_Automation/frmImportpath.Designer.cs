@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmImportpath));
             this.titleLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pathTextBox = new System.Windows.Forms.TextBox();
@@ -108,8 +109,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pathTextBox);
             this.Controls.Add(this.openFileBtton);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmImportpath";
-            this.Text = "frmImportpath";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "导入工程文件";
             this.ResumeLayout(false);
             this.PerformLayout();
 

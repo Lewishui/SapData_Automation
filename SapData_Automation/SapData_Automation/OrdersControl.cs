@@ -180,7 +180,7 @@ namespace SapData_Automation
         private void orderConfirmButton_Click(object sender, EventArgs e)
         {
             //new ConnectServerForReceivedOrderForm().ShowDialog();
-            var form = new frmProductMain("");
+            var form = new NewfrmProductMain("");
 
             if (form.ShowDialog() == DialogResult.OK)
             {
