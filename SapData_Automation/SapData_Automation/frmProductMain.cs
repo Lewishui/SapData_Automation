@@ -1584,7 +1584,7 @@ namespace SapData_Automation
                     {
                         ongo = j;
 
-                        if (j >= fileText.Length || fileText[j].Contains("\t\t\t\t") || (fileText[j] == "" && j != 1))
+                        if (j >= fileText.Length || fileText[j].Contains("\t\t\t\t") || (fileText[j].Replace("  ", "").Trim() == "" && j != 1))
                         {
                             break;
                         }
@@ -1652,7 +1652,7 @@ namespace SapData_Automation
                     {
                         ongo = j;
 
-                        if (j >= fileText.Length || fileText[j].Contains("\t\t\t\t") || (fileText[j] == "" && j != 1))
+                        if (j >= fileText.Length || fileText[j].Contains("\t\t\t\t") || (fileText[j].Replace("  ", "").Trim() == "" && j != 1))
                         {
                             break;
                         }
@@ -1689,7 +1689,7 @@ namespace SapData_Automation
                     {
                         ongo = j;
 
-                        if (j >= fileText.Length || fileText[j].Contains("\t\t\t\t") || (fileText[j] == "" && j != 1))
+                        if (j >= fileText.Length || fileText[j].Contains("\t\t\t\t") || (fileText[j].Replace("  ", "").Trim() == "" && j != 1))
                         {
                             break;
                         }
@@ -1762,7 +1762,7 @@ namespace SapData_Automation
                         {
                             ongo = j;
 
-                            if (j >= fileText.Length || fileText[j].Contains("\t\t\t\t") || (fileText[j] == "" && j != 1))
+                            if (j >= fileText.Length || fileText[j].Contains("\t\t\t\t") || (fileText[j].Replace("  ", "").Trim() == "" && j != 1))
                             {
                                 break;
                             }
@@ -1870,7 +1870,7 @@ namespace SapData_Automation
                     {
                         ongo = j;
 
-                        if (j >= fileText.Length || fileText[j].Contains("\t\t\t\t") || (fileText[j] == "" && j != 1))
+                        if (j >= fileText.Length || fileText[j].Contains("\t\t\t\t") || (fileText[j].Replace("  ", "").Trim() == "" && j != 1))
                         {
                             break;
                         }
@@ -1923,7 +1923,7 @@ namespace SapData_Automation
                     {
                         ongo = j;
 
-                        if (j >= fileText.Length || fileText[j].Contains("\t\t\t\t") || (fileText[j] == "" && j != 1))
+                        if (j >= fileText.Length || fileText[j].Contains("\t\t\t\t") || (fileText[j].Replace("  ", "").Trim() == "" && j != 1))
                         {
                             break;
                         }
@@ -1982,7 +1982,7 @@ namespace SapData_Automation
                     {
                         ongo = j;
 
-                        if (j >= fileText.Length || fileText[j].Contains("\t\t\t\t") || (fileText[j] == "" && j != 1))
+                        if (j >= fileText.Length || fileText[j].Contains("\t\t\t\t") || (fileText[j].Replace("  ", "").Trim() == "" && j != 1))
                         {
                             break;
                         }
@@ -2017,7 +2017,7 @@ namespace SapData_Automation
                     {
                         ongo = j;
 
-                        if (j >= fileText.Length || fileText[j].Contains("\t\t\t\t") || (fileText[j] == "" && j != 1))
+                        if (j >= fileText.Length || fileText[j].Contains("\t\t\t\t") || (fileText[j].Replace("  ", "").Trim() == "" && j != 1))
                         {
                             break;
                         }
@@ -2050,7 +2050,7 @@ namespace SapData_Automation
                     {
                         ongo = j;
 
-                        if (j >= fileText.Length || fileText[j].Contains("\t\t\t\t") || (fileText[j] == "" && j != 1))
+                        if (j >= fileText.Length || fileText[j].Contains("\t\t\t\t") || (fileText[j].Replace("  ", "").Trim() == "" && j != 1))
                         {
                             break;
                         }
@@ -2111,7 +2111,7 @@ namespace SapData_Automation
                     {
                         ongo = j;
 
-                        if (j >= fileText.Length || fileText[j].Contains("\t\t\t\t") || (fileText[j] == "" && j != 1))
+                        if (j >= fileText.Length || fileText[j].Contains("\t\t\t\t") || (fileText[j].Replace("  ", "").Trim() == "" && j != 1))
                         {
                             break;
                         }
@@ -2182,7 +2182,7 @@ namespace SapData_Automation
                         {
                             ongo = j;
 
-                            if (j >= fileText.Length || fileText[j].Contains("\t\t\t\t") || (fileText[j] == "" && j != 1))
+                            if (j >= fileText.Length || fileText[j].Contains("\t\t\t\t") || (fileText[j].Replace("  ", "").Trim() == "" && j != 1))
                             {
                                 break;
                             }

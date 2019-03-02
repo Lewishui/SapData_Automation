@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -51,6 +49,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewfrmProductMain));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -128,7 +128,6 @@
             this.dataGridView9 = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.radioButton12 = new System.Windows.Forms.RadioButton();
             this.dataGridView6 = new System.Windows.Forms.DataGridView();
             this.label39 = new System.Windows.Forms.Label();
             this.dataGridView7 = new System.Windows.Forms.DataGridView();
@@ -145,6 +144,7 @@
             this.label42 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
             this.dataGridView8 = new System.Windows.Forms.DataGridView();
+            this.radioButton12 = new System.Windows.Forms.CheckBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
@@ -243,7 +243,6 @@
             this.label68 = new System.Windows.Forms.Label();
             this.textBox33 = new System.Windows.Forms.TextBox();
             this.dataGridView21 = new System.Windows.Forms.DataGridView();
-            this.label84 = new System.Windows.Forms.Label();
             this.label69 = new System.Windows.Forms.Label();
             this.label74 = new System.Windows.Forms.Label();
             this.dataGridView22 = new System.Windows.Forms.DataGridView();
@@ -256,6 +255,7 @@
             this.label73 = new System.Windows.Forms.Label();
             this.textBox35 = new System.Windows.Forms.TextBox();
             this.label71 = new System.Windows.Forms.Label();
+            this.label84 = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.pbStatus = new System.Windows.Forms.ToolStripProgressBar();
@@ -1083,17 +1083,17 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.Controls.Add(this.groupBox10, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.dataGridView9, 0, 8);
-            this.tableLayoutPanel4.Controls.Add(this.radioButton12, 0, 7);
             this.tableLayoutPanel4.Controls.Add(this.dataGridView6, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.label39, 0, 2);
             this.tableLayoutPanel4.Controls.Add(this.dataGridView7, 0, 3);
             this.tableLayoutPanel4.Controls.Add(this.groupBox7, 0, 4);
             this.tableLayoutPanel4.Controls.Add(this.groupBox11, 0, 5);
             this.tableLayoutPanel4.Controls.Add(this.dataGridView8, 0, 6);
+            this.tableLayoutPanel4.Controls.Add(this.radioButton12, 0, 7);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 9;
+            this.tableLayoutPanel4.RowCount = 10;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -1103,6 +1103,7 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(1052, 529);
             this.tableLayoutPanel4.TabIndex = 42;
             // 
@@ -1161,8 +1162,8 @@
             // dataGridView9
             // 
             this.dataGridView9.AllowUserToAddRows = false;
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.White;
-            this.dataGridView9.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dataGridView9.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView9.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView9.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView9.ContextMenuStrip = this.contextMenuStrip1;
@@ -1172,6 +1173,7 @@
             this.dataGridView9.RowHeadersVisible = false;
             this.dataGridView9.Size = new System.Drawing.Size(1046, 165);
             this.dataGridView9.TabIndex = 20;
+            this.dataGridView9.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView9_KeyDown);
             // 
             // contextMenuStrip1
             // 
@@ -1186,23 +1188,11 @@
             this.删除ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.删除ToolStripMenuItem.Text = "删除";
             // 
-            // radioButton12
-            // 
-            this.radioButton12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.radioButton12.AutoSize = true;
-            this.radioButton12.Location = new System.Drawing.Point(3, 423);
-            this.radioButton12.Name = "radioButton12";
-            this.radioButton12.Size = new System.Drawing.Size(1046, 16);
-            this.radioButton12.TabIndex = 17;
-            this.radioButton12.TabStop = true;
-            this.radioButton12.Text = "氧化镁";
-            this.radioButton12.UseVisualStyleBackColor = true;
-            // 
             // dataGridView6
             // 
             this.dataGridView6.AllowUserToAddRows = false;
-            dataGridViewCellStyle23.BackColor = System.Drawing.Color.White;
-            this.dataGridView6.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            this.dataGridView6.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView6.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView6.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView6.ContextMenuStrip = this.contextMenuStrip1;
@@ -1212,6 +1202,7 @@
             this.dataGridView6.RowHeadersVisible = false;
             this.dataGridView6.Size = new System.Drawing.Size(1046, 133);
             this.dataGridView6.TabIndex = 10;
+            this.dataGridView6.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView6_KeyDown);
             // 
             // label39
             // 
@@ -1227,8 +1218,8 @@
             // dataGridView7
             // 
             this.dataGridView7.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dataGridView7.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            this.dataGridView7.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView7.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView7.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView7.ContextMenuStrip = this.contextMenuStrip1;
@@ -1238,6 +1229,7 @@
             this.dataGridView7.RowHeadersVisible = false;
             this.dataGridView7.Size = new System.Drawing.Size(1046, 61);
             this.dataGridView7.TabIndex = 12;
+            this.dataGridView7.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView7_KeyDown);
             // 
             // groupBox7
             // 
@@ -1366,8 +1358,8 @@
             // dataGridView8
             // 
             this.dataGridView8.AllowUserToAddRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            this.dataGridView8.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dataGridView8.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView8.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView8.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView8.ContextMenuStrip = this.contextMenuStrip1;
@@ -1377,6 +1369,17 @@
             this.dataGridView8.RowHeadersVisible = false;
             this.dataGridView8.Size = new System.Drawing.Size(1046, 43);
             this.dataGridView8.TabIndex = 18;
+            this.dataGridView8.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView8_KeyDown);
+            // 
+            // radioButton12
+            // 
+            this.radioButton12.AutoSize = true;
+            this.radioButton12.Location = new System.Drawing.Point(3, 423);
+            this.radioButton12.Name = "radioButton12";
+            this.radioButton12.Size = new System.Drawing.Size(60, 16);
+            this.radioButton12.TabIndex = 44;
+            this.radioButton12.Text = "氧化镁";
+            this.radioButton12.UseVisualStyleBackColor = true;
             // 
             // tabPage3
             // 
@@ -1510,8 +1513,8 @@
             // dataGridView5
             // 
             this.dataGridView5.AllowUserToAddRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            this.dataGridView5.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            this.dataGridView5.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView5.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView5.ContextMenuStrip = this.contextMenuStrip1;
@@ -1549,8 +1552,8 @@
             // dataGridView4
             // 
             this.dataGridView4.AllowUserToAddRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.dataGridView4.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            this.dataGridView4.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView4.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView4.ContextMenuStrip = this.contextMenuStrip1;
@@ -1564,8 +1567,8 @@
             // dataGridView2
             // 
             this.dataGridView2.AllowUserToAddRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            this.dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            this.dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.ContextMenuStrip = this.contextMenuStrip1;
@@ -1580,8 +1583,8 @@
             // dataGridView3
             // 
             this.dataGridView3.AllowUserToAddRows = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            this.dataGridView3.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            this.dataGridView3.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView3.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView3.ContextMenuStrip = this.contextMenuStrip1;
@@ -1645,8 +1648,8 @@
             // dataGridView10
             // 
             this.dataGridView10.AllowUserToAddRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            this.dataGridView10.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            this.dataGridView10.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridView10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -1691,7 +1694,8 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(417, 237);
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button1.Location = new System.Drawing.Point(431, 379);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(196, 54);
             this.button1.TabIndex = 45;
@@ -1787,8 +1791,8 @@
             // dataGridView11
             // 
             this.dataGridView11.AllowUserToAddRows = false;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            this.dataGridView11.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            this.dataGridView11.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridView11.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView11.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView11.ContextMenuStrip = this.contextMenuStrip1;
@@ -1828,8 +1832,8 @@
             // dataGridView12
             // 
             this.dataGridView12.AllowUserToAddRows = false;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            this.dataGridView12.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
+            this.dataGridView12.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridView12.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView12.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView12.ContextMenuStrip = this.contextMenuStrip1;
@@ -1931,8 +1935,9 @@
             // 
             // dataGridView13
             // 
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            this.dataGridView13.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            this.dataGridView13.AllowUserToAddRows = false;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            this.dataGridView13.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridView13.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -2005,8 +2010,8 @@
             // dataGridView14
             // 
             this.dataGridView14.AllowUserToAddRows = false;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
-            this.dataGridView14.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
+            this.dataGridView14.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridView14.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -2063,8 +2068,8 @@
             // dataGridView15
             // 
             this.dataGridView15.AllowUserToAddRows = false;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
-            this.dataGridView15.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
+            this.dataGridView15.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle14;
             this.dataGridView15.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -2205,8 +2210,8 @@
             // dataGridView17
             // 
             this.dataGridView17.AllowUserToAddRows = false;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
-            this.dataGridView17.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
+            this.dataGridView17.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle15;
             this.dataGridView17.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -2246,8 +2251,8 @@
             // dataGridView19
             // 
             this.dataGridView19.AllowUserToAddRows = false;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
-            this.dataGridView19.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
+            this.dataGridView19.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dataGridView19.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView19.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView19.ContextMenuStrip = this.contextMenuStrip1;
@@ -2273,8 +2278,8 @@
             // dataGridView18
             // 
             this.dataGridView18.AllowUserToAddRows = false;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
-            this.dataGridView18.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.White;
+            this.dataGridView18.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
             this.dataGridView18.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -2326,8 +2331,8 @@
             // dataGridView16
             // 
             this.dataGridView16.AllowUserToAddRows = false;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
-            this.dataGridView16.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.White;
+            this.dataGridView16.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle18;
             this.dataGridView16.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView16.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView16.ContextMenuStrip = this.contextMenuStrip1;
@@ -2401,8 +2406,8 @@
             // dataGridView20
             // 
             this.dataGridView20.AllowUserToAddRows = false;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.White;
-            this.dataGridView20.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.White;
+            this.dataGridView20.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
             this.dataGridView20.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -2460,12 +2465,12 @@
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel7.Controls.Add(this.groupBox15, 0, 1);
             this.tableLayoutPanel7.Controls.Add(this.dataGridView21, 0, 7);
-            this.tableLayoutPanel7.Controls.Add(this.label84, 0, 0);
             this.tableLayoutPanel7.Controls.Add(this.label69, 0, 6);
             this.tableLayoutPanel7.Controls.Add(this.label74, 0, 2);
             this.tableLayoutPanel7.Controls.Add(this.dataGridView22, 0, 5);
             this.tableLayoutPanel7.Controls.Add(this.dataGridView24, 0, 3);
             this.tableLayoutPanel7.Controls.Add(this.groupBox9, 0, 4);
+            this.tableLayoutPanel7.Controls.Add(this.label84, 0, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
@@ -2548,8 +2553,8 @@
             // dataGridView21
             // 
             this.dataGridView21.AllowUserToAddRows = false;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.White;
-            this.dataGridView21.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.White;
+            this.dataGridView21.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle20;
             this.dataGridView21.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView21.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView21.ContextMenuStrip = this.contextMenuStrip1;
@@ -2559,17 +2564,6 @@
             this.dataGridView21.RowHeadersVisible = false;
             this.dataGridView21.Size = new System.Drawing.Size(1040, 181);
             this.dataGridView21.TabIndex = 45;
-            // 
-            // label84
-            // 
-            this.label84.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label84.AutoSize = true;
-            this.label84.Font = new System.Drawing.Font("宋体", 15F);
-            this.label84.Location = new System.Drawing.Point(448, 0);
-            this.label84.Name = "label84";
-            this.label84.Size = new System.Drawing.Size(149, 20);
-            this.label84.TabIndex = 51;
-            this.label84.Text = "Temp_water.sap";
             // 
             // label69
             // 
@@ -2596,8 +2590,8 @@
             // dataGridView22
             // 
             this.dataGridView22.AllowUserToAddRows = false;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.White;
-            this.dataGridView22.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.White;
+            this.dataGridView22.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
             this.dataGridView22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView22.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView22.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -2611,8 +2605,8 @@
             // dataGridView24
             // 
             this.dataGridView24.AllowUserToAddRows = false;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.White;
-            this.dataGridView24.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.White;
+            this.dataGridView24.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle22;
             this.dataGridView24.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView24.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView24.ContextMenuStrip = this.contextMenuStrip1;
@@ -2700,6 +2694,17 @@
             this.label71.Size = new System.Drawing.Size(119, 12);
             this.label71.TabIndex = 16;
             this.label71.Text = "下游水温表数据行数:";
+            // 
+            // label84
+            // 
+            this.label84.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label84.AutoSize = true;
+            this.label84.Font = new System.Drawing.Font("宋体", 15F);
+            this.label84.Location = new System.Drawing.Point(894, 0);
+            this.label84.Name = "label84";
+            this.label84.Size = new System.Drawing.Size(149, 20);
+            this.label84.TabIndex = 51;
+            this.label84.Text = "Temp_water.sap";
             // 
             // imageList1
             // 
@@ -2964,7 +2969,6 @@
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.TextBox textBox19;
         private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.RadioButton radioButton12;
         private System.Windows.Forms.DataGridView dataGridView9;
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.DataGridView dataGridView8;
@@ -3104,5 +3108,6 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.GroupBox groupBox15;
+        private System.Windows.Forms.CheckBox radioButton12;
     }
 }
