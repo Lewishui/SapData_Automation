@@ -44,7 +44,9 @@ namespace SapData_Automation
 
         private void importButton_Click(object sender, EventArgs e)
         {
-           
+            folderpath = pathTextBox.Text;
+            this.Close();
+
         }
     }
 }

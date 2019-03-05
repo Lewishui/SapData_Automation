@@ -89,8 +89,8 @@ namespace SapData_Automation
 
             //}
             //   toolStripButton2_Click(null, EventArgs.Empty);
-
-            openfile(folderpath);
+            if (folderpath != "")
+                openfile(folderpath);
         }
 
         private IEnumerable<DataGridViewRow> GetSelectedRowsBySelectedCells(DataGridView dgv)
@@ -206,7 +206,7 @@ namespace SapData_Automation
 
                     //冷却期数:
                     wtx += " " + textBox16.Text;
-              
+
                     //热学参数
                     StreamWriter sw = new StreamWriter(nowfile);
                     sw.WriteLine(wtx);
@@ -265,9 +265,9 @@ namespace SapData_Automation
                     sw.WriteLine(wtx);
 
                     //自生体积变形
-              
+
                     sw = wxdav(nowfile, this.dataGridView8, sw);
-                  // 
+                    // 
                     sw.WriteLine("");
                     //氧化镁
                     if (radioButton12.Checked == false)
@@ -511,6 +511,13 @@ namespace SapData_Automation
                 #endregion
 
 
+                if (folderpath != null && folderpath != "")
+                {
+                    openfile(folderpath);
+                    this.toolStripLabel1.Text = "刷新完成";
+                }
+
+
             }
             catch (Exception ex)
             {
@@ -537,7 +544,7 @@ namespace SapData_Automation
             for (int j = 0; j < dav.Rows.Count; j++)
             {
                 string strRowValue = "";
-          
+
                 for (int k = 1; k < dav.Columns.Count; k++)
                 {
                     if (dav.Rows[j].Cells[k].Value != null)
@@ -642,7 +649,7 @@ namespace SapData_Automation
             return sw;
 
         }
-      
+
         private StreamWriter wxdav_sup_step(string strFileName, DataGridView dav, StreamWriter sw)
         {
             //FileStream fa = new FileStream(strFileName, FileMode.Create);
@@ -1353,8 +1360,8 @@ namespace SapData_Automation
 
                         for (int jj = 0; jj < fileText1.Length; jj++)
                         {
-                            if (jj < qtyTable_dav5.Columns.Count-1 && rowindex < qtyTable_dav5.Rows.Count)
-                            qtyTable_dav5.Rows[rowindex][jj + 1] = fileText1[jj];
+                            if (jj < qtyTable_dav5.Columns.Count - 1 && rowindex < qtyTable_dav5.Rows.Count)
+                                qtyTable_dav5.Rows[rowindex][jj + 1] = fileText1[jj];
                         }
                         qtyTable_dav5.Rows[rowindex][0] = rowindex + 1;
                         rowindex++;
@@ -1724,7 +1731,7 @@ namespace SapData_Automation
                     {
                         ongo = j;
 
-                        if (j >= fileText.Length||fileText[j].Contains("\t\t\t\t") || fileText[j].Replace("  ", "").Trim() == "")
+                        if (j >= fileText.Length || fileText[j].Contains("\t\t\t\t") || fileText[j].Replace("  ", "").Trim() == "")
                         {
                             break;
                         }
@@ -1893,6 +1900,8 @@ namespace SapData_Automation
                         qtyTable_dav9.Rows.Add(qtyTable_dav9.NewRow());
 
                         sp_txt = removeblank(sp_txt, fileText, j);
+
+                        sp_txt = removeblank_txt(sp_txt);
                         string[] fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, "\t");
                         if (fileText1.Length < 2)
                             fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, " ");
@@ -2625,7 +2634,7 @@ namespace SapData_Automation
                     {
                         ongo = j;
 
-                        if (j >= fileText.Length||(fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || fileText[j].Replace("  ", "").Trim() == "" || fileText[j].Length < 5)
+                        if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || fileText[j].Replace("  ", "").Trim() == "" || fileText[j].Length < 5)
                         {
                             blankindex++;
                             if (blankindex > 2)
@@ -2780,6 +2789,34 @@ namespace SapData_Automation
         private static string removeblank(string sp_txt, string[] fileText, int j)
         {
             sp_txt = fileText[j].Trim();
+
+            while (true)
+            {
+                if (sp_txt.Contains("  "))
+                {
+                    sp_txt = sp_txt.Replace("  ", " ");
+
+                }
+                else
+                    break;
+
+            }
+            while (true)
+            {
+                if (sp_txt.Contains("\t\t"))
+                {
+                    sp_txt = sp_txt.Replace("\t\t", "\t");
+
+                }
+                else
+                    break;
+
+            }
+            return sp_txt;
+        }
+        private static string removeblank_txt(string sp_txt)
+        {
+            sp_txt = sp_txt.Trim().Replace(" ", "\t").Replace("\t\t", "\t");
 
             while (true)
             {
@@ -3103,7 +3140,7 @@ namespace SapData_Automation
             }
             if (s == 5)
             {
-                toolStripDropDownButton6_Click(null, EventArgs.Empty);
+                //  toolStripDropDownButton6_Click(null, EventArgs.Empty);
 
             }
             if (s == 6)
@@ -3339,10 +3376,19 @@ namespace SapData_Automation
 
             string DesktopPath = Convert.ToString(System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop));
 
-            if (File.Exists(DesktopPath + "\\ultraedit.exe"))
 
-                System.Diagnostics.Process.Start("ultraedit.exe", nowfile);
-
+            if (File.Exists(DesktopPath + "\\ultreadit.exe"))
+            {
+                //  System.Diagnostics.Process.Start("ultraedit.exe", nowfile);
+                System.Diagnostics.Process.Start(DesktopPath + "\\ultraedit.exe", nowfile);
+            }
+            else
+            {
+                if (File.Exists(DesktopPath + "\\ultreadit.exe.lnk"))
+                    System.Diagnostics.Process.Start(DesktopPath + "\\ultreadit.exe.lnk", nowfile);
+                else
+                    MessageBox.Show(DesktopPath + "路径为空 或 在当前选择.sap文件路径下没有找到 ultraedit.exe", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
 
 
@@ -3718,8 +3764,23 @@ namespace SapData_Automation
         {
 
             if (File.Exists(folderpath + "\\saptis.exe"))
+            {
+                //System.Diagnostics.Process.Start(folderpath + "\\saptis.exe");
 
-                System.Diagnostics.Process.Start("saptis.exe", folderpath);
+                System.Diagnostics.Process p = new System.Diagnostics.Process();
+                p.StartInfo.WorkingDirectory = folderpath;
+                p.StartInfo.UseShellExecute = true;
+                p.StartInfo.FileName = folderpath + "\\saptis.bat";
+                p.Start();
+
+                //proc.StartInfo.CreateNoWindow = true;
+                //proc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;//这里设置DOS窗口不显示，经实践可行
+
+                //MessageBox.Show(" 已执行完毕!", "信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                p.WaitForExit();
+            }
+            else
+                MessageBox.Show(folderpath + "路径为空 或 在当前选择.sap文件路径下没有找到 saptis.exe", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
 
 
