@@ -12,3 +12,4 @@ D:\Devlop\sap数据编辑\数据编辑工具软件sap\SapData_Automation\Order.D
 D:\Devlop\sap数据编辑\数据编辑工具软件sap\SapData_Automation\Order.DB\bin\Debug\Order.DB.pdb
 D:\Devlop\sap数据编辑\数据编辑工具软件sap\SapData_Automation\Order.DB\obj\Debug\Order.DB.dll
 D:\Devlop\sap数据编辑\数据编辑工具软件sap\SapData_Automation\Order.DB\obj\Debug\Order.DB.pdb
+D:\Devlop\sap数据编辑\数据编辑工具软件sap\SapData_Automation\Order.DB\obj\Debug\Order.DB.csprojResolveAssemblyReference.cache

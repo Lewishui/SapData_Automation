@@ -1357,6 +1357,8 @@ namespace SapData_Automation
 
                         sp_txt = removeblank(sp_txt, fileText, j);
                         string[] fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, "\t");
+                        if (fileText1.Length < 2)
+                            fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, " ");
 
                         for (int jj = 0; jj < fileText1.Length; jj++)
                         {
@@ -1663,6 +1665,8 @@ namespace SapData_Automation
                         sp_txt = removeblank(sp_txt, fileText, j);
                         sp_txt = sp_txt.Replace(" ", "\t").Replace("\t\t", "\t");
                         string[] fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, "\t");
+                        if (fileText1.Length < 2)
+                            fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, " ");
 
                         for (int jj = 0; jj < fileText1.Length; jj++)
                         {
