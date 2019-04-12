@@ -1193,16 +1193,25 @@ namespace SapData_Automation
                     {
 
                         sp_txt = removeblank(sp_txt, fileText, 0);
+                        //new 
+                        sp_txt = removeblank_txt(sp_txt);
+
                         //工况数
                         string[] fileTextG = System.Text.RegularExpressions.Regex.Split(sp_txt, " ");
-
+                        if (fileTextG.Length < 1)
+                            fileTextG = System.Text.RegularExpressions.Regex.Split(sp_txt, "\t");
                         textBox1.Text = fileTextG[0];
 
                         //计算量1
                         if (fileText.Length > 1)
                         {
                             sp_txt = removeblank(sp_txt, fileText, 2);
+                            //new 
+                            sp_txt = removeblank_txt(sp_txt);
                             string[] fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, " ");
+                            if (fileTextG.Length < 1)
+                                fileTextG = System.Text.RegularExpressions.Regex.Split(sp_txt, "\t");
+
 
                             if (fileText1.Length > 0 && fileText1[0] == "1")
                                 radioButton1.Checked = true;
@@ -1224,8 +1233,12 @@ namespace SapData_Automation
                         }
                         //求解器
                         sp_txt = removeblank(sp_txt, fileText, 4);
+                        //new 
+                        sp_txt = removeblank_txt(sp_txt);
 
                         string[] fileTextQ = splittx0(sp_txt);
+                        if (fileTextQ.Length < 1)
+                            fileTextQ = System.Text.RegularExpressions.Regex.Split(sp_txt, "\t");
 
                         textBox2.Text = fileTextQ[0];
 
@@ -1343,11 +1356,12 @@ namespace SapData_Automation
                     for (int j = ongo1; j <= fileText.Length; j++)
                     {
                         ongo = j;
-
-                        if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || fileText[j] == "")
+                        sp_txt = removeblank(sp_txt, fileText, j);
+                        sp_txt = removeblank_txt(sp_txt);
+                        if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || sp_txt == "")
                         {
                             isgo++;
-                            if (isgo > 1)
+                            if (isgo > 1 || rowindex > 0)
                                 break;
                             else
                                 continue;
@@ -1355,7 +1369,7 @@ namespace SapData_Automation
                         }
                         qtyTable_dav5.Rows.Add(qtyTable_dav5.NewRow());
 
-                        sp_txt = removeblank(sp_txt, fileText, j);
+
                         string[] fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, "\t");
                         if (fileText1.Length < 2)
                             fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, " ");
@@ -1380,12 +1394,20 @@ namespace SapData_Automation
                     for (int j = ongo1; j <= fileText.Length; j++)
                     {
                         ongo = j;
+                        sp_txt = removeblank(sp_txt, fileText, j);
+                        //new 
+                        sp_txt = removeblank_txt(sp_txt);
 
-                        if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || fileText[j].Replace("  ", "").Trim() == "")
+                        if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || fileText[j].Replace("  ", "").Trim() == "" || sp_txt == "")
                         {
+                            isgo++;
+                            if (isgo > 1 || rowindex > 0)
+                                break;
+                            else
+                                continue;
                             //isgo++;
-                            //if (isgo > 1)
-                            break;
+                            //if (isgo > 1 || rowindex>0)
+                            //break;
                             //else
                             //    continue;
                         }
@@ -1393,10 +1415,9 @@ namespace SapData_Automation
                             continue;
                         qtyTable_dav6.Rows.Add(qtyTable_dav6.NewRow());
 
-                        sp_txt = removeblank(sp_txt, fileText, j);
 
                         string[] fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, "\t");
-                        if (fileText1.Length < 2)
+                        if (fileText1.Length <= 2)
                             fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt.Trim().Replace("    ", " ").Replace("   ", " ").Replace("  ", " "), "\t");
                         if (fileText1.Length < 2)
                             fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt.Trim().Replace("    ", " ").Replace("   ", " ").Replace("  ", " "), " ");
@@ -1417,19 +1438,28 @@ namespace SapData_Automation
                     for (int j = ongo1; j <= fileText.Length; j++)
                     {
                         ongo = j;
+                        sp_txt = removeblank(sp_txt, fileText, j);
+                        //new 
+                        sp_txt = removeblank_txt(sp_txt);
 
-                        if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || fileText[j] == "")
+                        if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || fileText[j] == "" || sp_txt == "")
                         {
+                            isgo++;
+                            if (isgo > 1 || rowindex > 0)
+                                break;
+                            else
+                                continue;
                             //isgo++;
                             //if (isgo >1)
-                            break;
+                            //break;
                             //else
                             //    continue;
                         }
 
-                        sp_txt = removeblank(sp_txt, fileText, j);
-                        string[] fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, " ");
 
+                        string[] fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, " ");
+                        if (fileText1.Length < 2)
+                            fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, "\t");
                         //if (fileText1.Length > 0 && fileText1[0] == "1")
                         //    radioButton1.Checked = true;
                         //else if (fileText1.Length > 1 && fileText1[0] == "0")
@@ -1467,19 +1497,23 @@ namespace SapData_Automation
                     for (int j = ongo1; j <= fileText.Length; j++)
                     {
                         ongo = j;
+                        sp_txt = removeblank(sp_txt, fileText, j);
+                        //new 
+                        sp_txt = removeblank_txt(sp_txt);
 
-                        if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || fileText[j].Replace("  ", "").Trim() == "")
+                        if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || fileText[j].Replace("  ", "").Trim() == "" || sp_txt == "")
                         {
                             isgo++;
-                            if (isgo > 1)
+                            if (isgo > 1 || rowindex > 0)
                                 break;
                             else
                                 continue;
                         }
 
-                        sp_txt = removeblank(sp_txt, fileText, j);
-                        string[] fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, " ");
 
+                        string[] fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, "\t");
+                        if (fileText1.Length < 2)
+                            fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, " ");
                         ////自生体积变形定义点数
                         if (fileText1.Length >= 1)
                             this.textBox19.Text = fileText1[0];
@@ -1495,11 +1529,20 @@ namespace SapData_Automation
                     {
                         ongo = j;
 
-                        if (j >= fileText.Length || (fileText[j].Contains("\t\t") || fileText[j].Replace("  ", "").Trim() == ""))
+                        sp_txt = removeblank(sp_txt, fileText, j);
+                        //new 
+                        sp_txt = removeblank_txt(sp_txt);
+
+                        if (j >= fileText.Length || (fileText[j].Contains("\t\t") || fileText[j].Replace("  ", "").Trim() == "") || sp_txt == "")
                         {
+                            isgo++;
+                            if (isgo > 1 || rowindex > 0)
+                                break;
+                            else
+                                continue;
                             //isgo++;
-                            //if (isgo > 1)
-                            break;
+                            //if (isgo > 1 || rowindex>0)
+                            //break;
                             //else
                             //    continue;
                         }
@@ -1509,10 +1552,12 @@ namespace SapData_Automation
                         if (fileText.Length > j)
                         {
 
-                            sp_txt = removeblank(sp_txt, fileText, j);
+
+
                             sp_txt = sp_txt.Replace(" ", "\t").Replace("\t\t", "\t");
                             string[] fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, "\t");
-
+                            if (fileText1.Length < 2)
+                                fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, " ");
                             for (int jj = 0; jj < fileText1.Length; jj++)
                             {
                                 if (jj < qtyTable8.Columns.Count - 1 && rowindex < qtyTable8.Rows.Count)
@@ -1527,23 +1572,36 @@ namespace SapData_Automation
                     for (int j = ongo1; j <= fileText.Length; j++)
                     {
                         ongo = j;
+                        sp_txt = removeblank(sp_txt, fileText, j);
+                        //new 
+                        sp_txt = removeblank_txt(sp_txt);
 
-                        if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || fileText[j].Replace("  ", "").Trim() == "")
+                        if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || fileText[j].Replace("  ", "").Trim() == "" || sp_txt == "")
                         {
+                            isgo++;
+                            if (isgo > 1 || rowindex > 0)
+                                break;
+                            else
+                                continue;
                             //isgo++;
-                            //if (isgo > 1)
-                            break;
+                            //if (isgo > 1 || rowindex>0)
+                            //break;
                             //else
                             //    continue;
                         }
 
-                        sp_txt = removeblank(sp_txt, fileText, j);
+
                         string[] fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, " ");
+                        if (fileText1.Length < 2)
+                            fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, "\t");
 
                         if (fileText1.Length > 0 && fileText1[0] == "1")
                             radioButton12.Checked = true;
                         else if (fileText1.Length > 0 && fileText1[0] == "0")
                             radioButton12.Checked = false;
+
+                        rowindex++;
+
                     }
 
 
@@ -1557,8 +1615,11 @@ namespace SapData_Automation
                     for (int j = ongo1; j <= fileText.Length; j++)
                     {
                         ongo = j;
+                        sp_txt = removeblank(sp_txt, fileText, j);
+                        //new 
+                        sp_txt = removeblank_txt(sp_txt);
 
-                        if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || fileText[j].Replace("  ", "").Trim() == "")
+                        if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || fileText[j].Replace("  ", "").Trim() == "" || sp_txt == "")
                         {
                             int con = 0;
                             if (j < fileText.Length && fileText[j].Contains("\t\t\t\t"))
@@ -1573,7 +1634,7 @@ namespace SapData_Automation
                             if (con == 0)
                             {
                                 isgo++;
-                                if (isgo > 1)
+                                if (isgo > 1 || rowindex > 0)
                                     break;
                                 else
                                     continue;
@@ -1581,10 +1642,10 @@ namespace SapData_Automation
                         }
 
                         qtyTable_dav7.Rows.Add(qtyTable_dav7.NewRow());
-                        sp_txt = removeblank(sp_txt, fileText, j);
 
                         string[] fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, "\t");
-
+                        if (fileText1.Length < 2)
+                            fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, " ");
                         for (int jj = 0; jj < fileText1.Length; jj++)
                         {
                             if (jj < qtyTable_dav7.Columns.Count - 1 && rowindex < qtyTable_dav7.Rows.Count)
@@ -1618,7 +1679,16 @@ namespace SapData_Automation
                     if (fileText.Length > 1)
                     {
                         sp_txt = removeblank(sp_txt, fileText, 0);
+                        //new 
+                        sp_txt = removeblank_txt(sp_txt);
+
                         string[] fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, " ");
+
+
+                        if (fileText1.Length < 2)
+                            fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, "\t");
+
+
                         if (fileText[0].Contains("\t") && !fileText[0].Contains(" "))
                         {
                             fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, "\t");
@@ -1648,12 +1718,16 @@ namespace SapData_Automation
                     for (int j = 1; j <= fileText.Length; j++)
                     {
                         ongo = j;
-                        if (j >= fileText.Length || fileText[j].Contains("\t\t\t\t") || (fileText[j].Replace("  ", "").Trim() == ""))
+                        sp_txt = removeblank(sp_txt, fileText, j);
+                        //new 
+                        sp_txt = removeblank_txt(sp_txt);
+
+                        if (j >= fileText.Length || fileText[j].Contains("\t\t\t\t") || (fileText[j].Replace("  ", "").Trim() == "") || sp_txt == "")
                         {
                             if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || fileText[j].Replace("  ", "").Trim() == "")
                             {
                                 isgo++;
-                                if (isgo > 1)
+                                if (isgo > 1 || rowindex > 0)
                                     break;
                                 else
                                     continue;
@@ -1662,7 +1736,7 @@ namespace SapData_Automation
                         }
 
                         qtyTable_dav2.Rows.Add(qtyTable_dav2.NewRow());
-                        sp_txt = removeblank(sp_txt, fileText, j);
+
                         sp_txt = sp_txt.Replace(" ", "\t").Replace("\t\t", "\t");
                         string[] fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, "\t");
                         if (fileText1.Length < 2)
@@ -1681,7 +1755,7 @@ namespace SapData_Automation
                     //表面散热系数
                     var qtyTable_dav3 = new DataTable();
                     qtyTable_dav3.Columns.Add("βw", System.Type.GetType("System.String"));//0
-                    if (textBox13.Text.Length > 0)
+                    if (textBox13.Text.Length > 0 && !textBox13.Text.Contains("\t"))
                     {
                         int icount = Convert.ToInt32(textBox13.Text);
                         for (int i3 = 1; i3 <= icount; i3++)
@@ -1698,14 +1772,21 @@ namespace SapData_Automation
                     for (int j = ongo1; j <= fileText.Length; j++)
                     {
                         ongo = j;
-
-                        if (fileText[j].Contains("\t\t\t") || fileText[j].Replace("  ", "").Trim() == "")
+                        sp_txt = removeblank(sp_txt, fileText, j);
+                        //new 
+                        sp_txt = removeblank_txt(sp_txt);
+                        if (fileText[j].Contains("\t\t\t") || fileText[j].Replace("  ", "").Trim() == "" || sp_txt == "")
                         {
-                            break;
+                            isgo++;
+                            if (isgo > 1 || rowindex > 0)
+                                break;
+                            else
+                                continue;
+                            //break;
                         }
 
                         qtyTable_dav3.Rows.Add(qtyTable_dav3.NewRow());
-                        sp_txt = removeblank(sp_txt, fileText, j);
+
                         string[] fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, "\t");
                         if (fileText1.Length < 2)
                             fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, " ");
@@ -1734,15 +1815,24 @@ namespace SapData_Automation
                     for (int j = ongo1; j <= fileText.Length; j++)
                     {
                         ongo = j;
+                        sp_txt = removeblank(sp_txt, fileText, j);
+                        //new 
+                        sp_txt = removeblank_txt(sp_txt);
 
-                        if (j >= fileText.Length || fileText[j].Contains("\t\t\t\t") || fileText[j].Replace("  ", "").Trim() == "")
+                        if (j >= fileText.Length || fileText[j].Contains("\t\t\t\t") || fileText[j].Replace("  ", "").Trim() == "" || sp_txt == "")
                         {
-                            break;
+                            isgo++;
+                            if (isgo > 1 || rowindex > 0)
+                                break;
+                            else
+                                continue;
+                            //break;
                         }
 
                         qtyTable_dav4.Rows.Add(qtyTable_dav4.NewRow());
 
-                        sp_txt = removeblank(sp_txt, fileText, j);
+
+
                         string[] fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, "\t");
                         if (fileText1.Length < 2)
                             fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, " ");
@@ -1767,14 +1857,22 @@ namespace SapData_Automation
                     for (int j = ongo1; j <= fileText.Length; j++)
                     {
                         ongo = j;
+                        sp_txt = removeblank(sp_txt, fileText, j);
+                        //new 
+                        sp_txt = removeblank_txt(sp_txt);
 
-                        if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || fileText[j].Replace("  ", "").Trim() == "")
+                        if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || fileText[j].Replace("  ", "").Trim() == "" || sp_txt == "")
                         {
-                            break;
+                            isgo++;
+                            if (isgo > 1 || rowindex > 0)
+                                break;
+                            else
+                                continue;
+                            //break;
                         }
 
                         //  qtyTable_dav5.Rows.Add(qtyTable_dav5.NewRow());
-                        sp_txt = removeblank(sp_txt, fileText, j);
+
                         string[] fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, "\t");
                         if (fileText1.Length < 2)
                             fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, " ");
@@ -1829,19 +1927,27 @@ namespace SapData_Automation
 
                     int ongo1 = ongo + 1;
                     int rowindex = 0;
+                    int isgo = 0;
                     for (int j = ongo1; j <= fileText.Length; j++)
                     {
                         ongo = j;
-
-                        if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || (fileText[j].Replace("  ", "").Trim() == "" && j != 1))
+                        sp_txt = removeblank(sp_txt, fileText, j);
+                        //new 
+                        sp_txt = removeblank_txt(sp_txt);
+                        if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || (fileText[j].Replace("  ", "").Trim() == "" && j != 1) || sp_txt == "")
                         {
-                            break;
+                            isgo++;
+                            if (isgo > 1 || rowindex > 0)
+                                break;
+                            else
+                                continue;
+                            //break;
                         }
                         if (fileText[j] == "" && j == 1)
                             continue;
 
                         qtyTable_dav8.Rows.Add(qtyTable_dav8.NewRow());
-                        sp_txt = removeblank(sp_txt, fileText, j);
+
                         string[] fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, "\t");
                         if (fileText1.Length < 2)
                             fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, " ");
@@ -1890,22 +1996,29 @@ namespace SapData_Automation
 
                     int ongo1 = ongo + 1;
                     int rowindex = 0;
+                    int isgo = 0;
                     for (int j = ongo1; j <= fileText.Length; j++)
                     {
                         ongo = j;
+                        sp_txt = removeblank(sp_txt, fileText, j);
 
-                        if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || (fileText[j].Replace("  ", "").Trim() == "" && j != 1))
+                        sp_txt = removeblank_txt(sp_txt);
+                        if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || (fileText[j].Replace("  ", "").Trim() == "" && j != 1) || sp_txt == "")
                         {
-                            break;
+                            isgo++;
+                            if (isgo > 1 || rowindex > 0)
+                                break;
+                            else
+                                continue;
+
+                            //break;
                         }
                         if (fileText[j] == "" && j == 1)
                             continue;
 
                         qtyTable_dav9.Rows.Add(qtyTable_dav9.NewRow());
 
-                        sp_txt = removeblank(sp_txt, fileText, j);
 
-                        sp_txt = removeblank_txt(sp_txt);
                         string[] fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, "\t");
                         if (fileText1.Length < 2)
                             fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, " ");
@@ -1930,7 +2043,12 @@ namespace SapData_Automation
                     {
                         ongo = j;
 
-                        if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || (fileText[j].Replace("  ", "").Trim() == "" && j != 1))
+                        sp_txt = removeblank(sp_txt, fileText, j);
+
+                        sp_txt = removeblank_txt(sp_txt);
+
+
+                        if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || (fileText[j].Replace("  ", "").Trim() == "" && j != 1) || sp_txt == "")
                         {
                             break;
                         }
@@ -1939,9 +2057,11 @@ namespace SapData_Automation
 
                         qtyTable_dav10.Rows.Add(qtyTable_dav10.NewRow());
 
-                        string[] fileText1 = System.Text.RegularExpressions.Regex.Split(fileText[j], "\t");
+
+
+                        string[] fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, "\t");
                         if (fileText1.Length < 2)
-                            fileText1 = System.Text.RegularExpressions.Regex.Split(fileText[j].Replace("   ", " ").Replace("  ", " "), " ");
+                            fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, " ");
 
                         for (int jj = 0; jj < fileText1.Length; jj++)
                         {
@@ -2001,14 +2121,22 @@ namespace SapData_Automation
                         int isadd = 0;
                         int cloindex = 0;
                         string comtxt = "";
-
+                        int isgo = 0;
                         for (int j = ongo1; j <= fileText.Length; j++)
                         {
                             ongo = j;
-
-                            if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || (fileText[j].Replace("  ", "").Trim() == "" && j != 1))
+                            sp_txt = removeblank(sp_txt, fileText, j);
+                            //new 
+                            sp_txt = removeblank_txt(sp_txt);
+                            if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || (fileText[j].Replace("  ", "").Trim() == "" && j != 1) || sp_txt == "")
                             {
-                                break;
+                                isgo++;
+                                if (isgo > 1 || rowindex > 0)
+                                    break;
+                                else
+                                    continue;
+
+                                //break;
                             }
                             if (fileText[j] == "" && j == 1)
                                 continue;
@@ -2016,7 +2144,7 @@ namespace SapData_Automation
                             {
 
                                 qtyTable_dav11.Rows.Add(qtyTable_dav11.NewRow());
-                                sp_txt = removeblank(sp_txt, fileText, j);
+
                                 sp_txt = sp_txt.Replace("\t", " ").Trim();
 
                                 string[] fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, "\t");
@@ -2036,6 +2164,9 @@ namespace SapData_Automation
                             else
                             {
                                 sp_txt = removeblank(sp_txt, fileText, j);
+                                //new 
+                                sp_txt = removeblank_txt(sp_txt);
+
 
                                 //   qtyTable_dav11.Rows.Add(qtyTable_dav11.NewRow());
                                 string[] fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, "\t");
@@ -2122,11 +2253,13 @@ namespace SapData_Automation
                     for (int j = ongo1; j <= fileText.Length; j++)
                     {
                         ongo = j;
+                        sp_txt = removeblank(sp_txt, fileText, j);
+                        sp_txt = tongyi_tempty(sp_txt);
 
-                        if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || (fileText[j].Replace("  ", "").Trim() == "" && j != 1))
+                        if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || (fileText[j].Replace("  ", "").Trim() == "" && j != 1) || sp_txt == "")
                         {
                             isgo++;
-                            if (isgo > 1)
+                            if (isgo > 1 || rowindex > 0)
                                 break;
                             else
                                 continue;
@@ -2135,8 +2268,7 @@ namespace SapData_Automation
                             continue;
                         if (qtyTable_dav12.Rows.Count <= rowindex)
                             qtyTable_dav12.Rows.Add(qtyTable_dav12.NewRow());
-                        sp_txt = removeblank(sp_txt, fileText, j);
-                        sp_txt = tongyi_tempty(sp_txt);
+
 
                         string[] fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, "\t");
                         if (fileText1.Length < 2)
@@ -2180,20 +2312,29 @@ namespace SapData_Automation
 
                     int ongo1 = ongo + 1;
                     int rowindex = 0;
+                    int isgo = 0;
                     for (int j = ongo1; j <= fileText.Length; j++)
                     {
                         ongo = j;
+                        sp_txt = removeblank(sp_txt, fileText, j);
+                        //new 
+                        sp_txt = removeblank_txt(sp_txt);
 
-                        if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || (fileText[j].Replace("  ", "").Trim() == "" && j != 1))
+                        if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || (fileText[j].Replace("  ", "").Trim() == "" && j != 1) || sp_txt == "")
                         {
-                            break;
+                            isgo++;
+                            if (isgo > 1 || rowindex > 0)
+                                break;
+                            else
+                                continue;
+                            //break;
                         }
                         if (fileText[j] == "" && j == 1)
                             continue;
                         if (fileText[j].Replace("\t", "") == "")
                             continue;
                         qtyTable_dav13.Rows.Add(qtyTable_dav13.NewRow());
-                        sp_txt = removeblank(sp_txt, fileText, j);
+
                         string[] fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, "\t");
                         if (fileText1.Length < 2)
                             fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, " ");
@@ -2241,13 +2382,23 @@ namespace SapData_Automation
                     gangduxishu(qtyTable_dav14);
 
                     int ongo = 0;
+                    int isgo = 0;
+                    int rowindex = 0;
+
                     for (int j = 1; j <= fileText.Length; j++)
                     {
                         ongo = j;
-
-                        if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || (fileText[j].Replace("  ", "").Trim() == "" && j != 1))
+                        sp_txt = removeblank(sp_txt, fileText, j);
+                        //new 
+                        sp_txt = removeblank_txt(sp_txt);
+                        if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || (fileText[j].Replace("  ", "").Trim() == "" && j != 1) || sp_txt == "")
                         {
-                            break;
+                            isgo++;
+                            if (isgo > 1 || rowindex > 0)
+                                break;
+                            else
+                                continue;
+                            //break;
                         }
                         if (fileText[j].Replace("  ", "").Trim() == "" && j == 1)
                             continue;
@@ -2255,10 +2406,15 @@ namespace SapData_Automation
                         qtyTable_dav14.Rows.Add(qtyTable_dav14.NewRow());
 
                         string[] fileText1 = System.Text.RegularExpressions.Regex.Split(fileText[j], "\t");
-                        if (fileText1.Length <= 2)
+                        if (fileText1.Length < 2)
                         {
                             sp_txt = removeblank(sp_txt, fileText, j);
+                            //new 
+                            sp_txt = removeblank_txt(sp_txt);
                             fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt.Replace("  ", "").Trim(), " ");
+                            if (fileText1.Length < 2)
+                                fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, "\t");
+
                         }
                         for (int jj = 0; jj < fileText1.Length; jj++)
                         {
@@ -2266,6 +2422,7 @@ namespace SapData_Automation
                                 qtyTable_dav14.Rows[j - 2][jj + 1] = fileText1[jj];
                         }
                         qtyTable_dav14.Rows[j - 2][0] = j - 1;
+                        rowindex++;
 
 
                     }
@@ -2277,14 +2434,22 @@ namespace SapData_Automation
                     //
                     int ongo1 = ongo + 1;
                     // ongo1 = 3;
-                    int rowindex = 0;
+                    rowindex = 0;
+                    isgo = 0;
                     for (int j = ongo1; j <= fileText.Length; j++)
                     {
                         ongo = j;
-
-                        if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || (fileText[j].Replace("  ", "").Trim() == "" && j != 1))
+                        sp_txt = removeblank(sp_txt, fileText, j);
+                        //new 
+                        sp_txt = removeblank_txt(sp_txt);
+                        if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || (fileText[j].Replace("  ", "").Trim() == "" && j != 1) || sp_txt == "")
                         {
-                            break;
+                            isgo++;
+                            if (isgo > 1 || rowindex > 0)
+                                break;
+                            else
+                                continue;
+                            //break;
                         }
                         if (fileText[j] == "" && j == 1)
                             continue;
@@ -2292,9 +2457,9 @@ namespace SapData_Automation
                         qtyTable_dav15.Rows.Add(qtyTable_dav15.NewRow());
 
                         string[] fileText1 = System.Text.RegularExpressions.Regex.Split(fileText[j], "\t");
-                        if (fileText1.Length <= 2)
+                        if (fileText1.Length < 2)
                         {
-                            sp_txt = removeblank(sp_txt, fileText, j);
+
                             fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, " ");
                         }
                         for (int jj = 0; jj < fileText1.Length; jj++)
@@ -2313,13 +2478,19 @@ namespace SapData_Automation
 
                     ongo1 = ongo + 1;
                     rowindex = 0;
+                    isgo = 0;
                     for (int j = ongo1; j <= fileText.Length; j++)
                     {
                         ongo = j;
 
                         if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || (fileText[j].Replace("  ", "").Trim() == "" && j != 1))
                         {
-                            break;
+                            isgo++;
+                            if (isgo > 1 || rowindex > 0)
+                                break;
+                            else
+                                continue;
+                            //break;
                         }
                         if (fileText[j] == "" && j == 1)
                             continue;
@@ -2327,7 +2498,7 @@ namespace SapData_Automation
                         qtyTable_dav16.Rows.Add(qtyTable_dav16.NewRow());
 
                         string[] fileText1 = System.Text.RegularExpressions.Regex.Split(fileText[j], "\t");
-                        if (fileText1.Length <= 2)
+                        if (fileText1.Length < 2)
                             fileText1 = System.Text.RegularExpressions.Regex.Split(fileText[j].Trim().Replace("    ", " ").Replace("   ", " ").Replace("  ", " "), " ");
 
                         for (int jj = 0; jj < fileText1.Length; jj++)
@@ -2356,17 +2527,36 @@ namespace SapData_Automation
                 {
                     string[] fileText = File.ReadAllLines(Alist[i]);
                     int ongo = 0;
-
+                    int rowindex = 0;
+                    int isgo = 0;
                     if (fileText.Length > 1)
                     {
                         sp_txt = removeblank(sp_txt, fileText, 0);
                         string[] fileText1 = System.Text.RegularExpressions.Regex.Split(fileText[0], " ");
+                        if (fileText1.Length < 1)
+                            fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, "\t");
+                          rowindex = 0;
+                          isgo = 0;
+                        for (int jj = 0; jj < fileText1.Length; jj++)
+                        {
+                            sp_txt = removeblank(sp_txt, fileText1, jj);
+                            //new 
+                            sp_txt = removeblank_txt(sp_txt);
 
-                        //挖除与回填单元总数::
-                        if (fileText1.Length > 0)
-                            textBox26.Text = fileText1[0];
+                            if (jj >= fileText1.Length || (fileText1[jj].Contains("\t\t\t\t") && fileText1[jj].Replace("\t", "").Trim() == "") || (fileText1[jj].Replace("  ", "").Trim() == "" && jj != 1) || sp_txt=="")
+                            {
+                                isgo++;
+                                if ( rowindex > 0)
+                                    break;
+                                else
+                                    continue;
+                            }
+
+                            //挖除与回填单元总数::
+                            if (fileText1.Length > 0)
+                                textBox26.Text = fileText1[jj];
+                        }
                     }
-
                     var qtyTable_dav18 = new DataTable();
 
                     qtyTable_dav18.Columns.Add("单元号", System.Type.GetType("System.String"));//0
@@ -2374,20 +2564,30 @@ namespace SapData_Automation
                     qtyTable_dav18.Columns.Add("计算步号", System.Type.GetType("System.String"));//1
 
                     int ongo1 = ongo + 1;
-                    int rowindex = 0;
+                    rowindex = 0;
+                    isgo = 0;
                     for (int j = ongo1; j <= fileText.Length; j++)
                     {
                         ongo = j;
-
-                        if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || (fileText[j].Replace("  ", "").Trim() == "" && j != 1))
+                        sp_txt = removeblank(sp_txt, fileText, j);
+                        //new 
+                        sp_txt = removeblank_txt(sp_txt);
+                        if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || (fileText[j].Replace("  ", "").Trim() == "" && j != 1) || sp_txt == "")
                         {
-                            break;
+                            isgo++;
+                            if (isgo > 1 || rowindex > 0)
+                                break;
+                            else
+                                continue;
+                            //break;
                         }
                         if (fileText[j] == "" && j == 1)
                             continue;
 
                         qtyTable_dav18.Rows.Add(qtyTable_dav18.NewRow());
-                        sp_txt = removeblank(sp_txt, fileText, j);
+
+
+
                         string[] fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, "\t");
                         if (fileText1.Length < 2)
                             fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, " ");
@@ -2447,19 +2647,29 @@ namespace SapData_Automation
                         }
                         int ongo1 = ongo + 1;
                         int rowindex = 0;
+                        int isgo = 0;
                         for (int j = ongo1; j <= fileText.Length; j++)
                         {
                             ongo = j;
-
-                            if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || (fileText[j].Replace("  ", "").Trim() == "" && j != 1))
+                            sp_txt = removeblank(sp_txt, fileText, j);
+                            //new 
+                            sp_txt = removeblank_txt(sp_txt);
+                            if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || (fileText[j].Replace("  ", "").Trim() == "" && j != 1) || sp_txt == "")
                             {
-                                break;
+                                isgo++;
+                                if (isgo > 1 || rowindex > 0)
+                                    break;
+                                else
+                                    continue;
+                                //break;
                             }
                             if (fileText[j] == "" && j == 1)
                                 continue;
 
                             // qtyTable_dav19.Rows.Add(qtyTable_dav19.NewRow());
-                            sp_txt = removeblank(sp_txt, fileText, j);
+
+
+
                             string[] fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, "\t");
                             if (fileText1.Length < 2)
                                 fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, " ");
@@ -2540,7 +2750,11 @@ namespace SapData_Automation
                     for (int j = 3; j <= fileText.Length; j++)
                     {
                         ongo = j;
-                        if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || fileText[j] == "")
+                        sp_txt = removeblank(sp_txt, fileText, j);
+
+                        //new 
+                        sp_txt = removeblank_txt(sp_txt);
+                        if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || fileText[j] == "" || sp_txt == "")
                         {
                             if (j > 4)
                                 break;
@@ -2552,7 +2766,9 @@ namespace SapData_Automation
                             continue;
 
                         //  qtyTable_dav20.Rows.Add(qtyTable_dav20.NewRow());
-                        sp_txt = removeblank(sp_txt, fileText, j);
+
+
+
                         string[] fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, "\t");
                         if (fileText1.Length < 2)
                             fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, " ");
@@ -2574,14 +2790,16 @@ namespace SapData_Automation
                     for (int j = ongo1; j <= fileText.Length; j++)
                     {
                         ongo = j;
-
-                        if ((fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || fileText[j].Replace("  ", "").Trim() == "")
+                        sp_txt = removeblank(sp_txt, fileText, j);
+                        //new 
+                        sp_txt = removeblank_txt(sp_txt);
+                        if ((fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || fileText[j].Replace("  ", "").Trim() == "" || sp_txt == "")
                         {
                             break;
                         }
                         if (fileText[j] == "" && j == 1)
                             continue;
-                        sp_txt = removeblank(sp_txt, fileText, j);
+
                         string[] fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, "\t");
                         if (fileText1.Length < 2)
                             fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, " ");
@@ -2637,8 +2855,10 @@ namespace SapData_Automation
                     for (int j = ongo1; j <= fileText.Length; j++)
                     {
                         ongo = j;
-
-                        if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || fileText[j].Replace("  ", "").Trim() == "" || fileText[j].Length < 5)
+                        sp_txt = removeblank(sp_txt, fileText, j);
+                        //new 
+                        sp_txt = removeblank_txt(sp_txt);
+                        if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || fileText[j].Replace("  ", "").Trim() == "" || fileText[j].Length < 5 || sp_txt == "")
                         {
                             blankindex++;
                             if (blankindex > 2)
@@ -2651,7 +2871,7 @@ namespace SapData_Automation
                             continue;
 
                         //  qtyTable_dav21.Rows.Add(qtyTable_dav21.NewRow());
-                        sp_txt = removeblank(sp_txt, fileText, j);
+
                         string[] fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, "\t");
                         if (fileText1.Length < 2)
                             fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, " ");
@@ -2694,15 +2914,18 @@ namespace SapData_Automation
                     for (int j = ongo1; j <= fileText.Length; j++)
                     {
                         ongo = j;
+                        sp_txt = removeblank(sp_txt, fileText, j);
+                        //new 
+                        sp_txt = removeblank_txt(sp_txt);
 
-                        if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || fileText[j] == "")
+                        if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || fileText[j] == "" || sp_txt == "")
                         {
                             continue;
                         }
                         if (fileText[j] == "" && j == 1)
                             continue;
 
-                        sp_txt = removeblank(sp_txt, fileText, j);
+
                         string[] fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, "\t");
                         if (fileText1.Length < 2)
                             fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, " ");
@@ -2792,6 +3015,9 @@ namespace SapData_Automation
 
         private static string removeblank(string sp_txt, string[] fileText, int j)
         {
+            if (j >= fileText.Length)
+                return "";
+
             sp_txt = fileText[j].Trim();
 
             while (true)
@@ -3271,7 +3497,8 @@ namespace SapData_Automation
                 var qtyTable = new DataTable();
                 qtyTable.Columns.Add("βw", System.Type.GetType("System.String"));//0
 
-
+                if (textBox13.Text.Contains("\t"))
+                    return;
                 int icount = Convert.ToInt32(textBox13.Text);
                 for (int i = 1; i <= icount; i++)
                 {
@@ -3785,10 +4012,7 @@ namespace SapData_Automation
             }
             else
                 MessageBox.Show(folderpath + "路径为空 或 在当前选择.sap文件路径下没有找到 saptis.exe", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-
-
-
+ 
         }
 
         private void delDayButton_Click(object sender, EventArgs e)
