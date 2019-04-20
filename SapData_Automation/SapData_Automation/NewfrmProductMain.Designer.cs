@@ -3087,6 +3087,7 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 374);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
@@ -3262,6 +3263,7 @@
             this.dataGridView26.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView26.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView26.ContextMenuStrip = this.contextMenuStrip1;
+            this.dataGridView26.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView26.Location = new System.Drawing.Point(3, 493);
             this.dataGridView26.Name = "dataGridView26";
             this.dataGridView26.RowHeadersVisible = false;
@@ -3303,6 +3305,7 @@
             this.dataGridView27.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView27.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView27.ContextMenuStrip = this.contextMenuStrip1;
+            this.dataGridView27.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView27.Location = new System.Drawing.Point(3, 617);
             this.dataGridView27.Name = "dataGridView27";
             this.dataGridView27.RowHeadersVisible = false;
@@ -3371,6 +3374,7 @@
             this.dataGridView28.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView28.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView28.ContextMenuStrip = this.contextMenuStrip1;
+            this.dataGridView28.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView28.Location = new System.Drawing.Point(3, 740);
             this.dataGridView28.Name = "dataGridView28";
             this.dataGridView28.RowHeadersVisible = false;
@@ -3412,6 +3416,7 @@
             this.dataGridView29.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView29.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView29.ContextMenuStrip = this.contextMenuStrip1;
+            this.dataGridView29.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView29.Location = new System.Drawing.Point(3, 870);
             this.dataGridView29.Name = "dataGridView29";
             this.dataGridView29.RowHeadersVisible = false;
