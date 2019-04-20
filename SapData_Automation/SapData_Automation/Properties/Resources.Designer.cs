@@ -63,6 +63,16 @@ namespace SapData_Automation.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap _1145 {
+            get {
+                object obj = ResourceManager.GetObject("1145", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap psd24876_1副本 {
             get {
                 object obj = ResourceManager.GetObject("psd24876_1副本", resourceCulture);
