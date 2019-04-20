@@ -14,11 +14,15 @@ using Order.Buiness;
 using Order.Common;
 using Order.DB;
 using WeifenLuo.WinFormsUI.Docking;
+using System.Runtime.InteropServices;
 
 namespace SapData_Automation
 {
     public partial class NewfrmProductMain : DockContent
     {
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        public static extern int ShowScrollBar(IntPtr hWnd, int bar, int show);
+
         DateTime startAt;
         DateTime endAt;
         List<clsProductinfo> Productinfolist_Server;
@@ -71,6 +75,8 @@ namespace SapData_Automation
         DataTable qtyTable_dav28;
         string cache_path = AppDomain.CurrentDomain.BaseDirectory + "cache\\";
 
+
+
         public NewfrmProductMain(string user)
         {
             InitializeComponent();
@@ -79,7 +85,9 @@ namespace SapData_Automation
             this.WindowState = FormWindowState.Maximized;
 
             AdjustSubformSize();
-
+            //panel5.HorizontalScroll.Visible = true;
+            //panel5.HorizontalScroll.Value = panel5.HorizontalScroll.Maximum;
+            //panel5.HorizontalScroll.Value = panel5.HorizontalScroll.Maximum;
         }
 
         private void AdjustSubformSize()
@@ -121,8 +129,18 @@ namespace SapData_Automation
             dataGridView27.Height = 180;
             dataGridView28.Height = 180;
             dataGridView29.Height = 180;
+
+
+
         }
 
+        private void AdjustSubformSize1(Form form)
+        {
+            var size = this.Parent.Size;
+            size.Height = size.Height - 100;
+            size.Width = size.Width - 50;
+            form.Size = size;
+        }
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
@@ -2501,8 +2519,8 @@ namespace SapData_Automation
                     }
                 }
 
-                  qtyTable_dav28 = new DataTable();
-                  butoushuidiangeshu(qtyTable_dav28);
+                qtyTable_dav28 = new DataTable();
+                butoushuidiangeshu(qtyTable_dav28);
 
                 ongo1 = ongo + 1;
                 rowindex = 0;
@@ -6766,10 +6784,10 @@ namespace SapData_Automation
             for (int j = 0; j < tx28; j++)
             {
                 // qtyTable_dav26_1.Rows.Add(qtyTable_dav26_1.NewRow());
-              //  qtyTable_dav28_1.Rows[j][0] = j + 1;
+                //  qtyTable_dav28_1.Rows[j][0] = j + 1;
             }
             #region new
-         //   Datagridview_Addor_reduce(qtyTable_dav28_1, dataGridView28, qtyTable_dav28, bindingSource30);
+            //   Datagridview_Addor_reduce(qtyTable_dav28_1, dataGridView28, qtyTable_dav28, bindingSource30);
             #endregion
 
         }
@@ -6782,6 +6800,32 @@ namespace SapData_Automation
             cache_seepage_data();
 
             #endregion
+        }
+
+        private void NewfrmProductMain_Resize(object sender, EventArgs e)
+        {
+            //AdjustSubformSize1();
+
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+            Control _Control = (Control)sender;
+            ShowScrollBar(_Control.Handle, 4, 0);
+        }
+
+        private void panel5_Scroll(object sender, ScrollEventArgs e)
+        {
+            this.panel5.VerticalScroll.Value = e.NewValue;
+            panel5.Invalidate();//刷新panel
+        }
+
+        private void panel5_ControlAdded(object sender, ControlEventArgs e)
+        {
+            this.panel5.VerticalScroll.Enabled = true;
+            this.panel5.VerticalScroll.Visible = true;
+            this.panel5.Scroll += panel5_Scroll;
+
         }
 
     }
