@@ -1513,6 +1513,54 @@ namespace SapData_Automation
                 }
             }
 
+
+            #region   调用  转换程序.exe
+
+            string DesktopPath = AppDomain.CurrentDomain.BaseDirectory + "";
+
+            if (File.Exists(DesktopPath + "\\转换程序.exe"))
+            {
+                //File.Copy(DesktopPath + "\\转换程序.exe", folderpath + "\\转换程序.exe", true);//覆盖模式
+
+                //System.Diagnostics.Process.Start(folderpath + "\\转换程序.exe").WaitForExit();
+                //System.Threading.Thread.Sleep(1500);
+                //File.Delete(folderpath + "\\转换程序.exe");
+                //System.Diagnostics.Process.Start(folderpath + "\\转换程序.exe", folderpath);
+
+                if (File.Exists(folderpath + "\\run.bat"))
+                    File.Delete(folderpath + "\\run.bat");
+                if (!File.Exists(folderpath + "\\run.bat"))
+                {
+                    //  File.Create(folderpath + "\\run.bat" ).Close();
+                    FileStream fs = new FileStream(folderpath + "\\run.bat", FileMode.OpenOrCreate, FileAccess.Write);
+                    StreamWriter sw = new StreamWriter(fs, System.Text.Encoding.Default);
+                    sw.WriteLine(DesktopPath + "转换程序.exe");
+                    sw.Flush();
+                    sw.Close();
+
+                    System.Diagnostics.Process p = new System.Diagnostics.Process();
+                    p.StartInfo.WorkingDirectory = folderpath;
+                    p.StartInfo.UseShellExecute = true;
+                    p.StartInfo.FileName = folderpath + "\\run.bat";
+                    p.Start();
+                    p.WaitForExit();
+
+
+                    if (File.Exists(folderpath + "\\run.bat"))
+                        File.Delete(folderpath + "\\run.bat");
+                }
+            }
+            else
+            {
+                if (File.Exists(DesktopPath + "\\转换程序.exe.lnk"))
+                    System.Diagnostics.Process.Start(DesktopPath + "\\转换程序.exe.lnk", folderpath);
+                else
+                    MessageBox.Show(DesktopPath + "路径为空 或 在系统根目录路径下没有找到 转换程序.exe", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            #endregion
+
+
+          //  System.Threading.Thread.Sleep(1000);
             Gettab1();
             toolStripLabel1.Text = "已读取完成";
 
@@ -2119,7 +2167,7 @@ namespace SapData_Automation
                     sp_txt = removeblank_txt(sp_txt);
                     if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || fileText[j] == "" || sp_txt == "")
                     {
-                        if (j > 4)
+                        if (j > 2)
                             break;
                         else
                             continue;
@@ -2672,6 +2720,8 @@ namespace SapData_Automation
             }
             catch (Exception ex)
             {
+                MessageBox.Show("读取seepage文件有问题,请保证文件无误后再吃重启操作！", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return "";
 
                 throw;
             }
@@ -6630,6 +6680,14 @@ namespace SapData_Automation
 
         private void toolStripButton8_Click(object sender, EventArgs e)
         {
+            if (MessageBox.Show("Update all Data , continue ?", "Info", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+
+            }
+            else
+                return;
+
+
             int i = this.tabControl1.TabCount;
 
             for (int j = 0; j < i; j++)
@@ -6637,6 +6695,8 @@ namespace SapData_Automation
                 isallsave = 1;
                 allsave_index = j;
                 toolStripButton1_Click(null, EventArgs.Empty);
+                if (isallsave == 1)
+                    return;
 
             }
             MessageBox.Show("全部更新完成，请查看！");
