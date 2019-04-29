@@ -15,6 +15,7 @@ using Order.Common;
 using Order.DB;
 using WeifenLuo.WinFormsUI.Docking;
 using System.Runtime.InteropServices;
+using System.Timers;
 
 namespace SapData_Automation
 {
@@ -765,7 +766,8 @@ namespace SapData_Automation
 
                 }
                 #endregion
-                if (folderpath != null && folderpath != "" && iscache == false)
+                //如批量保存不每次都读取一次
+                if (folderpath != null && folderpath != "" && iscache == false && isallsave == 0)
                 {
                     openfile(folderpath);
                     this.toolStripLabel1.Text = "刷新完成";
@@ -1490,10 +1492,6 @@ namespace SapData_Automation
 
             cacheAlist = BusinessHelp.GetBy_CategoryReportFileName(cache_path);
 
-
-
-
-
             //var filtered = Alist.FindAll(s => s[] == oids[j]);
 
             AddSapList();
@@ -1560,7 +1558,7 @@ namespace SapData_Automation
             #endregion
 
 
-          //  System.Threading.Thread.Sleep(1000);
+            //  System.Threading.Thread.Sleep(1000);
             Gettab1();
             toolStripLabel1.Text = "已读取完成";
 
@@ -3717,7 +3715,7 @@ namespace SapData_Automation
             if (textBox13.Text.Length > 0 && !textBox13.Text.Contains("\t"))
             {
                 int icount = Convert.ToInt32(textBox13.Text);
-                for (int i3 = 1; i3 <= icount; i3++)
+                for (int i3 = 1; i3 <= icount + 1; i3++)
                 {
                     qtyTable_dav3.Columns.Add("β" + i3, System.Type.GetType("System.String"));//0
 
@@ -4570,7 +4568,7 @@ namespace SapData_Automation
                     textBox17.Text = "0";
 
                 int tx17 = Convert.ToInt32(textBox17.Text);
-                for (int j = 0; j < tx17; j++)
+                for (int j = 0; j <= tx17; j++)
                 {
                     qtyTable8.Rows.Add(qtyTable8.NewRow());
                     if (j > 0)
@@ -6693,12 +6691,14 @@ namespace SapData_Automation
             for (int j = 0; j < i; j++)
             {
                 isallsave = 1;
-                allsave_index = j;
+                allsave_index = j + 1;
                 toolStripButton1_Click(null, EventArgs.Empty);
                 if (isallsave == 1)
                     return;
 
             }
+            openfile(folderpath);
+            this.toolStripLabel1.Text = "刷新完成";
             MessageBox.Show("全部更新完成，请查看！");
 
         }
@@ -6887,6 +6887,22 @@ namespace SapData_Automation
             this.panel5.Scroll += panel5_Scroll;
 
         }
+
+        private void textBox17_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void textBox17_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)//按下回车
+            {
+
+
+            }
+        }
+
+      
 
     }
 }

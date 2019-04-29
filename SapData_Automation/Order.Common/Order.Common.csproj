@@ -49,6 +49,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DelayTextBox .cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="MockEntity.cs" />
     <Compile Include="MySqlHelper.cs" />
     <Compile Include="clsCommHelp.cs" />
