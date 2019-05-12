@@ -42,6 +42,8 @@ namespace SapData_Automation
         int Pasterow = 0;
         DataTable qtyTable_dav12;
         int jisuancishu;
+        int dataGridView13_cloumncount;
+
         int isallsave = 0;
         int allsave_index = 0;
         bool iscache = false;
@@ -73,6 +75,8 @@ namespace SapData_Automation
         DataTable qtyTable_dav26;
         DataTable qtyTable_dav27;
 
+        DataTable qtyTable_dav9;
+        DataTable qtyTable_dav10;
         DataTable qtyTable_dav28;
         string cache_path = AppDomain.CurrentDomain.BaseDirectory + "cache\\";
 
@@ -429,6 +433,10 @@ namespace SapData_Automation
                 else if (s == 6)
                 {
                     nowfile = Alist.Find(v => v.Contains("strength_data.sap"));
+                    if (iscache == false)
+                        nowfile = Alist.Find(v => v.Contains("strength_data.sap"));
+                    else
+                        nowfile = cacheAlist.Find(v => v.Contains("strength_data.sap"));
 
                     wtx = textBox21.Text;
                     wtx += " " + textBox22.Text;
@@ -454,7 +462,6 @@ namespace SapData_Automation
                 else if (s == 7)
                 {
                     var ex = Alist.Find(v => v.Contains("sup_step.sap") && !v.Contains("num_sup_step.sap"));
-
                     if (iscache == false)
                         ex = Alist.Find(v => v.Contains("sup_step.sap") && !v.Contains("num_sup_step.sap"));
                     else
@@ -817,7 +824,7 @@ namespace SapData_Automation
                         {
 
                         }
-
+                        int count = strRowValue.Length - strRowValue.Replace("\t", "").Length;
                     }
                     else
                     {
@@ -825,7 +832,8 @@ namespace SapData_Automation
                     }
                 }
                 //    strRowValue += "\r\n";
-                sw.WriteLine(strRowValue);
+                if (strRowValue.Replace("\t", "").Length != 0)
+                    sw.WriteLine(strRowValue);
             }
             return sw;
 
@@ -1532,7 +1540,7 @@ namespace SapData_Automation
                     //  File.Create(folderpath + "\\run.bat" ).Close();
                     FileStream fs = new FileStream(folderpath + "\\run.bat", FileMode.OpenOrCreate, FileAccess.Write);
                     StreamWriter sw = new StreamWriter(fs, System.Text.Encoding.Default);
-                    sw.WriteLine(DesktopPath + "转换程序.exe");
+                    sw.WriteLine("\""+DesktopPath + "转换程序.exe"+"\"");
                     sw.Flush();
                     sw.Close();
 
@@ -1785,113 +1793,7 @@ namespace SapData_Automation
                 else if (Alist[i].Contains("strength_data.sap"))
                 {
                     string[] fileText = File.ReadAllLines(Alist[i]);
-                    int ongo = 0;
-
-                    if (fileText.Length > 1)
-                    {
-
-                        sp_txt = removeblank(sp_txt, fileText, 0);
-                        string[] fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, " ");
-
-                        //分析类型::
-                        if (fileText1.Length > 0)
-                            textBox21.Text = fileText1[0].Trim();
-                        //材料参数总数:::
-                        if (fileText1.Length > 1)
-                            textBox22.Text = fileText1[1].Trim();
-
-                    }
-                    //强度参数
-                    var qtyTable_dav9 = new DataTable();
-                    feixianxing_qiangduxishu(qtyTable_dav9);
-
-                    int ongo1 = ongo + 1;
-                    int rowindex = 0;
-                    int isgo = 0;
-                    for (int j = ongo1; j <= fileText.Length; j++)
-                    {
-                        ongo = j;
-                        sp_txt = removeblank(sp_txt, fileText, j);
-
-                        sp_txt = removeblank_txt(sp_txt);
-                        if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || (fileText[j].Replace("  ", "").Trim() == "" && j != 1) || sp_txt == "")
-                        {
-                            isgo++;
-                            if (isgo > 1 || rowindex > 0)
-                                break;
-                            else
-                                continue;
-
-                            //break;
-                        }
-                        if (fileText[j] == "" && j == 1)
-                            continue;
-
-                        qtyTable_dav9.Rows.Add(qtyTable_dav9.NewRow());
-
-
-                        string[] fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, "\t");
-                        if (fileText1.Length < 2)
-                            fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, " ");
-
-                        for (int jj = 0; jj < fileText1.Length; jj++)
-                        {
-                            if (jj < qtyTable_dav9.Columns.Count - 1 && rowindex < qtyTable_dav9.Rows.Count)
-                                qtyTable_dav9.Rows[rowindex][jj + 1] = fileText1[jj];
-                        }
-                        qtyTable_dav9.Rows[rowindex][0] = rowindex + 1;
-
-                        rowindex++;
-
-                    }
-                    //损伤与软化系数
-                    var qtyTable_dav10 = new DataTable();
-                    shunshangyuruanhuaxishu(qtyTable_dav10);
-
-                    ongo1 = ongo + 1;
-                    rowindex = 0;
-                    for (int j = ongo1; j <= fileText.Length; j++)
-                    {
-                        ongo = j;
-
-                        sp_txt = removeblank(sp_txt, fileText, j);
-
-                        sp_txt = removeblank_txt(sp_txt);
-
-
-                        if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || (fileText[j].Replace("  ", "").Trim() == "" && j != 1) || sp_txt == "")
-                        {
-                            break;
-                        }
-                        if (fileText[j] == "" && j == 1)
-                            continue;
-
-                        qtyTable_dav10.Rows.Add(qtyTable_dav10.NewRow());
-
-
-
-                        string[] fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, "\t");
-                        if (fileText1.Length < 2)
-                            fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, " ");
-
-                        for (int jj = 0; jj < fileText1.Length; jj++)
-                        {
-                            if (jj < qtyTable_dav10.Columns.Count - 1 && rowindex < qtyTable_dav10.Rows.Count)
-                                qtyTable_dav10.Rows[rowindex][jj + 1] = fileText1[jj];
-                        }
-                        qtyTable_dav10.Rows[rowindex][0] = rowindex + 1;
-
-                        rowindex++;
-
-                    }
-
-
-                    this.bindingSource11.DataSource = qtyTable_dav9;
-                    this.dataGridView11.DataSource = this.bindingSource11;
-
-                    this.bindingSource12.DataSource = qtyTable_dav10;
-
-                    this.dataGridView12.DataSource = this.bindingSource12;
+                    sp_txt = Read_strength_data(sp_txt, fileText);
                 }
 
                 #endregion
@@ -2117,6 +2019,126 @@ namespace SapData_Automation
             }
         }
 
+        private string Read_strength_data(string sp_txt, string[] fileText)
+        {
+            int ongo = 0;
+
+            if (fileText.Length > 1)
+            {
+
+                sp_txt = removeblank(sp_txt, fileText, 0);
+                string[] fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, " ");
+
+                //分析类型::
+                if (fileText1.Length > 0)
+                    textBox21.Text = fileText1[0].Trim();
+                //材料参数总数:::
+                if (fileText1.Length > 1)
+                    textBox22.Text = fileText1[1].Trim();
+
+            }
+            //强度参数
+            qtyTable_dav9 = new DataTable();
+            feixianxing_qiangduxishu(qtyTable_dav9);
+
+            int ongo1 = ongo + 1;
+            int rowindex = 0;
+            int isgo = 0;
+            for (int j = ongo1; j <= fileText.Length; j++)
+            {
+                ongo = j;
+                sp_txt = removeblank(sp_txt, fileText, j);
+
+                sp_txt = removeblank_txt(sp_txt);
+                if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || (fileText[j].Replace("  ", "").Trim() == "" && j != 1) || sp_txt == "")
+                {
+                    isgo++;
+                    if (isgo > 1 || rowindex > 0)
+                        break;
+                    else
+                        continue;
+
+                    //break;
+                }
+                if (fileText[j] == "" && j == 1)
+                    continue;
+
+                qtyTable_dav9.Rows.Add(qtyTable_dav9.NewRow());
+
+
+                string[] fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, "\t");
+                if (fileText1.Length < 2)
+                    fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, " ");
+
+                for (int jj = 0; jj < fileText1.Length; jj++)
+                {
+                    if (jj < qtyTable_dav9.Columns.Count - 1 && rowindex < qtyTable_dav9.Rows.Count)
+                        qtyTable_dav9.Rows[rowindex][jj + 1] = fileText1[jj];
+                }
+                qtyTable_dav9.Rows[rowindex][0] = rowindex + 1;
+
+                rowindex++;
+
+            }
+            //损伤与软化系数
+            qtyTable_dav10 = new DataTable();
+            shunshangyuruanhuaxishu(qtyTable_dav10);
+            isgo = 0;
+
+            ongo1 = ongo + 1;
+            rowindex = 0;
+            for (int j = ongo1; j <= fileText.Length; j++)
+            {
+                ongo = j;
+
+                sp_txt = removeblank(sp_txt, fileText, j);
+
+                sp_txt = removeblank_txt(sp_txt);
+
+
+                //if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || (fileText[j].Replace("  ", "").Trim() == "" && j != 1) || sp_txt == "")
+                //{
+                //    break;
+                //}
+                if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || (fileText[j].Replace("  ", "").Trim() == "" && j != 1) || sp_txt == "")
+                {
+                    isgo++;
+                    if (isgo > 2 || rowindex > 0)
+                        break;
+                    else
+                        continue;
+
+                    //break;
+                }
+                if (fileText[j] == "" && j == 1)
+                    continue;
+
+                qtyTable_dav10.Rows.Add(qtyTable_dav10.NewRow());
+                string[] fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, "\t");
+                if (fileText1.Length < 2)
+                    fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, " ");
+
+                for (int jj = 0; jj < fileText1.Length; jj++)
+                {
+                    if (jj < qtyTable_dav10.Columns.Count - 1 && rowindex < qtyTable_dav10.Rows.Count)
+                        qtyTable_dav10.Rows[rowindex][jj + 1] = fileText1[jj];
+                }
+                qtyTable_dav10.Rows[rowindex][0] = rowindex + 1;
+
+                rowindex++;
+
+            }
+
+
+            this.bindingSource11.DataSource = qtyTable_dav9;
+            this.dataGridView11.DataSource = this.bindingSource11;
+
+            this.bindingSource12.DataSource = qtyTable_dav10;
+
+            this.dataGridView12.DataSource = this.bindingSource12;
+            return sp_txt;
+        }
+
         private string Read_seepage_data(string sp_txt, string[] fileText)
         {
             try
@@ -2311,7 +2333,7 @@ namespace SapData_Automation
 
                 var qtyTable_dav25 = new DataTable();
                 xilibaohedu(qtyTable_dav25);
-
+                //ssss
 
                 #region MyRegion
                 if (textBox39.Text.Length > 0 && dav25clo1.Count > 0)
@@ -2358,7 +2380,7 @@ namespace SapData_Automation
                 // ongo1 = 3;
                 rowindex = 0;
                 isgo = 0;
-
+                int cloumn2 = 0;
                 for (int j = ongo1; j <= fileText.Length; j++)
                 {
                     ongo = j;
@@ -2367,6 +2389,8 @@ namespace SapData_Automation
                     sp_txt = removeblank_txt(sp_txt);
                     if (fileText[j].Contains("\t\t\t") || fileText[j].Replace("  ", "").Trim() == "" || sp_txt == "")
                     {
+                        cloumn2 = 0;
+
                         isgo++;
                         if (isgo > 1 || rowindex > 0)
                             break;
@@ -2377,17 +2401,67 @@ namespace SapData_Automation
                     string[] fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, "\t");
                     if (fileText1.Length < 2)
                         fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, " ");
+                    bool isfinde = false;
+                    string left = "";
+                    string hangindex = "";
 
+                    if (rowindex < qtyTable_dav25.Rows.Count)
+                    {
+                          left = Convert.ToString(qtyTable_dav25.Rows[rowindex][1]);//得到dav 的第二例的 数据
+                          hangindex = Convert.ToString(cloumn2 + 1);//txt 读取堆的行数 序列
+                        if (left != hangindex)
+                        {
+
+
+                            while (true)
+                            {
+                                rowindex++;
+                                if (rowindex < qtyTable_dav25.Rows.Count)
+                                {
+                                    left = Convert.ToString(qtyTable_dav25.Rows[rowindex][1]);//得到dav 的第二例的 数据
+
+                                    if (left == hangindex)
+                                    {
+                                        isfinde = true;
+
+                                        break;
+
+                                    }
+                                }
+                                else
+                                    break;
+
+                            }
+                            if (isfinde == false)
+                                continue;
+
+
+                        }
+                        else
+                        {
+
+                        }
+                    }
+                    else
+                    {
+                        if (isfinde == false)
+                            continue;
+
+                    }
                     for (int jj = 0; jj < fileText1.Length; jj++)
                     {
-                        if (jj <= qtyTable_dav25.Columns.Count - 1 && rowindex < qtyTable_dav25.Rows.Count)
+                    
+
+                        if (jj <= qtyTable_dav25.Columns.Count - 1 && rowindex < qtyTable_dav25.Rows.Count && left == hangindex)
                         {
+                           
                             qtyTable_dav25.Rows[rowindex][jj + 1] = fileText1[jj];
 
                         }
                     }
                     //  qtyTable_dav25.Rows[rowindex][0] = rowindex + 1;
                     rowindex++;
+                    cloumn2++;
                 }
                 ///不透水面个数
                 ongo1 = ongo + 1;
@@ -3304,7 +3378,7 @@ namespace SapData_Automation
                 if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || (fileText[j].Replace("  ", "").Trim() == "" && j != 1) || sp_txt == "")
                 {
                     isgo++;
-                    if (isgo > 1 || rowindex > 0)
+                    if (isgo > 6 || rowindex > 0)
                         break;
                     else
                         continue;
@@ -3345,7 +3419,7 @@ namespace SapData_Automation
                 if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || (fileText[j].Replace("  ", "").Trim() == "" && j != 1))
                 {
                     isgo++;
-                    if (isgo > 1 || rowindex > 0)
+                    if (isgo > 6 || rowindex > 0)
                         break;
                     else
                         continue;
@@ -3715,7 +3789,7 @@ namespace SapData_Automation
             if (textBox13.Text.Length > 0 && !textBox13.Text.Contains("\t"))
             {
                 int icount = Convert.ToInt32(textBox13.Text);
-                for (int i3 = 1; i3 <= icount + 1; i3++)
+                for (int i3 = 1; i3 < icount + 1; i3++)
                 {
                     qtyTable_dav3.Columns.Add("β" + i3, System.Type.GetType("System.String"));//0
 
@@ -3820,6 +3894,7 @@ namespace SapData_Automation
             rowindex = 0;
             int isupordown = 0;
             int uprowindex = 0;
+            int cloumn2 = 0;
             #region old
             //for (int j = ongo1; j <= fileText.Length; j++)
             //{
@@ -3867,6 +3942,8 @@ namespace SapData_Automation
                 {
                     isgo++;
                     isupordown = 0;
+                    cloumn2 = 0;
+
                     //if (isgo > 1 || rowindex > 0)
                     //    break;
                     //else
@@ -3907,12 +3984,34 @@ namespace SapData_Automation
 
                 for (int jj = 0; jj < fileText1.Length; jj++)
                 {
-                    if (jj < qtyTable_dav5.Columns.Count - 2 && rowindex < qtyTable_dav5.Rows.Count)
+                    //判断 是否留下此行为空行 比如手动 增加冷却期数 后 7 到8  应该在 在水管号8行留出来不应 占用
+                    string left = Convert.ToString(qtyTable_dav5.Rows[rowindex][1]);//得到dav 的第二例的 数据
+                    string hangindex = Convert.ToString(cloumn2 + 1);//txt 读取堆的行数 序列
+                    if (left != hangindex)
+                    {
+                        while (true)
+                        {
+                            rowindex++;
+                            left = Convert.ToString(qtyTable_dav5.Rows[rowindex][1]);//得到dav 的第二例的 数据
+
+                            if (left == hangindex)
+                            {
+
+                                break;
+
+                            }
+                        }
+
+                    }
+                    //&& left == hangindex
+                    if (jj < qtyTable_dav5.Columns.Count - 2 && rowindex < qtyTable_dav5.Rows.Count && left == hangindex)
 
                         qtyTable_dav5.Rows[rowindex][jj + 2] = fileText1[jj];
                 }
                 //   qtyTable_dav5.Rows[rowindex][0] = rowindex + 1;
                 rowindex++;
+                cloumn2++;
+
 
             }
 
@@ -4827,6 +4926,13 @@ namespace SapData_Automation
 
         private void textBox13_TextChanged(object sender, EventArgs e)
         {
+
+
+
+        }
+
+        private void textBox13_txchange()
+        {
             if (textBox13.Text.Length < 1 || dataGridView3.RowCount <= 0)
                 return;
 
@@ -4918,9 +5024,6 @@ namespace SapData_Automation
                 //this.bindingSource3.DataSource = qtyTable;
                 //this.dataGridView3.DataSource = this.bindingSource3;
             }
-
-
-
         }
 
         private void addDayButton_Click(object sender, EventArgs e)
@@ -4944,6 +5047,11 @@ namespace SapData_Automation
         }
 
         private void textBox19_TextChanged(object sender, EventArgs e)
+        {
+            //textBox19_txchange();
+        }
+
+        private void textBox19_txchange()
         {
             try
             {
@@ -5135,6 +5243,11 @@ namespace SapData_Automation
         }
 
         private void textBox23_TextChanged(object sender, EventArgs e)
+        {
+            textBox23_txchange();
+        }
+
+        private void textBox23_txchange()
         {
             if (textBox23.Text.Length < 1 || dataGridView13.RowCount <= 0)
                 return;
@@ -5330,6 +5443,12 @@ namespace SapData_Automation
 
         private void textBox26_TextChanged(object sender, EventArgs e)
         {
+
+
+        }
+
+        private void textBox26_txchange()
+        {
             if (textBox26.Text.Length < 1 || dataGridView16.RowCount <= 0)
                 return;
 
@@ -5376,7 +5495,6 @@ namespace SapData_Automation
                 //this.bindingSource19.DataSource = qtyTable_dav18;
                 //this.dataGridView16.DataSource = this.bindingSource19;
             }
-
         }
 
         private void toolStripDropDownButton13_Click(object sender, EventArgs e)
@@ -5407,6 +5525,11 @@ namespace SapData_Automation
 
         private void textBox30_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void textBox30_txchange()
+        {
             if (textBox30.Text != "")
             {
 
@@ -5421,13 +5544,13 @@ namespace SapData_Automation
             qtyTable_dav19_1.Columns.Add("节点号", System.Type.GetType("System.String"));//1
             if (textBox30.Text.Length > 0 && textBox29.Text.Length > 0)
             {
-                int icount = Convert.ToInt32(textBox29.Text);
+                int icount = Convert.ToInt32(textBox30.Text);
                 for (int i = 1; i <= icount; i++)
                 {
                     qtyTable_dav19_1.Columns.Add("T" + i, System.Type.GetType("System.String"));//0
 
                 }
-                int icount1 = Convert.ToInt32(textBox30.Text);
+                int icount1 = Convert.ToInt32(textBox29.Text);
                 for (int i = 1; i <= icount1; i++)
                 {
                     //qtyTable_dav19.Rows.Add("" + i, System.Type.GetType("System.String"));//0
@@ -5464,25 +5587,25 @@ namespace SapData_Automation
                 }
                 else if (dataGridView20.ColumnCount < qtyTable_dav19_1.Columns.Count)
                 {
-                    int davcount = dataGridView20.ColumnCount - 1;
+                    int davcount = dataGridView20.ColumnCount ;
 
                     for (int i = 0; i < qtyTable_dav19_1.Columns.Count - davcount; i++)
                     {
                         int nx = qtyTable_dav19.Columns.Count;
 
-                        int clou = davcount + i;
+                        int clou = davcount-1 + i;
                         bool ishave = false;
 
                         foreach (System.Data.DataColumn k in qtyTable_dav19.Columns)
                         {
                             string columnName = k.ColumnName;
                             //columnType = k.DataType.ToString();
-                            if (clou.ToString() == columnName)
+                            if ("T"+clou.ToString() == columnName)
                                 ishave = true;
 
                         }
                         if (ishave == false)
-                            qtyTable_dav19.Columns.Add("" + clou.ToString(), System.Type.GetType("System.String"));//0
+                            qtyTable_dav19.Columns.Add("T" + clou.ToString(), System.Type.GetType("System.String"));//0
 
 
                     }
@@ -5499,6 +5622,11 @@ namespace SapData_Automation
         }
 
         private void textBox29_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox29_txchange()
         {
             if (textBox29.Text.Length < 1 || dataGridView20.RowCount <= 0)
                 return;
@@ -5576,6 +5704,12 @@ namespace SapData_Automation
         private void textBox35_TextChanged(object sender, EventArgs e)
         {
 
+
+        }
+
+        private void textBox35_txchange()
+        {
+
             if (textBox35.Text.Length < 1 || dataGridView22.RowCount <= 0)
                 return;
 
@@ -5633,12 +5767,18 @@ namespace SapData_Automation
 
             //this.bindingSource23.DataSource = qtyTable_dav21;
             //this.dataGridView22.DataSource = this.bindingSource23;
-
         }
 
         private void textBox33_TextChanged(object sender, EventArgs e)
         {
 
+
+
+
+        }
+
+        private void textBox33_txchange()
+        {
             if (textBox33.Text.Length < 1 || dataGridView24.RowCount <= 0)
                 return;
 
@@ -5699,8 +5839,6 @@ namespace SapData_Automation
 
             //this.bindingSource22.DataSource = qtyTable_dav20;
             //this.dataGridView24.DataSource = this.bindingSource22;
-
-
         }
 
         private void toolStripButton4_Click(object sender, EventArgs e)
@@ -5785,6 +5923,13 @@ namespace SapData_Automation
 
 
             //
+            //textBox17_txchange();
+
+
+        }
+
+        private void textBox17_txchange()
+        {
             #region 缓存处理
             iscache = true;//是缓存
             isallsave = 1;//批量保存标志
@@ -5803,6 +5948,7 @@ namespace SapData_Automation
 
             #endregion
 
+            #region 方法
             int tx17 = Convert.ToInt32(textBox17.Text);
             //基本力学参数
             var qtyTable_dav5_1 = new DataTable();
@@ -6003,8 +6149,7 @@ namespace SapData_Automation
             }
 
             clearCache();
-
-
+            #endregion
         }
 
         private void clearCache()
@@ -6014,6 +6159,11 @@ namespace SapData_Automation
         }
 
         private void textBox15_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox15_txchange()
         {
             if (textBox15.Text.Length < 1 || dataGridView4.RowCount <= 0)
                 return;
@@ -6039,7 +6189,8 @@ namespace SapData_Automation
 
             if (textBox15.Text.Length < 1)
                 return;
-            int tx17 = Convert.ToInt32(textBox17.Text);
+            //int tx17 = Convert.ToInt32(textBox17.Text);
+            int tx17 = Convert.ToInt32(textBox15.Text);
 
             var qtyTable_dav4_1 = new DataTable();
             shuiguandingyi(qtyTable_dav4_1);
@@ -6086,12 +6237,22 @@ namespace SapData_Automation
 
             }
             #endregion
+
+            #region MyRegion
+
+            #endregion
             clearCache();
             //this.bindingSource4.DataSource = qtyTable_dav4;
             //this.dataGridView4.DataSource = this.bindingSource4;
         }
 
         private void textBox16_TextChanged(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void textBox16_txchange()
         {
             if (textBox16.Text.Length < 1 || textBox15.Text.Length < 1 || dataGridView5.RowCount <= 0)
                 return;
@@ -6154,10 +6315,15 @@ namespace SapData_Automation
 
             //this.bindingSource5.DataSource = qtyTable_dav5;
             //this.dataGridView5.DataSource = this.bindingSource5;
-
         }
 
         private void textBox20_TextChanged(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void textBox20_txchange()
         {
             if (textBox20.Text.Length < 1 || dataGridView10.RowCount <= 0)
                 return;
@@ -6232,7 +6398,6 @@ namespace SapData_Automation
 
             //this.bindingSource10.DataSource = qtyTable_dav8;
             //this.dataGridView10.DataSource = this.bindingSource10;
-
         }
 
         private void dataGridView13_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -6246,6 +6411,11 @@ namespace SapData_Automation
         }
 
         private void textBox25_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox25_txchange()
         {
             if (textBox25.Text.Length < 1 || dataGridView15.RowCount <= 0)
                 return;
@@ -6323,6 +6493,12 @@ namespace SapData_Automation
         private void textBox27_TextChanged(object sender, EventArgs e)
         {
 
+
+        }
+
+        private void textBox27_txchange()
+        {
+
             if (textBox27.Text.Length < 1 || dataGridView19.RowCount <= 0)
                 return;
 
@@ -6347,6 +6523,8 @@ namespace SapData_Automation
 
 
             #endregion
+            initialization_tx27_tx28();
+            return;
 
             int tx27 = Convert.ToInt32(textBox27.Text);
 
@@ -6386,10 +6564,15 @@ namespace SapData_Automation
 
             //this.bindingSource17.DataSource = qtyTable_dav15;
             //this.dataGridView18.DataSource = this.bindingSource17;
-
         }
 
         private void textBox28_TextChanged(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void textBox28_txchange()
         {
             if (textBox28.Text.Length < 1 || dataGridView17.RowCount <= 0)
                 return;
@@ -6414,6 +6597,16 @@ namespace SapData_Automation
             #endregion
 
 
+            initialization_tx27_tx28();
+
+
+
+            //this.bindingSource18.DataSource = qtyTable_dav16;
+            //this.dataGridView17.DataSource = this.bindingSource18;
+        }
+
+        private void initialization_tx27_tx28()
+        {
             int tx28 = Convert.ToInt32(textBox28.Text);
 
             var qtyTable_dav16_1 = new DataTable();
@@ -6430,9 +6623,40 @@ namespace SapData_Automation
             #endregion
             clearCache();
 
-            //this.bindingSource18.DataSource = qtyTable_dav16;
-            //this.dataGridView17.DataSource = this.bindingSource18;
 
+            int tx27 = Convert.ToInt32(textBox27.Text);
+
+            var qtyTable_dav14_1 = new DataTable();
+            gangduxishu(qtyTable_dav14_1);
+
+            for (int j = 0; j < tx27; j++)
+            {
+                qtyTable_dav14_1.Rows.Add(qtyTable_dav14_1.NewRow());
+                qtyTable_dav14_1.Rows[j][0] = j + 1;
+            }
+
+            #region new
+            Datagridview_Addor_reduce(qtyTable_dav14_1, dataGridView19, qtyTable_dav14, bindingSource16);
+            #endregion
+            clearCache();
+
+
+            //this.bindingSource16.DataSource = qtyTable_dav14;
+            //this.dataGridView19.DataSource = this.bindingSource16;
+
+
+            var qtyTable_dav15_1 = new DataTable();
+            qiangduxishu(qtyTable_dav15_1);
+            for (int j = 0; j < tx27; j++)
+            {
+                qtyTable_dav15_1.Rows.Add(qtyTable_dav15_1.NewRow());
+                qtyTable_dav15_1.Rows[j][0] = j + 1;
+            }
+
+            #region new
+            Datagridview_Addor_reduce(qtyTable_dav15_1, dataGridView18, qtyTable_dav15, bindingSource17);
+            #endregion
+            clearCache();
         }
 
         private void Datagridview_Addor_reduce(DataTable qtyTable_dav16_1, DataGridView dataGridView17, DataTable qtyTable_dav16, BindingSource bindingSource18)
@@ -6463,11 +6687,11 @@ namespace SapData_Automation
 
                     }
                 }
-                for (int i = 0; i < qtyTable_dav16_1.Rows.Count; i++)
+                for (int i = 0; i < qtyTable_dav16.Rows.Count; i++)
                 {
                     // qtyTable_dav16.Rows.Add(qtyTable_dav16.NewRow());
                     qtyTable_dav16.Rows[i][0] = i + 1;
-
+ 
                 }
                 bindingSource18.DataSource = qtyTable_dav16;
                 dataGridView17.DataSource = bindingSource18;
@@ -6690,6 +6914,7 @@ namespace SapData_Automation
 
             for (int j = 0; j < i; j++)
             {
+                iscache = false;//全部保存时候 改成正式保存的类型
                 isallsave = 1;
                 allsave_index = j + 1;
                 toolStripButton1_Click(null, EventArgs.Empty);
@@ -6704,6 +6929,12 @@ namespace SapData_Automation
         }
 
         private void textBox40_TextChanged(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void textBox40_txchange()
         {
             if (textBox40.Text.Length < 1 || dataGridView25.RowCount <= 0)
                 return;
@@ -6729,8 +6960,6 @@ namespace SapData_Automation
             #endregion
 
 
-
-
         }
 
         private void cache_seepage_data()
@@ -6752,6 +6981,12 @@ namespace SapData_Automation
         }
 
         private void textBox39_TextChanged(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void textBox39_txchange()
         {
             if (textBox39.Text.Length < 1 || dataGridView23.RowCount <= 0)
                 return;
@@ -6775,10 +7010,16 @@ namespace SapData_Automation
             #region new
             //  Datagridview_Addor_reduce(qtyTable_dav24_1, dataGridView23, qtyTable_dav24, bindingSource26);
             #endregion
-
         }
 
         private void textBox45_TextChanged(object sender, EventArgs e)
+        {
+
+
+
+        }
+
+        private void textBox45_txchange()
         {
             if (textBox45.Text.Length < 1 || dataGridView26.RowCount <= 0)
                 return;
@@ -6799,11 +7040,15 @@ namespace SapData_Automation
             #region new
             Datagridview_Addor_reduce(qtyTable_dav26_1, dataGridView26, qtyTable_dav26, bindingSource28);
             #endregion
+        }
+
+        private void textBox48_TextChanged(object sender, EventArgs e)
+        {
 
 
         }
 
-        private void textBox48_TextChanged(object sender, EventArgs e)
+        private void textBox48_txchange()
         {
             if (textBox48.Text.Length < 1 || dataGridView26.RowCount <= 0)
                 return;
@@ -6824,11 +7069,15 @@ namespace SapData_Automation
             #region new
             Datagridview_Addor_reduce(qtyTable_dav27_1, dataGridView27, qtyTable_dav27, bindingSource29);
             #endregion
+        }
+
+        private void textBox51_TextChanged(object sender, EventArgs e)
+        {
 
 
         }
 
-        private void textBox51_TextChanged(object sender, EventArgs e)
+        private void textBox51_txchange()
         {
             if (textBox51.Text.Length < 1 || dataGridView28.RowCount <= 0)
                 return;
@@ -6849,10 +7098,14 @@ namespace SapData_Automation
             #region new
             //   Datagridview_Addor_reduce(qtyTable_dav28_1, dataGridView28, qtyTable_dav28, bindingSource30);
             #endregion
-
         }
 
         private void textBox54_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox54_txchange()
         {
             if (textBox54.Text.Length < 1 || dataGridView29.RowCount <= 0)
                 return;
@@ -6897,12 +7150,382 @@ namespace SapData_Automation
         {
             if (e.KeyChar == 13)//按下回车
             {
+                textBox17_txchange();
+
+            }
+        }
+
+        private void textBox19_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)//按下回车
+            {
+                textBox19_txchange();
+            }
+        }
+
+        private void textBox13_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)//按下回车
+            {
+                textBox13_txchange();
+            }
+        }
+
+        private void textBox15_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)//按下回车
+                textBox15_txchange();
+        }
+
+        private void textBox16_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)//按下回车
+                textBox16_txchange();
+        }
+
+        private void textBox20_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)//按下回车
+                textBox20_txchange();
+        }
+
+        private void textBox25_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)//按下回车
+                textBox25_txchange();
+        }
+
+        private void textBox28_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)//按下回车
+            {
+                textBox28_txchange();
+                //textBox27_KeyPress(null, e);
+
+            }
+        }
+
+        private void textBox27_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)//按下回车
+            {
+           
+                textBox27_txchange();
+                //textBox28_txchange();
+                int tx28 = Convert.ToInt32(textBox28.Text);
+
+                var qtyTable_dav16_1 = new DataTable();
+                fengdanyuanjiedainbian(qtyTable_dav16_1);
+
+                for (int j = 0; j < tx28; j++)
+                {
+                    qtyTable_dav16_1.Rows.Add(qtyTable_dav16_1.NewRow());
+                    qtyTable_dav16_1.Rows[j][0] = j + 1;
+                }
+
+                #region new
+                Datagridview_Addor_reduce(qtyTable_dav16_1, dataGridView17, qtyTable_dav16, bindingSource18);
+                #endregion
+            }
+        }
+
+        private void textBox26_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)//按下回车
+                textBox26_txchange();
+        }
+
+        private void textBox29_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)//按下回车
+                textBox29_txchange();
+        }
+
+        private void textBox30_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)//按下回车
+                textBox30_txchange();
+        }
+
+        private void textBox33_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)//按下回车
+                textBox33_txchange();
+        }
+
+        private void textBox35_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)//按下回车
+                textBox35_txchange();
+        }
+
+        private void textBox40_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)//按下回车
+                textBox40_txchange();
+
+        }
+
+        private void textBox39_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)//按下回车
+                textBox39_txchange();
+        }
+
+        private void textBox45_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)//按下回车
+                textBox45_txchange();
+        }
+
+        private void textBox48_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)//按下回车
+                textBox48_txchange();
+
+        }
+
+        private void textBox51_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)//按下回车
+                textBox51_txchange();
+        }
+
+        private void textBox54_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)//按下回车
+                textBox54_txchange();
+        }
+
+        private void textBox22_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)//按下回车
+                textBox22_txchange();
+        }
+        private void textBox22_txchange()
+        {
+
+            //this.bindingSource11.DataSource = qtyTable_dav9;
+            //this.dataGridView11.DataSource = this.bindingSource11;
+
+            //this.bindingSource12.DataSource = qtyTable_dav10;
+            //this.dataGridView12.DataSource = this.bindingSource12;
+
+
+            if (textBox22.Text.Length < 1 || dataGridView11.RowCount <= 0)
+                return;
+            int tx20 = Convert.ToInt32(textBox22.Text);
+
+            #region 缓存处理
+            iscache = true;//是缓存
+            isallsave = 1;//批量保存标志
+            allsave_index = 6;//第几个页
+            toolStripButton1_Click(null, EventArgs.Empty);//保存到缓存文件
+
+            string sp_txt = "";
+            if (iscache == false)
+                nowfile = Alist.Find(v => v.Contains("strength_data.sap"));
+            else
+                nowfile = cacheAlist.Find(v => v.Contains("strength_data.sap"));
+
+            string[] fileText = File.ReadAllLines(nowfile);
+
+            sp_txt = Read_strength_data(sp_txt, fileText);
+
+            #endregion
+
+            var qtyTable_dav9_1 = new DataTable();
+            feixianxing_qiangduxishu(qtyTable_dav9_1);
+            for (int j = 0; j < tx20; j++)
+            {
+                qtyTable_dav9_1.Rows.Add(qtyTable_dav9_1.NewRow());
+                qtyTable_dav9_1.Rows[j][0] = j + 1;
+            }
+
+            #region 强度参数
+            if (dataGridView11.RowCount > 0)
+            {
+                if (dataGridView11.RowCount > qtyTable_dav9_1.Rows.Count)
+                {
+                    int rowcout = dataGridView11.RowCount;
+
+                    for (int i = 0; i < rowcout - qtyTable_dav9_1.Rows.Count; i++)
+                        dataGridView11.Rows.RemoveAt(dataGridView11.Rows.Count - 1);
+                }
+                else if (dataGridView11.RowCount < qtyTable_dav9_1.Rows.Count)
+                {
+                    int davcount = dataGridView11.RowCount;
+                    for (int i = 0; i < qtyTable_dav9_1.Rows.Count - davcount; i++)
+                    {
+                        qtyTable_dav9.Rows.Add(qtyTable_dav9.NewRow());
+                        qtyTable_dav9.Rows[qtyTable_dav9.Rows.Count - 1][0] = davcount + 1 + i;
+
+                    }
+                    this.bindingSource11.DataSource = qtyTable_dav9;
+                    this.dataGridView11.DataSource = this.bindingSource11;
+
+                }
+            }
+            else
+            {
+                this.bindingSource11.DataSource = qtyTable_dav9_1;
+                this.dataGridView11.DataSource = this.bindingSource11;
+
+            }
+            #endregion
+            #region 损伤与软化系数
+            var qtyTable_dav10_1 = new DataTable();
+            shunshangyuruanhuaxishu(qtyTable_dav10_1);
+            for (int j = 0; j < tx20; j++)
+            {
+                qtyTable_dav10_1.Rows.Add(qtyTable_dav10_1.NewRow());
+                qtyTable_dav10_1.Rows[j][0] = j + 1;
+            }
+            if (dataGridView12.RowCount > 0)
+            {
+                if (dataGridView12.RowCount > qtyTable_dav10_1.Rows.Count)
+                {
+                    int rowcout = dataGridView12.RowCount;
+
+                    for (int i = 0; i < rowcout - qtyTable_dav10_1.Rows.Count; i++)
+                        dataGridView12.Rows.RemoveAt(dataGridView12.Rows.Count - 1);
+                }
+                else if (dataGridView12.RowCount < qtyTable_dav10_1.Rows.Count)
+                {
+                    int davcount = dataGridView12.RowCount;
+                    for (int i = 0; i < qtyTable_dav10_1.Rows.Count - davcount; i++)
+                    {
+                        qtyTable_dav10.Rows.Add(qtyTable_dav10.NewRow());
+                        qtyTable_dav10.Rows[qtyTable_dav10.Rows.Count - 1][0] = davcount + 1 + i;
+
+                    }
+                    this.bindingSource12.DataSource = qtyTable_dav10;
+                    this.dataGridView12.DataSource = this.bindingSource12;
+
+                }
+            }
+            else
+            {
+                this.bindingSource12.DataSource = qtyTable_dav10_1;
+                this.dataGridView12.DataSource = this.bindingSource12;
+
+            }
+            #endregion
+
+            clearCache();
+
+        }
+
+        private void textBox23_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+
+            if (e.KeyChar == 13)//按下回车
+                textBox23_txchange();
+
+
+        }
+
+        private void dataGridView13_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)//按下回车
+            {
 
 
             }
         }
 
-      
+        private void dataGridView13_CellEndEdit_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 3)
+            {
+
+                int dataGridView13_cloumncount = 0;
+                for (int i = 0; i < dataGridView13.RowCount; i++)
+                {
+                    if (dataGridView13.Rows[i].Cells["计算次数"].EditedFormattedValue != null && dataGridView13.Rows[i].Cells["计算次数"].EditedFormattedValue != "")
+                    {
+                        int newjisuancishu = Convert.ToInt32(dataGridView13.Rows[i].Cells["计算次数"].EditedFormattedValue.ToString());
+                        if (newjisuancishu > dataGridView13_cloumncount)
+                            dataGridView13_cloumncount = Convert.ToInt32(dataGridView13.Rows[i].Cells["计算次数"].EditedFormattedValue.ToString());
+                    }
+                }
+
+
+
+                #region 强度参数
+                var qtyTable_dav11_1 = new DataTable();
+                jiaozhucixu(qtyTable_dav11_1);
+                int icount1 = dataGridView13_cloumncount;
+
+                Adddav11cloumn(icount1, qtyTable_dav11_1);
+
+       
+                if (dataGridView13.RowCount > 0)
+                {
+                    if (dataGridView13.ColumnCount > qtyTable_dav11_1.Columns.Count)
+                    {
+                        int rowcout = dataGridView13.ColumnCount;
+
+                        for (int i = 0; i < rowcout - qtyTable_dav11_1.Columns.Count; i++)
+                        {
+                            //dataGridView13.Columns.RemoveAt(dataGridView13.Columns.Count - 1);
+                            qtyTable_dav11.Columns.RemoveAt(qtyTable_dav11.Columns.Count- 1);
+                        }
+                    }
+                    else if (dataGridView13.ColumnCount < qtyTable_dav11_1.Columns.Count)
+                    {
+                        int davcount = dataGridView13.ColumnCount-3;
+
+                        for (int i = 0; i < qtyTable_dav11_1.Columns.Count - davcount-3; i++)
+                        {
+                            int nx = qtyTable_dav11.Columns.Count;
+
+                            int clou = davcount + i;
+                            bool ishave = false;
+
+                            foreach (System.Data.DataColumn k in qtyTable_dav11.Columns)
+                            {
+                                string columnName = k.ColumnName;
+
+                                if (clou.ToString() == columnName)
+                                    ishave = true;
+
+                            }
+                            if (ishave == false)
+                                qtyTable_dav11.Columns.Add("△t" + clou.ToString(), System.Type.GetType("System.String"));//0
+
+
+                        }
+                        this.bindingSource13.DataSource = qtyTable_dav11;
+                        this.dataGridView13.DataSource = this.bindingSource13;
+                    }
+                }
+                else
+                {
+
+                    this.bindingSource13.DataSource = qtyTable_dav11;
+                    this.dataGridView13.DataSource = this.bindingSource13;
+
+                }
+                this.bindingSource13.DataSource = qtyTable_dav11;
+                this.dataGridView13.DataSource = this.bindingSource13;
+                #endregion
+            }
+        }
+
+        private void dataGridView23_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex >=  1)
+            {
+
+
+                textBox39_txchange();
+            
+            
+            }
+        }
+
 
     }
 }

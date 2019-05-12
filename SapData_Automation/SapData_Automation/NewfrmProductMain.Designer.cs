@@ -727,72 +727,80 @@
             // label111
             // 
             this.label111.AutoSize = true;
-            this.label111.Location = new System.Drawing.Point(226, 124);
+            this.label111.Font = new System.Drawing.Font("宋体", 12F);
+            this.label111.Location = new System.Drawing.Point(270, 124);
             this.label111.Name = "label111";
-            this.label111.Size = new System.Drawing.Size(23, 12);
+            this.label111.Size = new System.Drawing.Size(32, 16);
             this.label111.TabIndex = 98;
             this.label111.Text = "...";
             // 
             // label110
             // 
             this.label110.AutoSize = true;
-            this.label110.Location = new System.Drawing.Point(96, 124);
+            this.label110.Font = new System.Drawing.Font("宋体", 12F);
+            this.label110.Location = new System.Drawing.Point(117, 124);
             this.label110.Name = "label110";
-            this.label110.Size = new System.Drawing.Size(23, 12);
+            this.label110.Size = new System.Drawing.Size(32, 16);
             this.label110.TabIndex = 97;
             this.label110.Text = "...";
             // 
             // label108
             // 
             this.label108.AutoSize = true;
-            this.label108.Location = new System.Drawing.Point(96, 96);
+            this.label108.Font = new System.Drawing.Font("宋体", 12F);
+            this.label108.Location = new System.Drawing.Point(117, 96);
             this.label108.Name = "label108";
-            this.label108.Size = new System.Drawing.Size(23, 12);
+            this.label108.Size = new System.Drawing.Size(32, 16);
             this.label108.TabIndex = 96;
             this.label108.Text = "...";
             // 
             // label107
             // 
             this.label107.AutoSize = true;
-            this.label107.Location = new System.Drawing.Point(96, 65);
+            this.label107.Font = new System.Drawing.Font("宋体", 12F);
+            this.label107.Location = new System.Drawing.Point(117, 65);
             this.label107.Name = "label107";
-            this.label107.Size = new System.Drawing.Size(23, 12);
+            this.label107.Size = new System.Drawing.Size(32, 16);
             this.label107.TabIndex = 95;
             this.label107.Text = "...";
             // 
             // label105
             // 
             this.label105.AutoSize = true;
-            this.label105.Location = new System.Drawing.Point(173, 124);
+            this.label105.Font = new System.Drawing.Font("宋体", 12F);
+            this.label105.Location = new System.Drawing.Point(199, 124);
             this.label105.Name = "label105";
-            this.label105.Size = new System.Drawing.Size(47, 12);
+            this.label105.Size = new System.Drawing.Size(64, 16);
             this.label105.TabIndex = 94;
             this.label105.Text = "节点数:";
             // 
             // label104
             // 
             this.label104.AutoSize = true;
+            this.label104.Font = new System.Drawing.Font("宋体", 12F);
             this.label104.Location = new System.Drawing.Point(31, 124);
             this.label104.Name = "label104";
-            this.label104.Size = new System.Drawing.Size(47, 12);
+            this.label104.Size = new System.Drawing.Size(64, 16);
             this.label104.TabIndex = 93;
             this.label104.Text = "单元数:";
             // 
             // label102
             // 
             this.label102.AutoSize = true;
+            this.label102.Font = new System.Drawing.Font("宋体", 12F);
             this.label102.Location = new System.Drawing.Point(31, 96);
             this.label102.Name = "label102";
-            this.label102.Size = new System.Drawing.Size(59, 12);
+            this.label102.Size = new System.Drawing.Size(80, 16);
             this.label102.TabIndex = 92;
             this.label102.Text = "工程名称:";
             // 
             // label101
             // 
             this.label101.AutoSize = true;
+            this.label101.Font = new System.Drawing.Font("宋体", 12F);
             this.label101.Location = new System.Drawing.Point(31, 65);
             this.label101.Name = "label101";
-            this.label101.Size = new System.Drawing.Size(59, 12);
+            this.label101.Size = new System.Drawing.Size(80, 16);
             this.label101.TabIndex = 91;
             this.label101.Text = "工作路径:";
             // 
@@ -1650,6 +1658,7 @@
             this.textBox19.Size = new System.Drawing.Size(95, 21);
             this.textBox19.TabIndex = 17;
             this.textBox19.TextChanged += new System.EventHandler(this.textBox19_TextChanged);
+            this.textBox19.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox19_KeyPress);
             // 
             // label42
             // 
@@ -1801,6 +1810,7 @@
             this.textBox13.Size = new System.Drawing.Size(95, 21);
             this.textBox13.TabIndex = 3;
             this.textBox13.TextChanged += new System.EventHandler(this.textBox13_TextChanged);
+            this.textBox13.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox13_KeyPress);
             // 
             // label29
             // 
@@ -1818,6 +1828,7 @@
             this.textBox15.Size = new System.Drawing.Size(95, 21);
             this.textBox15.TabIndex = 5;
             this.textBox15.TextChanged += new System.EventHandler(this.textBox15_TextChanged);
+            this.textBox15.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox15_KeyPress);
             // 
             // textBox16
             // 
@@ -1826,6 +1837,7 @@
             this.textBox16.Size = new System.Drawing.Size(95, 21);
             this.textBox16.TabIndex = 7;
             this.textBox16.TextChanged += new System.EventHandler(this.textBox16_TextChanged);
+            this.textBox16.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox16_KeyPress);
             // 
             // dataGridView5
             // 
@@ -2020,6 +2032,7 @@
             this.textBox20.Size = new System.Drawing.Size(95, 21);
             this.textBox20.TabIndex = 5;
             this.textBox20.TextChanged += new System.EventHandler(this.textBox20_TextChanged);
+            this.textBox20.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox20_KeyPress);
             // 
             // label44
             // 
@@ -2219,6 +2232,7 @@
             this.textBox22.Name = "textBox22";
             this.textBox22.Size = new System.Drawing.Size(95, 21);
             this.textBox22.TabIndex = 7;
+            this.textBox22.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox22_KeyPress);
             // 
             // label46
             // 
@@ -2311,6 +2325,8 @@
             this.dataGridView13.RowHeadersVisible = false;
             this.dataGridView13.Size = new System.Drawing.Size(1040, 451);
             this.dataGridView13.TabIndex = 10;
+            this.dataGridView13.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView13_CellEndEdit_1);
+            this.dataGridView13.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dataGridView13_KeyPress);
             // 
             // groupBox26
             // 
@@ -2329,6 +2345,7 @@
             this.textBox23.Name = "textBox23";
             this.textBox23.Size = new System.Drawing.Size(95, 21);
             this.textBox23.TabIndex = 7;
+            this.textBox23.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox23_KeyPress);
             // 
             // label52
             // 
@@ -2514,6 +2531,7 @@
             this.textBox25.Size = new System.Drawing.Size(151, 21);
             this.textBox25.TabIndex = 18;
             this.textBox25.TextChanged += new System.EventHandler(this.textBox25_TextChanged);
+            this.textBox25.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox25_KeyPress);
             // 
             // label57
             // 
@@ -2594,6 +2612,7 @@
             this.textBox27.Size = new System.Drawing.Size(95, 21);
             this.textBox27.TabIndex = 21;
             this.textBox27.TextChanged += new System.EventHandler(this.textBox27_TextChanged);
+            this.textBox27.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox27_KeyPress);
             // 
             // label81
             // 
@@ -2622,6 +2641,7 @@
             this.textBox28.Size = new System.Drawing.Size(95, 21);
             this.textBox28.TabIndex = 19;
             this.textBox28.TextChanged += new System.EventHandler(this.textBox28_TextChanged);
+            this.textBox28.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox28_KeyPress);
             // 
             // label62
             // 
@@ -2811,6 +2831,7 @@
             this.textBox26.Size = new System.Drawing.Size(151, 21);
             this.textBox26.TabIndex = 21;
             this.textBox26.TextChanged += new System.EventHandler(this.textBox26_TextChanged);
+            this.textBox26.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox26_KeyPress);
             // 
             // label61
             // 
@@ -2906,6 +2927,7 @@
             this.textBox30.Size = new System.Drawing.Size(151, 21);
             this.textBox30.TabIndex = 27;
             this.textBox30.TextChanged += new System.EventHandler(this.textBox30_TextChanged);
+            this.textBox30.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox30_KeyPress);
             // 
             // label64
             // 
@@ -2932,6 +2954,7 @@
             this.textBox29.Size = new System.Drawing.Size(151, 21);
             this.textBox29.TabIndex = 24;
             this.textBox29.TextChanged += new System.EventHandler(this.textBox29_TextChanged);
+            this.textBox29.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox29_KeyPress);
             // 
             // tabPage14
             // 
@@ -3045,6 +3068,7 @@
             this.textBox33.Size = new System.Drawing.Size(151, 21);
             this.textBox33.TabIndex = 33;
             this.textBox33.TextChanged += new System.EventHandler(this.textBox33_TextChanged);
+            this.textBox33.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox33_KeyPress);
             // 
             // dataGridView21
             // 
@@ -3180,6 +3204,7 @@
             this.textBox35.Size = new System.Drawing.Size(95, 21);
             this.textBox35.TabIndex = 16;
             this.textBox35.TextChanged += new System.EventHandler(this.textBox35_TextChanged);
+            this.textBox35.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox35_KeyPress);
             // 
             // label71
             // 
@@ -3294,6 +3319,7 @@
             this.textBox40.Size = new System.Drawing.Size(151, 21);
             this.textBox40.TabIndex = 29;
             this.textBox40.TextChanged += new System.EventHandler(this.textBox40_TextChanged);
+            this.textBox40.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox40_KeyPress);
             // 
             // dataGridView1
             // 
@@ -3346,6 +3372,7 @@
             this.dataGridView23.RowHeadersVisible = false;
             this.dataGridView23.Size = new System.Drawing.Size(1040, 98);
             this.dataGridView23.TabIndex = 43;
+            this.dataGridView23.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView23_CellEndEdit);
             // 
             // dataGridView25
             // 
@@ -3398,6 +3425,7 @@
             this.textBox39.Size = new System.Drawing.Size(95, 21);
             this.textBox39.TabIndex = 21;
             this.textBox39.TextChanged += new System.EventHandler(this.textBox39_TextChanged);
+            this.textBox39.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox39_KeyPress);
             // 
             // label92
             // 
@@ -3513,6 +3541,7 @@
             this.textBox45.Size = new System.Drawing.Size(151, 21);
             this.textBox45.TabIndex = 29;
             this.textBox45.TextChanged += new System.EventHandler(this.textBox45_TextChanged);
+            this.textBox45.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox45_KeyPress);
             // 
             // dataGridView27
             // 
@@ -3556,6 +3585,7 @@
             this.textBox48.Size = new System.Drawing.Size(151, 21);
             this.textBox48.TabIndex = 29;
             this.textBox48.TextChanged += new System.EventHandler(this.textBox48_TextChanged);
+            this.textBox48.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox48_KeyPress);
             // 
             // groupBox20
             // 
@@ -3584,6 +3614,7 @@
             this.textBox51.Size = new System.Drawing.Size(151, 21);
             this.textBox51.TabIndex = 29;
             this.textBox51.TextChanged += new System.EventHandler(this.textBox51_TextChanged);
+            this.textBox51.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox51_KeyPress);
             // 
             // dataGridView28
             // 
@@ -3627,6 +3658,7 @@
             this.textBox54.Size = new System.Drawing.Size(151, 21);
             this.textBox54.TabIndex = 29;
             this.textBox54.TextChanged += new System.EventHandler(this.textBox54_TextChanged);
+            this.textBox54.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox54_KeyPress);
             // 
             // dataGridView29
             // 
