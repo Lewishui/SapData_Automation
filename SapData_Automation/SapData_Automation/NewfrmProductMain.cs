@@ -1540,7 +1540,7 @@ namespace SapData_Automation
                     //  File.Create(folderpath + "\\run.bat" ).Close();
                     FileStream fs = new FileStream(folderpath + "\\run.bat", FileMode.OpenOrCreate, FileAccess.Write);
                     StreamWriter sw = new StreamWriter(fs, System.Text.Encoding.Default);
-                    sw.WriteLine("\""+DesktopPath + "转换程序.exe"+"\"");
+                    sw.WriteLine("\"" + DesktopPath + "转换程序.exe" + "\"");
                     sw.Flush();
                     sw.Close();
 
@@ -2407,8 +2407,8 @@ namespace SapData_Automation
 
                     if (rowindex < qtyTable_dav25.Rows.Count)
                     {
-                          left = Convert.ToString(qtyTable_dav25.Rows[rowindex][1]);//得到dav 的第二例的 数据
-                          hangindex = Convert.ToString(cloumn2 + 1);//txt 读取堆的行数 序列
+                        left = Convert.ToString(qtyTable_dav25.Rows[rowindex][1]);//得到dav 的第二例的 数据
+                        hangindex = Convert.ToString(cloumn2 + 1);//txt 读取堆的行数 序列
                         if (left != hangindex)
                         {
 
@@ -2423,9 +2423,7 @@ namespace SapData_Automation
                                     if (left == hangindex)
                                     {
                                         isfinde = true;
-
                                         break;
-
                                     }
                                 }
                                 else
@@ -2434,8 +2432,6 @@ namespace SapData_Automation
                             }
                             if (isfinde == false)
                                 continue;
-
-
                         }
                         else
                         {
@@ -2450,11 +2446,11 @@ namespace SapData_Automation
                     }
                     for (int jj = 0; jj < fileText1.Length; jj++)
                     {
-                    
+
 
                         if (jj <= qtyTable_dav25.Columns.Count - 1 && rowindex < qtyTable_dav25.Rows.Count && left == hangindex)
                         {
-                           
+
                             qtyTable_dav25.Rows[rowindex][jj + 1] = fileText1[jj];
 
                         }
@@ -3895,6 +3891,9 @@ namespace SapData_Automation
             int isupordown = 0;
             int uprowindex = 0;
             int cloumn2 = 0;
+            string left = "";
+            string hangindex = "";
+            bool isfinde = false;
             #region old
             //for (int j = ongo1; j <= fileText.Length; j++)
             //{
@@ -3933,6 +3932,8 @@ namespace SapData_Automation
             #region new
             for (int j = ongo1; j <= fileText.Length; j++)
             {
+           
+
                 ongo = j;
                 sp_txt = removeblank(sp_txt, fileText, j);
                 //new 
@@ -3954,6 +3955,13 @@ namespace SapData_Automation
                 //水管定义 new
                 if (isupordown == 0)
                 {
+                    //重新开始新的行位置
+                      left = "";
+                      hangindex = "";
+                      isfinde = false;
+                      cloumn2 = 0;
+
+
 
                     qtyTable_dav4.Rows.Add(qtyTable_dav4.NewRow());
 
@@ -3981,26 +3989,50 @@ namespace SapData_Automation
                 string[] fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, "\t");
                 if (fileText1.Length < 2)
                     fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, " ");
+                int isoutbreak = 0;
 
                 for (int jj = 0; jj < fileText1.Length; jj++)
                 {
-                    //判断 是否留下此行为空行 比如手动 增加冷却期数 后 7 到8  应该在 在水管号8行留出来不应 占用
-                    string left = Convert.ToString(qtyTable_dav5.Rows[rowindex][1]);//得到dav 的第二例的 数据
-                    string hangindex = Convert.ToString(cloumn2 + 1);//txt 读取堆的行数 序列
-                    if (left != hangindex)
+              
+                    if (rowindex < qtyTable_dav5.Rows.Count)
                     {
-                        while (true)
+                        //判断 是否留下此行为空行 比如手动 增加冷却期数 后 7 到8  应该在 在水管号8行留出来不应 占用
+                        left = Convert.ToString(qtyTable_dav5.Rows[rowindex][1]);//得到dav 的第二例的 数据
+                        hangindex = Convert.ToString(cloumn2 + 1);//txt 读取堆的行数 序列
+                        if (left != hangindex)
                         {
-                            rowindex++;
-                            left = Convert.ToString(qtyTable_dav5.Rows[rowindex][1]);//得到dav 的第二例的 数据
-
-                            if (left == hangindex)
+                            if (Convert.ToInt32(hangindex) > Convert.ToInt32(left))
                             {
-
+                                isoutbreak=1;
                                 break;
-
                             }
+                            while (true)
+                            {
+                                rowindex++;
+                                if (rowindex < qtyTable_dav5.Rows.Count)
+                                {
+                                    left = Convert.ToString(qtyTable_dav5.Rows[rowindex][1]);//得到dav 的第二例的 数据
+
+                                    if (left == hangindex)
+                                    {
+                                        isfinde = true;
+
+                                        break;
+
+                                    }
+                                }
+                                else
+                                    break;
+                            }
+                            if (isfinde == false)
+                                continue;
+
                         }
+                    }
+                    else
+                    {
+                        if (isfinde == false)
+                            continue;
 
                     }
                     //&& left == hangindex
@@ -4009,9 +4041,11 @@ namespace SapData_Automation
                         qtyTable_dav5.Rows[rowindex][jj + 2] = fileText1[jj];
                 }
                 //   qtyTable_dav5.Rows[rowindex][0] = rowindex + 1;
-                rowindex++;
-                cloumn2++;
-
+                if (isoutbreak == 0)
+                {
+                    rowindex++;
+                    cloumn2++;
+                }
 
             }
 
@@ -5587,20 +5621,20 @@ namespace SapData_Automation
                 }
                 else if (dataGridView20.ColumnCount < qtyTable_dav19_1.Columns.Count)
                 {
-                    int davcount = dataGridView20.ColumnCount ;
+                    int davcount = dataGridView20.ColumnCount;
 
                     for (int i = 0; i < qtyTable_dav19_1.Columns.Count - davcount; i++)
                     {
                         int nx = qtyTable_dav19.Columns.Count;
 
-                        int clou = davcount-1 + i;
+                        int clou = davcount - 1 + i;
                         bool ishave = false;
 
                         foreach (System.Data.DataColumn k in qtyTable_dav19.Columns)
                         {
                             string columnName = k.ColumnName;
                             //columnType = k.DataType.ToString();
-                            if ("T"+clou.ToString() == columnName)
+                            if ("T" + clou.ToString() == columnName)
                                 ishave = true;
 
                         }
@@ -6485,7 +6519,7 @@ namespace SapData_Automation
 
             }
             #endregion
-
+            clearCache();
             //this.bindingSource15.DataSource = qtyTable_dav13;
             //this.dataGridView15.DataSource = this.bindingSource15;
         }
@@ -6690,8 +6724,8 @@ namespace SapData_Automation
                 for (int i = 0; i < qtyTable_dav16.Rows.Count; i++)
                 {
                     // qtyTable_dav16.Rows.Add(qtyTable_dav16.NewRow());
-                    qtyTable_dav16.Rows[i][0] = i + 1;
- 
+                //    qtyTable_dav16.Rows[i][0] = i + 1;
+
                 }
                 bindingSource18.DataSource = qtyTable_dav16;
                 dataGridView17.DataSource = bindingSource18;
@@ -7193,6 +7227,7 @@ namespace SapData_Automation
         {
             if (e.KeyChar == 13)//按下回车
                 textBox25_txchange();
+           
         }
 
         private void textBox28_KeyPress(object sender, KeyPressEventArgs e)
@@ -7209,7 +7244,7 @@ namespace SapData_Automation
         {
             if (e.KeyChar == 13)//按下回车
             {
-           
+
                 textBox27_txchange();
                 //textBox28_txchange();
                 int tx28 = Convert.ToInt32(textBox28.Text);
@@ -7460,7 +7495,7 @@ namespace SapData_Automation
 
                 Adddav11cloumn(icount1, qtyTable_dav11_1);
 
-       
+
                 if (dataGridView13.RowCount > 0)
                 {
                     if (dataGridView13.ColumnCount > qtyTable_dav11_1.Columns.Count)
@@ -7470,14 +7505,14 @@ namespace SapData_Automation
                         for (int i = 0; i < rowcout - qtyTable_dav11_1.Columns.Count; i++)
                         {
                             //dataGridView13.Columns.RemoveAt(dataGridView13.Columns.Count - 1);
-                            qtyTable_dav11.Columns.RemoveAt(qtyTable_dav11.Columns.Count- 1);
+                            qtyTable_dav11.Columns.RemoveAt(qtyTable_dav11.Columns.Count - 1);
                         }
                     }
                     else if (dataGridView13.ColumnCount < qtyTable_dav11_1.Columns.Count)
                     {
-                        int davcount = dataGridView13.ColumnCount-3;
+                        int davcount = dataGridView13.ColumnCount - 3;
 
-                        for (int i = 0; i < qtyTable_dav11_1.Columns.Count - davcount-3; i++)
+                        for (int i = 0; i < qtyTable_dav11_1.Columns.Count - davcount - 3; i++)
                         {
                             int nx = qtyTable_dav11.Columns.Count;
 
@@ -7516,13 +7551,13 @@ namespace SapData_Automation
 
         private void dataGridView23_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex >=  1)
+            if (e.ColumnIndex >= 1)
             {
 
 
                 textBox39_txchange();
-            
-            
+
+
             }
         }
 
