@@ -312,7 +312,7 @@ namespace SapData_Automation
                     sw.WriteLine("");
                     sw = wxdav(nowfile, this.dataGridView2, sw);
                     sw.WriteLine("");
-                    sw = wxdav(nowfile, this.dataGridView3, sw);
+                    sw = wxdav_cloumn0(nowfile, this.dataGridView3, sw);
                     sw.WriteLine("");
                     #region old
                     //sw = wxdav(nowfile, this.dataGridView4, sw);
@@ -2387,7 +2387,7 @@ namespace SapData_Automation
                     sp_txt = removeblank(sp_txt, fileText, j);
                     //new 
                     sp_txt = removeblank_txt(sp_txt);
-                    if (fileText[j].Contains("\t\t\t") || fileText[j].Replace("  ", "").Trim() == "" || sp_txt == "")
+                    if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || fileText[j] == "" || sp_txt == "")
                     {
                         cloumn2 = 0;
 
@@ -2408,6 +2408,8 @@ namespace SapData_Automation
                     if (rowindex < qtyTable_dav25.Rows.Count)
                     {
                         left = Convert.ToString(qtyTable_dav25.Rows[rowindex][1]);//得到dav 的第二例的 数据
+                        if (left == "1")
+                            cloumn2 = 0;
                         hangindex = Convert.ToString(cloumn2 + 1);//txt 读取堆的行数 序列
                         if (left != hangindex)
                         {
@@ -3554,7 +3556,7 @@ namespace SapData_Automation
             if (textBox23.Text.Length >= 1)
             {
                 int icount = Convert.ToInt32(textBox23.Text);
-                icount = 20;
+                // icount = 20;
 
                 Adddav11cloumn(icount, qtyTable_dav11);
 
@@ -3565,8 +3567,10 @@ namespace SapData_Automation
                 int cloindex = 0;
                 string comtxt = "";
                 int isgo = 0;
+                double maxcloumn = 0;
                 for (int j = ongo1; j <= fileText.Length; j++)
                 {
+
                     ongo = j;
                     sp_txt = removeblank(sp_txt, fileText, j);
                     //new 
@@ -3594,11 +3598,29 @@ namespace SapData_Automation
                         if (fileText1.Length < 2)
                             fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, " ");
 
+
                         for (int jj = 0; jj < fileText1.Length; jj++)
                         {
+
                             cloindex = jj;
                             if (jj < qtyTable_dav11.Columns.Count - 1 && rowindex < qtyTable_dav11.Rows.Count)
+                            {
                                 qtyTable_dav11.Rows[rowindex][jj + 1] = fileText1[jj];
+                                if (jj + 1 == 3 && fileText1[jj] != null && fileText1[jj].Length > 0 && Convert.ToInt32(fileText1[jj]) > maxcloumn && Convert.ToInt32(fileText1[jj]) > qtyTable_dav11.Columns.Count - 4)
+                                {
+                                    maxcloumn = Convert.ToInt32(fileText1[jj]);
+                                    string stname = qtyTable_dav11.Columns[qtyTable_dav11.Columns.Count - 1].ToString().Replace("△t", "");
+
+                                    double addcloumn = maxcloumn - qtyTable_dav11.Columns.Count + 4;
+
+                                    for (int i11 = 1; i11 <= addcloumn; i11++)
+                                    {
+                                        string newname = (Convert.ToInt32(stname) + i11).ToString();
+                                        qtyTable_dav11.Columns.Add("△t" + newname, System.Type.GetType("System.String"));//0
+
+                                    }
+                                }
+                            }
                         }
                         qtyTable_dav11.Rows[rowindex][0] = rowindex + 1;
                         isadd++;
@@ -3609,8 +3631,6 @@ namespace SapData_Automation
                         sp_txt = removeblank(sp_txt, fileText, j);
                         //new 
                         sp_txt = removeblank_txt(sp_txt);
-
-
                         //   qtyTable_dav11.Rows.Add(qtyTable_dav11.NewRow());
                         string[] fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, "\t");
                         if (fileText1.Length < 2)
@@ -3620,6 +3640,7 @@ namespace SapData_Automation
                         {
                             if (qtyTable_dav11.Columns.Count >= cloindex + 1)
                             {
+
                                 if (jj < qtyTable_dav11.Columns.Count - 2 && rowindex < qtyTable_dav11.Rows.Count)
                                 {
                                     qtyTable_dav11.Rows[rowindex][cloindex + 2] = fileText1[jj];
@@ -3785,7 +3806,7 @@ namespace SapData_Automation
             if (textBox13.Text.Length > 0 && !textBox13.Text.Contains("\t"))
             {
                 int icount = Convert.ToInt32(textBox13.Text);
-                for (int i3 = 1; i3 < icount + 1; i3++)
+                for (int i3 = 1; i3 < icount; i3++)
                 {
                     qtyTable_dav3.Columns.Add("β" + i3, System.Type.GetType("System.String"));//0
 
@@ -3820,10 +3841,10 @@ namespace SapData_Automation
 
                 for (int jj = 0; jj < fileText1.Length; jj++)
                 {
-                    if (jj < qtyTable_dav3.Columns.Count - 1 && rowindex < qtyTable_dav3.Rows.Count)
-                        qtyTable_dav3.Rows[rowindex][jj + 1] = fileText1[jj];
+                    if (jj < qtyTable_dav3.Columns.Count && rowindex < qtyTable_dav3.Rows.Count)
+                        qtyTable_dav3.Rows[rowindex][jj] = fileText1[jj];
                 }
-                qtyTable_dav3.Rows[rowindex][0] = rowindex + 1;
+                //qtyTable_dav3.Rows[rowindex][0] = rowindex + 1;
                 rowindex++;
 
             }
@@ -3932,7 +3953,7 @@ namespace SapData_Automation
             #region new
             for (int j = ongo1; j <= fileText.Length; j++)
             {
-           
+
 
                 ongo = j;
                 sp_txt = removeblank(sp_txt, fileText, j);
@@ -3956,10 +3977,10 @@ namespace SapData_Automation
                 if (isupordown == 0)
                 {
                     //重新开始新的行位置
-                      left = "";
-                      hangindex = "";
-                      isfinde = false;
-                      cloumn2 = 0;
+                    left = "";
+                    hangindex = "";
+                    isfinde = false;
+                    cloumn2 = 0;
 
 
 
@@ -3993,7 +4014,7 @@ namespace SapData_Automation
 
                 for (int jj = 0; jj < fileText1.Length; jj++)
                 {
-              
+
                     if (rowindex < qtyTable_dav5.Rows.Count)
                     {
                         //判断 是否留下此行为空行 比如手动 增加冷却期数 后 7 到8  应该在 在水管号8行留出来不应 占用
@@ -4003,7 +4024,7 @@ namespace SapData_Automation
                         {
                             if (Convert.ToInt32(hangindex) > Convert.ToInt32(left))
                             {
-                                isoutbreak=1;
+                                isoutbreak = 1;
                                 break;
                             }
                             while (true)
@@ -4979,7 +5000,7 @@ namespace SapData_Automation
                 if (textBox13.Text.Contains("\t"))
                     return;
                 int icount = Convert.ToInt32(textBox13.Text);
-                for (int i = 1; i <= icount; i++)
+                for (int i = 1; i < icount; i++)
                 {
                     qtyTable.Columns.Add("β" + i, System.Type.GetType("System.String"));//0
 
@@ -5521,7 +5542,7 @@ namespace SapData_Automation
 
                 }
                 #region new
-                Datagridview_Addor_reduce(qtyTable_dav18_1, dataGridView16, qtyTable_dav18, bindingSource19);
+                Datagridview_Addor_reduce(qtyTable_dav18_1, dataGridView16, qtyTable_dav18, bindingSource19,false);
 
                 #endregion
                 clearCache();
@@ -5593,7 +5614,7 @@ namespace SapData_Automation
                 }
             }
             //new
-            Datagridview_Addor_reduce(qtyTable_dav19_1, dataGridView20, qtyTable_dav19, bindingSource20);
+            Datagridview_Addor_reduce(qtyTable_dav19_1, dataGridView20, qtyTable_dav19, bindingSource20,true);
 
 
             #region new
@@ -5795,7 +5816,7 @@ namespace SapData_Automation
             }
 
             //new
-            Datagridview_Addor_reduce(qtyTable_dav21_1, dataGridView22, qtyTable_dav21, bindingSource23);
+            Datagridview_Addor_reduce(qtyTable_dav21_1, dataGridView22, qtyTable_dav21, bindingSource23,true);
             clearCache();
 
 
@@ -5867,7 +5888,7 @@ namespace SapData_Automation
 
 
             //new
-            Datagridview_Addor_reduce(qtyTable_dav20_1, dataGridView24, qtyTable_dav20, bindingSource22);
+            Datagridview_Addor_reduce(qtyTable_dav20_1, dataGridView24, qtyTable_dav20, bindingSource22,true);
 
             clearCache();
 
@@ -6409,7 +6430,7 @@ namespace SapData_Automation
                         for (int i = 0; i < qtyTable_dav8_1.Rows.Count - davcount; i++)
                         {
                             qtyTable_dav8.Rows.Add(qtyTable_dav8.NewRow());
-                            qtyTable_dav8.Rows[qtyTable_dav8.Rows.Count - 1][0] = davcount + 1 + i;
+                            //qtyTable_dav8.Rows[qtyTable_dav8.Rows.Count - 1][0] = davcount + 1 + i;
 
                         }
                         this.bindingSource10.DataSource = qtyTable_dav8;
@@ -6572,7 +6593,7 @@ namespace SapData_Automation
             }
 
             #region new
-            Datagridview_Addor_reduce(qtyTable_dav14_1, dataGridView19, qtyTable_dav14, bindingSource16);
+            Datagridview_Addor_reduce(qtyTable_dav14_1, dataGridView19, qtyTable_dav14, bindingSource16, true);
             #endregion
             clearCache();
 
@@ -6590,7 +6611,7 @@ namespace SapData_Automation
             }
 
             #region new
-            Datagridview_Addor_reduce(qtyTable_dav15_1, dataGridView18, qtyTable_dav15, bindingSource17);
+            Datagridview_Addor_reduce(qtyTable_dav15_1, dataGridView18, qtyTable_dav15, bindingSource17, true);
             #endregion
             clearCache();
 
@@ -6653,7 +6674,7 @@ namespace SapData_Automation
             }
 
             #region new
-            Datagridview_Addor_reduce(qtyTable_dav16_1, dataGridView17, qtyTable_dav16, bindingSource18);
+            Datagridview_Addor_reduce(qtyTable_dav16_1, dataGridView17, qtyTable_dav16, bindingSource18, true);
             #endregion
             clearCache();
 
@@ -6670,7 +6691,7 @@ namespace SapData_Automation
             }
 
             #region new
-            Datagridview_Addor_reduce(qtyTable_dav14_1, dataGridView19, qtyTable_dav14, bindingSource16);
+            Datagridview_Addor_reduce(qtyTable_dav14_1, dataGridView19, qtyTable_dav14, bindingSource16, true);
             #endregion
             clearCache();
 
@@ -6688,12 +6709,12 @@ namespace SapData_Automation
             }
 
             #region new
-            Datagridview_Addor_reduce(qtyTable_dav15_1, dataGridView18, qtyTable_dav15, bindingSource17);
+            Datagridview_Addor_reduce(qtyTable_dav15_1, dataGridView18, qtyTable_dav15, bindingSource17, true);
             #endregion
             clearCache();
         }
 
-        private void Datagridview_Addor_reduce(DataTable qtyTable_dav16_1, DataGridView dataGridView17, DataTable qtyTable_dav16, BindingSource bindingSource18)
+        private void Datagridview_Addor_reduce(DataTable qtyTable_dav16_1, DataGridView dataGridView17, DataTable qtyTable_dav16, BindingSource bindingSource18, bool is_autoindex)
         {
             if (dataGridView17.RowCount > 0)
             {
@@ -6713,7 +6734,8 @@ namespace SapData_Automation
                         for (int i = 0; i < qtyTable_dav16_1.Rows.Count - davcount; i++)
                         {
                             qtyTable_dav16.Rows.Add(qtyTable_dav16.NewRow());
-                            qtyTable_dav16.Rows[qtyTable_dav16.Rows.Count - 1][0] = davcount + 1 + i;
+                            if (is_autoindex == true)
+                                qtyTable_dav16.Rows[qtyTable_dav16.Rows.Count - 1][0] = davcount + 1 + i;
 
                         }
                         bindingSource18.DataSource = qtyTable_dav16;
@@ -6724,7 +6746,7 @@ namespace SapData_Automation
                 for (int i = 0; i < qtyTable_dav16.Rows.Count; i++)
                 {
                     // qtyTable_dav16.Rows.Add(qtyTable_dav16.NewRow());
-                //    qtyTable_dav16.Rows[i][0] = i + 1;
+                    //    qtyTable_dav16.Rows[i][0] = i + 1;
 
                 }
                 bindingSource18.DataSource = qtyTable_dav16;
@@ -6990,7 +7012,7 @@ namespace SapData_Automation
             }
 
             #region new
-            Datagridview_Addor_reduce(qtyTable_dav23_1, dataGridView25, qtyTable_dav23, bindingSource25);
+            Datagridview_Addor_reduce(qtyTable_dav23_1, dataGridView25, qtyTable_dav23, bindingSource25, true);
             #endregion
 
 
@@ -7040,7 +7062,7 @@ namespace SapData_Automation
                 qtyTable_dav24_1.Rows.Add(qtyTable_dav24_1.NewRow());
                 qtyTable_dav24_1.Rows[j][0] = j + 1;
             }
-
+            clearCache();
             #region new
             //  Datagridview_Addor_reduce(qtyTable_dav24_1, dataGridView23, qtyTable_dav24, bindingSource26);
             #endregion
@@ -7072,7 +7094,7 @@ namespace SapData_Automation
                 qtyTable_dav26_1.Rows[j][0] = j + 1;
             }
             #region new
-            Datagridview_Addor_reduce(qtyTable_dav26_1, dataGridView26, qtyTable_dav26, bindingSource28);
+            Datagridview_Addor_reduce(qtyTable_dav26_1, dataGridView26, qtyTable_dav26, bindingSource28, true);
             #endregion
         }
 
@@ -7101,7 +7123,7 @@ namespace SapData_Automation
                 qtyTable_dav27_1.Rows[j][0] = j + 1;
             }
             #region new
-            Datagridview_Addor_reduce(qtyTable_dav27_1, dataGridView27, qtyTable_dav27, bindingSource29);
+            Datagridview_Addor_reduce(qtyTable_dav27_1, dataGridView27, qtyTable_dav27, bindingSource29, true);
             #endregion
         }
 
@@ -7227,7 +7249,7 @@ namespace SapData_Automation
         {
             if (e.KeyChar == 13)//按下回车
                 textBox25_txchange();
-           
+
         }
 
         private void textBox28_KeyPress(object sender, KeyPressEventArgs e)
@@ -7259,7 +7281,7 @@ namespace SapData_Automation
                 }
 
                 #region new
-                Datagridview_Addor_reduce(qtyTable_dav16_1, dataGridView17, qtyTable_dav16, bindingSource18);
+                Datagridview_Addor_reduce(qtyTable_dav16_1, dataGridView17, qtyTable_dav16, bindingSource18, true);
                 #endregion
             }
         }
