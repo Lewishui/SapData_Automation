@@ -2790,7 +2790,7 @@ namespace SapData_Automation
             }
             catch (Exception ex)
             {
-                MessageBox.Show("读取seepage文件有问题,请保证文件无误后再吃重启操作！", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("读取seepage文件有问题,请保证文件无误后再次重启操作！", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return "";
 
                 throw;
@@ -4882,10 +4882,11 @@ namespace SapData_Automation
                         jisuancishu += Convert.ToInt32(dataGridView13.Rows[i].Cells["计算次数"].EditedFormattedValue.ToString());
 
                 }
-                if (dataGridView14.RowCount < jisuancishu)
+                if (dataGridView14.RowCount <  jisuancishu)
                 {
                     int dsds = jisuancishu - dataGridView14.RowCount;
 
+                //    int duojia10 = dsds + 10;//new changge
 
                     for (int ir = 0; ir < dsds; ir++)
                         qtyTable_dav12.Rows.Add(qtyTable_dav12.NewRow());
@@ -5706,6 +5707,8 @@ namespace SapData_Automation
 
             if (textBox29.Text != "")
                 showdav20();
+
+            clearCache();
         }
 
         private void toolStripDropDownButton14_Click(object sender, EventArgs e)
@@ -6367,7 +6370,7 @@ namespace SapData_Automation
 
             }
             #endregion
-
+            clearCache();
             //this.bindingSource5.DataSource = qtyTable_dav5;
             //this.dataGridView5.DataSource = this.bindingSource5;
         }
@@ -7014,7 +7017,7 @@ namespace SapData_Automation
             #region new
             Datagridview_Addor_reduce(qtyTable_dav23_1, dataGridView25, qtyTable_dav23, bindingSource25, true);
             #endregion
-
+            clearCache();
 
         }
 
@@ -7096,6 +7099,7 @@ namespace SapData_Automation
             #region new
             Datagridview_Addor_reduce(qtyTable_dav26_1, dataGridView26, qtyTable_dav26, bindingSource28, true);
             #endregion
+            clearCache();
         }
 
         private void textBox48_TextChanged(object sender, EventArgs e)
@@ -7125,6 +7129,7 @@ namespace SapData_Automation
             #region new
             Datagridview_Addor_reduce(qtyTable_dav27_1, dataGridView27, qtyTable_dav27, bindingSource29, true);
             #endregion
+            clearCache();
         }
 
         private void textBox51_TextChanged(object sender, EventArgs e)
@@ -7154,6 +7159,7 @@ namespace SapData_Automation
             #region new
             //   Datagridview_Addor_reduce(qtyTable_dav28_1, dataGridView28, qtyTable_dav28, bindingSource30);
             #endregion
+            clearCache();
         }
 
         private void textBox54_TextChanged(object sender, EventArgs e)
@@ -7169,6 +7175,7 @@ namespace SapData_Automation
             cache_seepage_data();
 
             #endregion
+            clearCache();
         }
 
         private void NewfrmProductMain_Resize(object sender, EventArgs e)
