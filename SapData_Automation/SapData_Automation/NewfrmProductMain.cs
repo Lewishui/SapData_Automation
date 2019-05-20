@@ -3806,7 +3806,7 @@ namespace SapData_Automation
             if (textBox13.Text.Length > 0 && !textBox13.Text.Contains("\t"))
             {
                 int icount = Convert.ToInt32(textBox13.Text);
-                for (int i3 = 1; i3 < icount; i3++)
+                for (int i3 = 1; i3 <= icount; i3++)
                 {
                     qtyTable_dav3.Columns.Add("β" + i3, System.Type.GetType("System.String"));//0
 
@@ -5001,7 +5001,7 @@ namespace SapData_Automation
                 if (textBox13.Text.Contains("\t"))
                     return;
                 int icount = Convert.ToInt32(textBox13.Text);
-                for (int i = 1; i < icount; i++)
+                for (int i = 1; i <= icount; i++)
                 {
                     qtyTable.Columns.Add("β" + i, System.Type.GetType("System.String"));//0
 
