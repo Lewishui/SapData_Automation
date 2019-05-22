@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -58,6 +57,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewfrmProductMain));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -1487,8 +1487,8 @@
             // dataGridView9
             // 
             this.dataGridView9.AllowUserToAddRows = false;
-            dataGridViewCellStyle30.BackColor = System.Drawing.Color.White;
-            this.dataGridView9.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dataGridView9.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView9.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView9.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView9.ContextMenuStrip = this.contextMenuStrip1;
@@ -1516,8 +1516,8 @@
             // dataGridView6
             // 
             this.dataGridView6.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dataGridView6.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            this.dataGridView6.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView6.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView6.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView6.ContextMenuStrip = this.contextMenuStrip1;
@@ -1543,8 +1543,8 @@
             // dataGridView7
             // 
             this.dataGridView7.AllowUserToAddRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            this.dataGridView7.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            this.dataGridView7.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView7.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView7.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView7.ContextMenuStrip = this.contextMenuStrip1;
@@ -1684,8 +1684,8 @@
             // dataGridView8
             // 
             this.dataGridView8.AllowUserToAddRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            this.dataGridView8.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dataGridView8.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView8.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView8.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView8.ContextMenuStrip = this.contextMenuStrip1;
@@ -1842,8 +1842,8 @@
             // dataGridView5
             // 
             this.dataGridView5.AllowUserToAddRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.dataGridView5.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            this.dataGridView5.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView5.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView5.ContextMenuStrip = this.contextMenuStrip1;
@@ -1881,8 +1881,8 @@
             // dataGridView4
             // 
             this.dataGridView4.AllowUserToAddRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            this.dataGridView4.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            this.dataGridView4.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView4.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView4.ContextMenuStrip = this.contextMenuStrip1;
@@ -1896,8 +1896,8 @@
             // dataGridView2
             // 
             this.dataGridView2.AllowUserToAddRows = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            this.dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            this.dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.ContextMenuStrip = this.contextMenuStrip1;
@@ -1912,8 +1912,8 @@
             // dataGridView3
             // 
             this.dataGridView3.AllowUserToAddRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            this.dataGridView3.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            this.dataGridView3.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView3.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView3.ContextMenuStrip = this.contextMenuStrip1;
@@ -2002,8 +2002,8 @@
             // dataGridView10
             // 
             this.dataGridView10.AllowUserToAddRows = false;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            this.dataGridView10.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            this.dataGridView10.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridView10.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView10.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView10.ContextMenuStrip = this.contextMenuStrip1;
@@ -2088,7 +2088,7 @@
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(832, 63);
             this.label51.TabIndex = 0;
-            this.label51.Text = "请点击按钮，使用ultraedit.exe打开mesh.sap文件（请保证您的电脑已安装ulreaedit并且桌面存在ultraedit.exe）";
+            this.label51.Text = "请点击按钮，使用ultraedit.exe打开mesh.sap文件（请保证您的电脑已安装ultraedit并且桌面存在ultraedit.exe）";
             this.label51.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tabPage7
@@ -2155,8 +2155,8 @@
             // dataGridView11
             // 
             this.dataGridView11.AllowUserToAddRows = false;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            this.dataGridView11.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            this.dataGridView11.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridView11.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView11.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView11.ContextMenuStrip = this.contextMenuStrip1;
@@ -2196,8 +2196,8 @@
             // dataGridView12
             // 
             this.dataGridView12.AllowUserToAddRows = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            this.dataGridView12.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
+            this.dataGridView12.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridView12.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView12.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView12.ContextMenuStrip = this.contextMenuStrip1;
@@ -2312,8 +2312,8 @@
             // dataGridView13
             // 
             this.dataGridView13.AllowUserToAddRows = false;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
-            this.dataGridView13.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            this.dataGridView13.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridView13.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -2409,8 +2409,8 @@
             // dataGridView14
             // 
             this.dataGridView14.AllowUserToAddRows = false;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
-            this.dataGridView14.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
+            this.dataGridView14.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridView14.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView14.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView14.ContextMenuStrip = this.contextMenuStrip1;
@@ -2501,8 +2501,8 @@
             // dataGridView15
             // 
             this.dataGridView15.AllowUserToAddRows = false;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
-            this.dataGridView15.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
+            this.dataGridView15.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle14;
             this.dataGridView15.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView15.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView15.ContextMenuStrip = this.contextMenuStrip1;
@@ -2655,8 +2655,8 @@
             // dataGridView17
             // 
             this.dataGridView17.AllowUserToAddRows = false;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
-            this.dataGridView17.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
+            this.dataGridView17.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle15;
             this.dataGridView17.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -2696,8 +2696,8 @@
             // dataGridView19
             // 
             this.dataGridView19.AllowUserToAddRows = false;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
-            this.dataGridView19.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
+            this.dataGridView19.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dataGridView19.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView19.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView19.ContextMenuStrip = this.contextMenuStrip1;
@@ -2723,8 +2723,8 @@
             // dataGridView18
             // 
             this.dataGridView18.AllowUserToAddRows = false;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
-            this.dataGridView18.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.White;
+            this.dataGridView18.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
             this.dataGridView18.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -2801,8 +2801,8 @@
             // dataGridView16
             // 
             this.dataGridView16.AllowUserToAddRows = false;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.White;
-            this.dataGridView16.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.White;
+            this.dataGridView16.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle18;
             this.dataGridView16.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView16.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView16.ContextMenuStrip = this.contextMenuStrip1;
@@ -2895,8 +2895,8 @@
             // dataGridView20
             // 
             this.dataGridView20.AllowUserToAddRows = false;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.White;
-            this.dataGridView20.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.White;
+            this.dataGridView20.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
             this.dataGridView20.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView20.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView20.ContextMenuStrip = this.contextMenuStrip1;
@@ -3073,8 +3073,8 @@
             // dataGridView21
             // 
             this.dataGridView21.AllowUserToAddRows = false;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.White;
-            this.dataGridView21.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.White;
+            this.dataGridView21.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle20;
             this.dataGridView21.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView21.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView21.ContextMenuStrip = this.contextMenuStrip1;
@@ -3110,8 +3110,8 @@
             // dataGridView22
             // 
             this.dataGridView22.AllowUserToAddRows = false;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.White;
-            this.dataGridView22.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.White;
+            this.dataGridView22.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
             this.dataGridView22.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView22.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView22.ContextMenuStrip = this.contextMenuStrip1;
@@ -3125,8 +3125,8 @@
             // dataGridView24
             // 
             this.dataGridView24.AllowUserToAddRows = false;
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.White;
-            this.dataGridView24.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.White;
+            this.dataGridView24.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle22;
             this.dataGridView24.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView24.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView24.ContextMenuStrip = this.contextMenuStrip1;
@@ -3324,8 +3324,8 @@
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.White;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.White;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle23;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
@@ -3361,8 +3361,8 @@
             // dataGridView23
             // 
             this.dataGridView23.AllowUserToAddRows = false;
-            dataGridViewCellStyle23.BackColor = System.Drawing.Color.White;
-            this.dataGridView23.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle24.BackColor = System.Drawing.Color.White;
+            this.dataGridView23.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle24;
             this.dataGridView23.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView23.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView23.ContextMenuStrip = this.contextMenuStrip1;
@@ -3377,8 +3377,8 @@
             // dataGridView25
             // 
             this.dataGridView25.AllowUserToAddRows = false;
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.White;
-            this.dataGridView25.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle25.BackColor = System.Drawing.Color.White;
+            this.dataGridView25.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle25;
             this.dataGridView25.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView25.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView25.ContextMenuStrip = this.contextMenuStrip1;
@@ -3426,6 +3426,7 @@
             this.textBox39.TabIndex = 21;
             this.textBox39.TextChanged += new System.EventHandler(this.textBox39_TextChanged);
             this.textBox39.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox39_KeyPress);
+            this.textBox39.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textBox39_MouseDown);
             // 
             // label92
             // 
@@ -3502,8 +3503,8 @@
             // dataGridView26
             // 
             this.dataGridView26.AllowUserToAddRows = false;
-            dataGridViewCellStyle25.BackColor = System.Drawing.Color.White;
-            this.dataGridView26.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle26.BackColor = System.Drawing.Color.White;
+            this.dataGridView26.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle26;
             this.dataGridView26.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView26.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView26.ContextMenuStrip = this.contextMenuStrip1;
@@ -3546,8 +3547,8 @@
             // dataGridView27
             // 
             this.dataGridView27.AllowUserToAddRows = false;
-            dataGridViewCellStyle26.BackColor = System.Drawing.Color.White;
-            this.dataGridView27.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle27.BackColor = System.Drawing.Color.White;
+            this.dataGridView27.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle27;
             this.dataGridView27.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView27.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView27.ContextMenuStrip = this.contextMenuStrip1;
@@ -3619,8 +3620,8 @@
             // dataGridView28
             // 
             this.dataGridView28.AllowUserToAddRows = false;
-            dataGridViewCellStyle27.BackColor = System.Drawing.Color.White;
-            this.dataGridView28.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle28.BackColor = System.Drawing.Color.White;
+            this.dataGridView28.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle28;
             this.dataGridView28.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView28.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView28.ContextMenuStrip = this.contextMenuStrip1;
@@ -3663,8 +3664,8 @@
             // dataGridView29
             // 
             this.dataGridView29.AllowUserToAddRows = false;
-            dataGridViewCellStyle28.BackColor = System.Drawing.Color.White;
-            this.dataGridView29.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle29.BackColor = System.Drawing.Color.White;
+            this.dataGridView29.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle29;
             this.dataGridView29.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridView29.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView29.ContextMenuStrip = this.contextMenuStrip1;
