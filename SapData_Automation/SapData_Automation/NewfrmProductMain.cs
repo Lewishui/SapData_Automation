@@ -291,46 +291,7 @@ namespace SapData_Automation
                 #region  temp_para.sap
                 else if (s == 3)
                 {
-                    if (iscache == false)
-                        nowfile = Alist.Find(v => v.Contains("temp_para.sap"));
-                    else
-                        nowfile = cacheAlist.Find(v => v.Contains("temp_para.sap"));
-
-
-                    //表面散热系数总数
-
-                    wtx = textBox13.Text;
-
-                    //水管总数:
-                    wtx += " " + textBox15.Text;
-
-                    //冷却期数:
-                    wtx += " " + textBox16.Text;
-
-                    //热学参数
-                    StreamWriter sw = new StreamWriter(nowfile);
-                    sw.WriteLine(wtx);
-                    sw.WriteLine("");
-                    sw = wxdav(nowfile, this.dataGridView2, sw);
-                    sw.WriteLine("");
-                    sw = wxdav_cloumn0(nowfile, this.dataGridView3, sw);
-                    sw.WriteLine("");
-                    #region old
-                    //sw = wxdav(nowfile, this.dataGridView4, sw);
-                    //sw.WriteLine("");
-                    //sw = wxdav_cloumn2(nowfile, this.dataGridView5, sw);
-
-                    #endregion
-                    #region new 20190416
-                    //sw = wxdav(nowfile, this.dataGridView4, sw);
-                    //sw.WriteLine("");
-                    sw = wxdav_temp_para(nowfile, this.dataGridView5, sw, dataGridView4);
-
-
-                    #endregion
-                    sw.Flush();
-                    sw.Close();
-                    //MessageBox.Show("更新完成，请查看！");
+                    wtx = onlySave_temp_para(wtx);
                 }
                 #endregion
 
@@ -399,6 +360,8 @@ namespace SapData_Automation
                     sw.Flush();
                     sw.Close();
                     //MessageBox.Show("更新完成，请查看！");
+                    //如果保存els_para则自动保存 3 temp_para
+                    wtx = onlySave_temp_para(wtx);
 
                 }
 
@@ -801,6 +764,51 @@ namespace SapData_Automation
             }
         }
 
+        private string onlySave_temp_para(string wtx)
+        {
+            if (iscache == false)
+                nowfile = Alist.Find(v => v.Contains("temp_para.sap"));
+            else
+                nowfile = cacheAlist.Find(v => v.Contains("temp_para.sap"));
+
+
+            //表面散热系数总数
+
+            wtx = textBox13.Text;
+
+            //水管总数:
+            wtx += " " + textBox15.Text;
+
+            //冷却期数:
+            wtx += " " + textBox16.Text;
+
+            //热学参数
+            StreamWriter sw = new StreamWriter(nowfile);
+            sw.WriteLine(wtx);
+            sw.WriteLine("");
+            sw = wxdav(nowfile, this.dataGridView2, sw);
+            sw.WriteLine("");
+            sw = wxdav_cloumn0(nowfile, this.dataGridView3, sw);
+            sw.WriteLine("");
+            #region old
+            //sw = wxdav(nowfile, this.dataGridView4, sw);
+            //sw.WriteLine("");
+            //sw = wxdav_cloumn2(nowfile, this.dataGridView5, sw);
+
+            #endregion
+            #region new 20190416
+            //sw = wxdav(nowfile, this.dataGridView4, sw);
+            //sw.WriteLine("");
+            sw = wxdav_temp_para(nowfile, this.dataGridView5, sw, dataGridView4);
+
+
+            #endregion
+            sw.Flush();
+            sw.Close();
+            //MessageBox.Show("更新完成，请查看！");
+            return wtx;
+        }
+
         private StreamWriter wxdav(string strFileName, DataGridView dav, StreamWriter sw)
         {
             //FileStream fa = new FileStream(strFileName, FileMode.Create);
@@ -960,6 +968,7 @@ namespace SapData_Automation
                 }
                 if (x > 0)
                     sw.WriteLine("");
+                if (strRowValue.Replace("\t", "").Length != 0)
                 sw.WriteLine(strRowValue);
                 // sw.WriteLine("");
                 for (int j = 0; j < dav.Rows.Count; j++)//通水
@@ -984,7 +993,7 @@ namespace SapData_Automation
                                 strRowValue += dav.Rows[j].Cells[k].Value + delimiter;
                             }
                         }
-
+                        if (strRowValue.Replace("\t", "").Length != 0)
                         //    strRowValue += "\r\n";
                         sw.WriteLine(strRowValue);
                     }
@@ -1140,7 +1149,7 @@ namespace SapData_Automation
                     }
                 }
                 if (strRowValue.Replace("\t", "").Length != 0)
-                sw.WriteLine(strRowValue);
+                    sw.WriteLine(strRowValue);
             }
             return sw;
 
@@ -2348,7 +2357,7 @@ namespace SapData_Automation
                     //非饱和数据组数::
                     if (fileText1.Length > 0)
                     {
-                      
+
                         textBox39.Text = fileText1[0].Trim();
                         break;
                     }
@@ -2559,8 +2568,8 @@ namespace SapData_Automation
                 double newaddbaohe_row = 0;
                 int cloumn_0index = 0;
                 int maxrow = Convert.ToInt32(textBox39.Text) - textBox39_shangci;
-                if(textBox39_shangci>0)
-                    maxrow =  textBox39_shangci;
+                if (textBox39_shangci > 0)
+                    maxrow = textBox39_shangci;
                 if (textBox39_shangci > Convert.ToInt32(textBox39.Text))
                     maxrow = Convert.ToInt32(textBox39.Text);
                 int meizushujuhangshucout = 0;
@@ -2606,7 +2615,7 @@ namespace SapData_Automation
 
                             }
                         }
-                         //qtyTable_dav24.Rows[uprowindex][0] = uprowindex + 1;
+                        //qtyTable_dav24.Rows[uprowindex][0] = uprowindex + 1;
                         qtyTable_dav24.Rows[uprowindex][0] = "行数";
                         //   uprowindex++;
                         isupordown = 1;
@@ -2643,6 +2652,7 @@ namespace SapData_Automation
 
                         if (rowindex < qtyTable_dav25.Rows.Count)
                         {
+                            //rowindex = rowindex + 1;
                             //判断 是否留下此行为空行 比如手动 增加冷却期数 后 7 到8  应该在 在水管号8行留出来不应 占用
                             left = Convert.ToString(qtyTable_dav25.Rows[rowindex][1]);//得到dav 的第二例的 数据
                             hangindex = Convert.ToString(cloumn2 + 1);//txt 读取堆的行数 序列
@@ -2679,8 +2689,11 @@ namespace SapData_Automation
                         else
                         {
                             if (isfinde == false)
-                                continue;
+                            {
+                              isoutbreak = 1;
 
+                                continue;
+                            }
                         }
                         //&& left == hangindex
                         if (jj < qtyTable_dav25.Columns.Count - 1 && rowindex < qtyTable_dav25.Rows.Count && left == hangindex)
@@ -2697,7 +2710,7 @@ namespace SapData_Automation
 
 
                 ///不透水面个数
-                ongo1 = ongo ;
+                ongo1 = ongo;
                 rowindex = 0;
                 blankindex = 0;
                 for (int j = ongo1; j <= fileText.Length; j++)
@@ -2706,6 +2719,22 @@ namespace SapData_Automation
                     sp_txt = removeblank(sp_txt, fileText, j);
                     //new 
                     sp_txt = removeblank_txt(sp_txt);
+
+                    //判断是否是之前饱和数据中没有分配到的多余数据，如果是 往下循环
+                    if (fileText.Length >= j + 1)
+                    {
+                        string sp_txtadd1 = removeblank(sp_txt, fileText, j + 1);
+                        //new 
+                        sp_txtadd1 = removeblank_txt(sp_txtadd1);
+
+                        string[] fileTextgg = System.Text.RegularExpressions.Regex.Split(sp_txtadd1, "\t");
+                        if (fileTextgg.Length < 2)
+                            fileTextgg = System.Text.RegularExpressions.Regex.Split(sp_txtadd1, " ");
+                        if (fileTextgg.Length > 2)
+                            continue;
+
+                    }
+
                     if (j >= fileText.Length || (fileText[j].Contains("\t\t\t\t") && fileText[j].Replace("\t", "").Trim() == "") || fileText[j] == "" || sp_txt == "")
                     {
                         blankindex++;
@@ -2721,11 +2750,13 @@ namespace SapData_Automation
                     if (fileText1.Length < 2)
                         fileText1 = System.Text.RegularExpressions.Regex.Split(sp_txt, " ");
                     //非饱和数据组数::
-                    if (fileText1.Length > 0)
+                    if (fileText1.Length == 1)
                     {
                         textBox45.Text = fileText1[0].Trim();
                         break;
                     }
+                    else
+                        continue;
                 }
                 //
 
@@ -4983,6 +5014,7 @@ namespace SapData_Automation
             qtyTable_dav6.Columns.Add("B2", System.Type.GetType("System.String"));//8 
             qtyTable_dav6.Columns.Add("B3", System.Type.GetType("System.String"));//8 
             qtyTable_dav6.Columns.Add("D", System.Type.GetType("System.String"));//8 
+            qtyTable_dav6.Columns.Add("线性徐变参数", System.Type.GetType("System.String"));//8 
         }
 
         private static void jibenlixuecanshu(DataTable qtyTable_dav5)
@@ -5405,6 +5437,10 @@ namespace SapData_Automation
                     }
                     else
                     {
+                        qtyTable8 = new DataTable();
+                        qtyTable8 = qtyTable8_1;
+
+
                         this.bindingSource7.DataSource = qtyTable8_1;
                         this.dataGridView8.DataSource = this.bindingSource7;
 
@@ -5542,9 +5578,9 @@ namespace SapData_Automation
 
         private void textBox23_txchange()
         {
-            if (textBox23.Text.Length < 1  )
+            if (textBox23.Text.Length < 1)
                 //if (textBox23.Text.Length < 1 || dataGridView13.RowCount <= 0)
-          
+
                 return;
 
 
@@ -5621,6 +5657,8 @@ namespace SapData_Automation
             }
             else
             {
+                qtyTable_dav11 = new DataTable();
+                qtyTable_dav11 = qtyTable_dav11_1;
                 this.bindingSource13.DataSource = qtyTable_dav11_1;
                 this.dataGridView13.DataSource = this.bindingSource13;
 
@@ -5745,7 +5783,7 @@ namespace SapData_Automation
         private void textBox26_txchange()
         {
             //if (textBox26.Text.Length < 1 || dataGridView16.RowCount <= 0)
-                if (textBox26.Text.Length < 1 )
+            if (textBox26.Text.Length < 1)
                 return;
 
             #region 缓存处理
@@ -5911,6 +5949,8 @@ namespace SapData_Automation
             }
             else
             {
+                qtyTable_dav19 = new DataTable();
+                qtyTable_dav19 = qtyTable_dav19_1;
                 bindingSource7.DataSource = qtyTable_dav19_1;
                 dataGridView20.DataSource = bindingSource7;
 
@@ -5925,7 +5965,7 @@ namespace SapData_Automation
         private void textBox29_txchange()
         {
             //if (textBox29.Text.Length < 1 || dataGridView20.RowCount <= 0)
-                if (textBox29.Text.Length < 1  )
+            if (textBox29.Text.Length < 1)
                 return;
 
             #region 缓存处理
@@ -6010,7 +6050,7 @@ namespace SapData_Automation
         {
 
             //if (textBox35.Text.Length < 1 || dataGridView22.RowCount <= 0)
-                if (textBox35.Text.Length < 1  )
+            if (textBox35.Text.Length < 1)
                 return;
 
             #region 缓存处理
@@ -6080,7 +6120,7 @@ namespace SapData_Automation
         private void textBox33_txchange()
         {
             //if (textBox33.Text.Length < 1 || dataGridView24.RowCount <= 0)
-                if (textBox33.Text.Length < 1  )
+            if (textBox33.Text.Length < 1)
                 return;
 
             #region 缓存处理
@@ -6151,7 +6191,7 @@ namespace SapData_Automation
         private void toolStripButton6_Click(object sender, EventArgs e)
         {
 
-            if (File.Exists(folderpath + "\\saptis.exe"))
+            //if (File.Exists(folderpath + "\\saptis.exe"))
             {
                 //System.Diagnostics.Process.Start(folderpath + "\\saptis.exe");
 
@@ -6167,8 +6207,8 @@ namespace SapData_Automation
                 //MessageBox.Show(" 已执行完毕!", "信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 p.WaitForExit();
             }
-            else
-                MessageBox.Show(folderpath + "路径为空 或 在当前选择.sap文件路径下没有找到 saptis.exe", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //else
+            //    MessageBox.Show(folderpath + "路径为空 或 在当前选择.sap文件路径下没有找到 saptis.exe", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         }
 
@@ -6292,6 +6332,8 @@ namespace SapData_Automation
             }
             else
             {
+                qtyTable_dav5 = new DataTable();
+                qtyTable_dav5 = qtyTable_dav5_1;
 
                 this.bindingSource6.DataSource = qtyTable_dav5_1;
                 this.dataGridView6.DataSource = this.bindingSource6;
@@ -6330,6 +6372,8 @@ namespace SapData_Automation
             }
             else
             {
+                qtyTable_dav6 = new DataTable();
+                qtyTable_dav6 = qtyTable_dav6_1;
                 this.bindingSource8.DataSource = qtyTable_dav6_1;
                 this.dataGridView7.DataSource = this.bindingSource8;
 
@@ -6364,6 +6408,9 @@ namespace SapData_Automation
             }
             else
             {
+                qtyTable8 = new DataTable();
+                qtyTable8 = qtyTable8_1;
+
                 this.bindingSource7.DataSource = qtyTable8_1;
                 this.dataGridView8.DataSource = this.bindingSource7;
             }
@@ -6402,6 +6449,8 @@ namespace SapData_Automation
             }
             else
             {
+                qtyTable_dav7 = new DataTable();
+                qtyTable_dav7 = qtyTable_dav7_1;
                 this.bindingSource9.DataSource = qtyTable_dav7_1;
                 this.dataGridView9.DataSource = this.bindingSource9;
 
@@ -6444,6 +6493,8 @@ namespace SapData_Automation
             }
             else
             {
+                qtyTable_dav2 = new DataTable();
+                qtyTable_dav2 = qtyTable_dav2_1;
 
                 this.bindingSource2.DataSource = qtyTable_dav2_1;
                 this.dataGridView2.DataSource = this.bindingSource2;
@@ -6465,7 +6516,7 @@ namespace SapData_Automation
                 sw.WriteLine("");
                 sw.Flush();
                 sw.Close();
-            
+
             }
 
 
@@ -6479,7 +6530,7 @@ namespace SapData_Automation
         private void textBox15_txchange()
         {
             //if (textBox15.Text.Length < 1 || dataGridView4.RowCount <= 0)
-                if (textBox15.Text.Length < 1 )
+            if (textBox15.Text.Length < 1)
                 return;
 
 
@@ -6504,6 +6555,18 @@ namespace SapData_Automation
             if (textBox15.Text.Length < 1)
                 return;
             //int tx17 = Convert.ToInt32(textBox17.Text);
+            datafridview4_rowControl();
+
+            #region MyRegion
+
+            #endregion
+            clearCache();
+            //this.bindingSource4.DataSource = qtyTable_dav4;
+            //this.dataGridView4.DataSource = this.bindingSource4;
+        }
+
+        private void datafridview4_rowControl()
+        {
             int tx17 = Convert.ToInt32(textBox15.Text);
 
             var qtyTable_dav4_1 = new DataTable();
@@ -6545,19 +6608,13 @@ namespace SapData_Automation
             }
             else
             {
-
+                qtyTable_dav4 = new DataTable();
+                qtyTable_dav4 = qtyTable_dav4_1;
                 this.bindingSource4.DataSource = qtyTable_dav4_1;
                 this.dataGridView4.DataSource = this.bindingSource4;
 
             }
             #endregion
-
-            #region MyRegion
-
-            #endregion
-            clearCache();
-            //this.bindingSource4.DataSource = qtyTable_dav4;
-            //this.dataGridView4.DataSource = this.bindingSource4;
         }
 
         private void textBox16_TextChanged(object sender, EventArgs e)
@@ -6569,7 +6626,7 @@ namespace SapData_Automation
         private void textBox16_txchange()
         {
             //if (textBox16.Text.Length < 1 || textBox15.Text.Length < 1 || dataGridView5.RowCount <= 0)
-                if (textBox16.Text.Length < 1 || textBox15.Text.Length < 1  )
+            if (textBox16.Text.Length < 1 || textBox15.Text.Length < 1)
                 return;
 
 
@@ -6622,11 +6679,18 @@ namespace SapData_Automation
             }
             else
             {
+                qtyTable_dav5 = new DataTable();
+                qtyTable_dav5 = qtyTable_dav5_1;
                 this.bindingSource5.DataSource = qtyTable_dav5_1;
                 this.dataGridView5.DataSource = this.bindingSource5;
 
             }
             #endregion
+            if (textBox15.Text.Length < 1)
+                return;
+            //int tx17 = Convert.ToInt32(textBox17.Text);
+            datafridview4_rowControl();
+
             clearCache();
             //this.bindingSource5.DataSource = qtyTable_dav5;
             //this.dataGridView5.DataSource = this.bindingSource5;
@@ -6641,7 +6705,7 @@ namespace SapData_Automation
         private void textBox20_txchange()
         {
             //if (textBox20.Text.Length < 1 || dataGridView10.RowCount <= 0)
-                if (textBox20.Text.Length < 1 )
+            if (textBox20.Text.Length < 1)
                 return;
             int tx20 = Convert.ToInt32(textBox20.Text);
 
@@ -6670,7 +6734,7 @@ namespace SapData_Automation
             for (int j = 0; j < tx20; j++)
             {
                 qtyTable_dav8_1.Rows.Add(qtyTable_dav8_1.NewRow());
-                qtyTable_dav8_1.Rows[j][0] = j + 1;
+               // qtyTable_dav8_1.Rows[j][0] = j + 1;
             }
 
             #region new
@@ -6702,6 +6766,8 @@ namespace SapData_Automation
             }
             else
             {
+                qtyTable_dav8 = new DataTable();
+                qtyTable_dav8 = qtyTable_dav8_1;
                 this.bindingSource10.DataSource = qtyTable_dav8_1;
                 this.dataGridView10.DataSource = this.bindingSource10;
 
@@ -6734,7 +6800,7 @@ namespace SapData_Automation
         private void textBox25_txchange()
         {
             //if (textBox25.Text.Length < 1 || dataGridView15.RowCount <= 0)
-                if (textBox25.Text.Length < 1  )
+            if (textBox25.Text.Length < 1)
                 return;
 
             if (textBox25.Text.Length < 1)
@@ -6797,6 +6863,8 @@ namespace SapData_Automation
             }
             else
             {
+                qtyTable_dav13 = new DataTable();
+                qtyTable_dav13 = qtyTable_dav13_1;
                 this.bindingSource15.DataSource = qtyTable_dav13_1;
                 this.dataGridView15.DataSource = this.bindingSource15;
 
@@ -6816,7 +6884,7 @@ namespace SapData_Automation
         private void textBox27_txchange()
         {
 
-            if (textBox27.Text.Length < 1  )
+            if (textBox27.Text.Length < 1)
                 //if (textBox27.Text.Length < 1 || dataGridView19.RowCount <= 0)
                 return;
 
@@ -6893,7 +6961,7 @@ namespace SapData_Automation
         private void textBox28_txchange()
         {
             //if (textBox28.Text.Length < 1 || dataGridView17.RowCount <= 0)
-                if (textBox28.Text.Length < 1 )
+            if (textBox28.Text.Length < 1)
                 return;
 
 
@@ -7019,6 +7087,9 @@ namespace SapData_Automation
             }
             else
             {
+                qtyTable_dav16 = new DataTable();
+                qtyTable_dav16 = qtyTable_dav16_1;
+
                 bindingSource18.DataSource = qtyTable_dav16_1;
                 dataGridView17.DataSource = bindingSource18;
 
@@ -7257,7 +7328,7 @@ namespace SapData_Automation
         private void textBox40_txchange()
         {
             //if (textBox40.Text.Length < 1 || dataGridView25.RowCount <= 0)
-                if (textBox40.Text.Length < 1  )
+            if (textBox40.Text.Length < 1)
                 return;
 
             #region 缓存处理
@@ -7303,7 +7374,7 @@ namespace SapData_Automation
 
         private void textBox39_TextChanged(object sender, EventArgs e)
         {
-          
+
 
 
         }
@@ -7311,7 +7382,7 @@ namespace SapData_Automation
         private void textBox39_txchange()
         {
             //if (textBox39.Text.Length < 1 || dataGridView23.RowCount <= 0)
-                if (textBox39.Text.Length < 1 )
+            if (textBox39.Text.Length < 1)
                 return;
 
             #region 缓存处理
@@ -7346,7 +7417,7 @@ namespace SapData_Automation
         private void textBox45_txchange()
         {
             //if (textBox45.Text.Length < 1 || dataGridView26.RowCount <= 0)
-                if (textBox45.Text.Length < 1)
+            if (textBox45.Text.Length < 1)
                 return;
             #region 缓存处理
             cache_seepage_data();
@@ -7377,7 +7448,7 @@ namespace SapData_Automation
         private void textBox48_txchange()
         {
             //if (textBox48.Text.Length < 1 || dataGridView26.RowCount <= 0)
-                if (textBox48.Text.Length < 1  )
+            if (textBox48.Text.Length < 1)
                 return;
             #region 缓存处理
             cache_seepage_data();
@@ -7408,7 +7479,7 @@ namespace SapData_Automation
         private void textBox51_txchange()
         {
             //if (textBox51.Text.Length < 1 || dataGridView28.RowCount <= 0)
-                if (textBox51.Text.Length < 1 )
+            if (textBox51.Text.Length < 1)
                 return;
             #region 缓存处理
             cache_seepage_data();
@@ -7437,7 +7508,8 @@ namespace SapData_Automation
 
         private void textBox54_txchange()
         {
-            if (textBox54.Text.Length < 1 || dataGridView29.RowCount <= 0)
+            //if (textBox54.Text.Length < 1 || dataGridView29.RowCount <= 0)
+            if (textBox54.Text.Length < 1)
                 return;
             #region 缓存处理
             cache_seepage_data();
@@ -7645,7 +7717,7 @@ namespace SapData_Automation
 
 
             //if (textBox22.Text.Length < 1 || dataGridView11.RowCount <= 0)
-                if (textBox22.Text.Length < 1 )
+            if (textBox22.Text.Length < 1)
                 return;
             int tx20 = Convert.ToInt32(textBox22.Text);
 
@@ -7701,6 +7773,8 @@ namespace SapData_Automation
             }
             else
             {
+                qtyTable_dav9 = new DataTable();
+                qtyTable_dav9 = qtyTable_dav9_1;
                 this.bindingSource11.DataSource = qtyTable_dav9_1;
                 this.dataGridView11.DataSource = this.bindingSource11;
 
@@ -7739,6 +7813,8 @@ namespace SapData_Automation
             }
             else
             {
+                qtyTable_dav10 = new DataTable();
+                qtyTable_dav10 = qtyTable_dav10_1;
                 this.bindingSource12.DataSource = qtyTable_dav10_1;
                 this.dataGridView12.DataSource = this.bindingSource12;
 
@@ -7836,7 +7912,8 @@ namespace SapData_Automation
                 }
                 else
                 {
-
+                    qtyTable_dav11 = new DataTable();
+                    qtyTable_dav11 = qtyTable_dav11_1;
                     this.bindingSource13.DataSource = qtyTable_dav11;
                     this.dataGridView13.DataSource = this.bindingSource13;
 
