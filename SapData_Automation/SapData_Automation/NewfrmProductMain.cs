@@ -969,7 +969,7 @@ namespace SapData_Automation
                 if (x > 0)
                     sw.WriteLine("");
                 if (strRowValue.Replace("\t", "").Length != 0)
-                sw.WriteLine(strRowValue);
+                    sw.WriteLine(strRowValue);
                 // sw.WriteLine("");
                 for (int j = 0; j < dav.Rows.Count; j++)//通水
                 {
@@ -994,8 +994,8 @@ namespace SapData_Automation
                             }
                         }
                         if (strRowValue.Replace("\t", "").Length != 0)
-                        //    strRowValue += "\r\n";
-                        sw.WriteLine(strRowValue);
+                            //    strRowValue += "\r\n";
+                            sw.WriteLine(strRowValue);
                     }
                 }
             }
@@ -2690,7 +2690,7 @@ namespace SapData_Automation
                         {
                             if (isfinde == false)
                             {
-                              isoutbreak = 1;
+                                isoutbreak = 1;
 
                                 continue;
                             }
@@ -5409,7 +5409,7 @@ namespace SapData_Automation
                         }
                         else if (dataGridView8.ColumnCount < qtyTable8_1.Columns.Count)
                         {
-                            int davcount = dataGridView8.ColumnCount - 1;
+                            int davcount = dataGridView8.ColumnCount ;
 
                             for (int i = 0; i < qtyTable8_1.Columns.Count - davcount; i++)
                             {
@@ -6192,6 +6192,7 @@ namespace SapData_Automation
         {
 
             //if (File.Exists(folderpath + "\\saptis.exe"))
+            if (File.Exists(folderpath + "\\saptis.bat"))
             {
                 //System.Diagnostics.Process.Start(folderpath + "\\saptis.exe");
 
@@ -6207,8 +6208,10 @@ namespace SapData_Automation
                 //MessageBox.Show(" 已执行完毕!", "信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 p.WaitForExit();
             }
-            //else
-            //    MessageBox.Show(folderpath + "路径为空 或 在当前选择.sap文件路径下没有找到 saptis.exe", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            ////else
+            ////    MessageBox.Show(folderpath + "路径为空 或 在当前选择.sap文件路径下没有找到 saptis.exe", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
+                MessageBox.Show(folderpath + "路径为空 或 在当前选择.sap文件路径下没有找到 saptis.bat", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         }
 
@@ -6734,7 +6737,7 @@ namespace SapData_Automation
             for (int j = 0; j < tx20; j++)
             {
                 qtyTable_dav8_1.Rows.Add(qtyTable_dav8_1.NewRow());
-               // qtyTable_dav8_1.Rows[j][0] = j + 1;
+                // qtyTable_dav8_1.Rows[j][0] = j + 1;
             }
 
             #region new
